@@ -1,3 +1,3 @@
-require(['jquery'], function($) {
+require(['jquery', 'ICanHaz.min'], function($, ich) {
   $('#data').html('jee super');
 });
