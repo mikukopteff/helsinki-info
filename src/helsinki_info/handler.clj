@@ -12,3 +12,6 @@
 
 (def app
   (handler/site app-routes))
+
+(defn startup[] 
+  (println "Starting server"))

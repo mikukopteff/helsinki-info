@@ -4,6 +4,7 @@
   :dependencies [[org.clojure/clojure "1.4.0"]
                  [compojure "1.1.5"]]
   :plugins [[lein-ring "0.8.2"]]
-  :ring {:handler helsinki-info.handler/app}
+  :ring {:handler helsinki-info.handler/app,
+        :init helsinki-info.handler/startup }
   :profiles
   {:dev {:dependencies [[ring-mock "0.1.3"]]}})
