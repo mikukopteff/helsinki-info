@@ -1,6 +1,6 @@
 require(['jquery', 'transparency'], function($, Transparency) {
   var data = {
-    greeting: 'This is how I will roll',
+    greeting: 'My',
     name:     'skeleton'
   };
 
