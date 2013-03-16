@@ -3,15 +3,64 @@
 <head>
   <meta charset="utf-8">
   <title>Helsinki Info center</title>
-  <meta name="description" content="Helsinki info central">
-  <meta name="Mikael Kopteff" content="Data form Helsinki">
-  <link rel="stylesheet" href="styles.css">
+  <meta name="description" content="Open Helsinki">
+  <meta name="Mikael Kopteff" content="Data from Helsinki">
+  <link rel="stylesheet" href="bootstrap-responsive.min.css">
+  <link rel="stylesheet" href="bootstrap.min.css">
   <script type="text/javascript" data-main="js/main" src="js/require.js"></script>
 </head>
 <body>
-  <div id="template">
-    <span class="greeting"></span>
-    <span data-bind="name"></span>
-  </div>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="#">Open Helsinki</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li class="active"><a href="#">Feed</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <div class="hero-unit">
+        <h1>Open Helsinki Feed</h1>
+        <p>Blaa blaa Helsinki decision making blaa</p>
+      </div>
+
+      <div class="row">
+        <div class="span12" id="template">
+          <h2 class="greeting"></h2>
+          <p data-bind="name"></p>
+          <p><a class="btn" href="#">View details &raquo;</a></p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="span12">
+          <h2>Smaller decision made here!</h2>
+          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+          <p><a class="btn" href="#">View details &raquo;</a></p>
+        </div>
+      </div>
+      <br>
+      <p><a href="#" class="btn btn-primary btn-large">More decisions &raquo;</a></p>
+      <hr>
+
+      <footer>
+        <p>&copy; Open Helsinki 2013</p>
+      </footer>
+
+    </div> 
 </body>
 </html>
