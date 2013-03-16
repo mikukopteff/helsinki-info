@@ -6,7 +6,8 @@
 
 (defroutes app-routes
   (GET "/" [] (resp/file-response "index.html" {:root "resources/public"}))
-  (GET "/hello" [] "Hello World")
+  (GET "/ping" [] "pong")
+  (GET "/events")
   (route/resources "/")
   (route/not-found "Not Found"))
 
