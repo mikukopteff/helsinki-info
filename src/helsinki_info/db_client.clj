@@ -5,14 +5,16 @@
            [com.mongodb DB WriteConcern]))
 
 
-(defn- connect []
+(defn connect []
+  (println "connecting")
   (let [^MongoOptions opts (mongo/mongo-options :threads-allowed-to-block-for-connection-multiplier 300)
       ^ServerAddress sa  (mongo/server-address "127.0.0.1" 27017)]
   (mongo/connect! sa opts)
   (mongo/set-db! (mongo/get-db "open-helsinki"))))
 
 (defn- disconnect []
-  mongo/disconnect!)
+  (println "disconnecting")
+  (mongo/disconnect!))
 
 (defn- withConnection [fun]
   (connect)
