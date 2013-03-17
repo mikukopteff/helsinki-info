@@ -16,9 +16,9 @@
   (println "disconnecting")
   (mongo/disconnect!))
 
-(defn- withConnection [fun]
+(defn- in-connection [fun]
   (connect)
-  (let [result fun]
+  (let [result (fun)]
   (disconnect)
   result))
 
@@ -26,12 +26,12 @@
   "Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.")
 
 (defn find-events []
-  (withConnection
-    (monger.collection/find-maps "events")))
+  (in-connection
+    (fn [] monger.collection/find-maps "events")))
 
 (defn insert-test-data []
   "This function is here until we have a place to get the actual http data"
-  (withConnection 
-    (monger.collection/insert-batch "events" [{:heading "Decision made - maybe!" :paragraph para }
+  (in-connection 
+    (fn [] monger.collection/insert-batch "events" [{:heading "Decision made - maybe!" :paragraph para }
                                               {:heading "Another decision!" :paragraph para }
                                               {:heading "Decision decisions" :paragraph para }])))
