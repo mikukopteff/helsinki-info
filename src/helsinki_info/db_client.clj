@@ -19,15 +19,16 @@
 (defn- in-connection [fun]
   (connect)
   (let [result (fun)]
-  (disconnect)
-  result))
+    (disconnect)
+    result))
 
 (def para 
   "Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.")
 
+
 (defn find-events []
   (in-connection
-    (fn [] monger.collection/find-maps "events")))
+    (fn [] (doall (monger.collection/find-maps "events")))))
 
 (defn insert-test-data []
   "This function is here until we have a place to get the actual http data"
