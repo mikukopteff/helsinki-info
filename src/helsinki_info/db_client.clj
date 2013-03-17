@@ -25,10 +25,14 @@
 (def para 
   "Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.")
 
+(defn remove-id [coll] (remove (fn [[k v]] (#{:_id} k)) coll))
 
-(defn find-events []
+(defn- events []
   (in-connection
     (fn [] (doall (monger.collection/find-maps "events")))))
+
+(defn find-events []
+  (map remove-id (events)))
 
 (defn insert-test-data []
   "This function is here until we have a place to get the actual http data"

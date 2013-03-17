@@ -8,6 +8,11 @@
     (let [response (app (request :get "/hello"))]
       (is (= (:status response) 200))
       (is (= (:body response) "Hello World"))))
+
+  (testing "events"
+    (let [response (app (request :get "/events"))]
+      (is (= (:status response) 200))
+      (is (= (:body response) ""))))
   
   (testing "not-found route"
     (let [response (app (request :get "/invalid"))]
