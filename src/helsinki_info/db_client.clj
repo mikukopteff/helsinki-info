@@ -36,5 +36,5 @@
   "This function is here until we have a place to get the actual http data"
   (in-connection 
     (fn [] (monger.collection/insert-batch "events" [{:heading "Decision made - maybe!" :paragraph para }
-                                              {:heading "Another decision!" :paragraph para }
+                                              {:heading "Another decision!" :paragraph (str para para) }
                                               {:heading "Decision decisions" :paragraph para }]))))
