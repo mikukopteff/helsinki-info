@@ -1,18 +1,17 @@
 (ns helsinki-info.test.handler
+  (:require [clojure.data.json :as json])
   (:use clojure.test
         ring.mock.request  
         helsinki-info.handler))
 
-(deftest test-app
-  (testing "main route"
-    (let [response (app (request :get "/hello"))]
-      (is (= (:status response) 200))
-      (is (= (:body response) "Hello World"))))
+(defn parse-json [response]
+  (json/read-str (:body response)))
 
-  (testing "events"
+(deftest test-app
+  (testing "events route"
     (let [response (app (request :get "/events"))]
       (is (= (:status response) 200))
-      (is (= (:body response) ""))))
+      (is (= (get (first (parse-json response)) "heading") "Decision made - maybe!"))))
   
   (testing "not-found route"
     (let [response (app (request :get "/invalid"))]
