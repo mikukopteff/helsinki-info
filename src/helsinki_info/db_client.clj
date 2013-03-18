@@ -22,14 +22,12 @@
     (disconnect)
     result))
 
-(defn remove-id [coll] (remove (fn [[k v]] (#{:_id} k)) coll))
-
-(defn- events []
+(defn events []
   (in-connection
     (fn [] (doall (monger.collection/find-maps "events")))))
 
 (defn find-events []
-  (map remove-id (events)))
+  (map #(dissoc % :_id) (events)))
 
 (def para 
   "Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.")
@@ -37,6 +35,6 @@
 (defn insert-test-data []
   "This function is here until we have a place to get the actual http data"
   (in-connection 
-    (fn [] monger.collection/insert-batch "events" [{:heading "Decision made - maybe!" :paragraph para }
+    (fn [] (monger.collection/insert-batch "events" [{:heading "Decision made - maybe!" :paragraph para }
                                               {:heading "Another decision!" :paragraph para }
-                                              {:heading "Decision decisions" :paragraph para }])))
+                                              {:heading "Decision decisions" :paragraph para }]))))
