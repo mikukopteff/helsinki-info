@@ -12,6 +12,15 @@
   <script type="text/javascript" data-main="js/main" src="js/require.js"></script>
 </head>
 <body>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+</script>
 
   <div class="navbar navbar-fixed-top">
     <div class="navbar-inner">
@@ -30,13 +39,14 @@
     </div>
   </div>
     
-
   <div class="container">
 
     <div class="hero-unit">
       <h1>Open Helsinki Feed</h1>
       <p>Blaa blaa Helsinki decision making blaa</p>
     </div>
+
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="true"></div>
 
     <span id="events">
       <div class="row">
