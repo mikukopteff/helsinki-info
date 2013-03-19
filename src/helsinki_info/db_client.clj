@@ -27,7 +27,7 @@
     (fn [] (doall (monger.collection/find-maps "events")))))
 
 (defn find-events []
-  (map #(dissoc % :_id) (events)))
+  (map #(assoc % :_id (.toString (get % :_id))) (events)))
 
 (def para 
   "Kaupunginvaltuusto päättänee myöntää Helsinki Stadion Oy:lle 240 000 euron suuruisen vakuudettoman lainan urheilu- ja ulkoilulaitosrahaston varoista Sonera Stadiumin katsomon lasittamisen ja kattamisen rahoittamiseen seuraavin ehdoin:
