@@ -4,6 +4,4 @@ require(['jquery', 'transparency', 'bootstrap.min'], function($, Transparency) {
     function(json){
       $('#events').render(json);
     });
-  
-
 });
