@@ -1,11 +1,20 @@
 (ns helsinki-info.test.handler
   (:require [clojure.data.json :as json])
+  (:require [helsinki-info.db-client :as db])
+  (:require [helsinki-info.tasks :as tasks])
   (:use clojure.test
         ring.mock.request  
         helsinki-info.handler))
 
 (defn parse-json [response]
   (json/read-str (:body response)))
+
+(defn db-setup [f]
+  (tasks/startup)
+  (f)
+  (db/delete-events))
+
+(use-fixtures :each db-setup)
 
 (deftest test-app
   (testing "events route"
