@@ -1,9 +1,10 @@
 (ns helsinki-info.db-client
-  (:require [monger.core :as mongo])
-  (:require [monger.collection :as mongo-collection])
+  (:require [monger.core :as mongo]
+            [monger.collection :as mongo-collection])
   (:use [clojure.tools.logging :only (info)])
   (:import [com.mongodb MongoOptions ServerAddress]
-           [com.mongodb DB WriteConcern]))
+           [com.mongodb DB WriteConcern]
+           [org.bson.types ObjectId]))
 
 
 (defn connect []
@@ -23,12 +24,19 @@
     (disconnect)
     result))
 
+(defn- convert-id [events]
+  (assoc events :_id (.toString (get events :_id))))
+
 (defn- events []
   (in-connection
-    (fn [] (doall (mongo-collection/find-maps "events")))))
+    #(doall (mongo-collection/find-maps "events"))))
 
 (defn find-events []
-  (map #(assoc % :_id (.toString (get % :_id))) (events)))
+  (map #(convert-id %) (events)))
+
+(defn find-event [id]
+  (in-connection
+    #(convert-id (mongo-collection/find-one-as-map "events" { :_id (ObjectId. id) }))))
 
 (defn delete-events []
   (in-connection
@@ -37,4 +45,4 @@
 (defn insert-events [data]
   "This function need to check for oid and then added if it's not there! Check monger _id documentation"
   (in-connection 
-    (fn [] (mongo-collection/insert-batch "events" data))))
+    #(mongo-collection/insert-batch "events" data)))
