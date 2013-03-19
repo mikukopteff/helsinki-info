@@ -1,11 +1,12 @@
 (ns helsinki-info.tasks
   (:use overtone.at-at)
+  (:use [clojure.tools.logging :only (info)])
   (:require [helsinki-info.db-client :as db]))
 
 (def pool (mk-pool))
 
 (defn start-scarping[]
-  (every 1000 #(println "Running task") pool))
+  (every 1000 #(info "Running task") pool))
 
 (def para 
   "Kaupunginvaltuusto päättänee myöntää Helsinki Stadion Oy:lle 240 000 euron suuruisen vakuudettoman lainan urheilu- ja ulkoilulaitosrahaston varoista Sonera Stadiumin katsomon lasittamisen ja kattamisen rahoittamiseen seuraavin ehdoin:
