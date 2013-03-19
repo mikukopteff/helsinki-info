@@ -11,7 +11,7 @@
   (testing "events route"
     (let [response (app (request :get "/events"))]
       (is (= (:status response) 200))
-      (is (= (get (first (parse-json response)) "heading") "Decision made - maybe!"))))
+      (is (= (get (first (parse-json response)) "heading") "§ 5 - Lainan myöntäminen Helsinki Stadion Oy:lle"))))
   
   (testing "not-found route"
     (let [response (app (request :get "/invalid"))]
