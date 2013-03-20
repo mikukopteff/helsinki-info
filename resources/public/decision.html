@@ -27,7 +27,7 @@
       <div class="container">
         <a class="brand" href="../">Open Helsinki</a>
           <ul class="nav">
-            <li><a href="#">Syöte</a></li>
+            <li><a href="../">Syöte</a></li>
             <li><a href="#about">Tietoa Open Helsingistä</a></li>
             <li><a href="#contact">Yhteystiedot</a></li>
           </ul>
@@ -42,10 +42,17 @@
   <div class="container">
     <hr>    
     <div class="row">
-      <div class="span12" id="decision">
+      <div class="span8 offset2" id="decision">
         <div class="fb-like" data-send="true" data-width="450" data-show-faces="true"></div>
         <h2 data-bind="heading"></h2>
          <p data-bind="summary"></p>
+         <h3>Diaarinumero</h3>
+         <p data-bind="register-number"></p>
+          <h3>Tehtäväluokka</h3>
+          <p data-bind="category"></p>
+          <h3>Päätösteksti</h3>
+          <p data-bind="decision-text"></p>
+          <h3>Liitteet</h3>
       </div>
     </div>
     <hr>
