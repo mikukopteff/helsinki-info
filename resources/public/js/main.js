@@ -7,7 +7,7 @@ directives = {
       return this._id;
     },
     href: function(params) {
-      return 'decision.html?id=' + this._id;
+      return 'case.html?id=' + this._id;
     }
   }
 };
