@@ -27,12 +27,9 @@
 (defn- convert-id [events]
   (assoc events :_id (.toString (get events :_id))))
 
-(defn- events []
-  (in-connection
-    #(doall (mongo-collection/find-maps "events"))))
-
 (defn find-events []
-  (map #(convert-id %) (events)))
+  (in-connection
+    (fn [](map #(convert-id %) (doall (mongo-collection/find-maps "events"))))))
 
 (defn find-event [id]
   (in-connection
