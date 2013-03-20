@@ -17,9 +17,15 @@ Lainan erityisehto: Lainansaaja sitoutuu maksamaan lainasta pois sen osuuden, jo
 (defn- init-events []
   "This function is here until we have a place to get the actual http data"
   (db/delete-events)
-  (db/insert-events [{:heading "§ 5 - Lainan myöntäminen Helsinki Stadion Oy:lle" :paragraph para}
-                                              {:heading "Ullanlinnan tontin 7/133/5 ja puistoalueen asemakaavan muuttaminen (nro 12117, Tehtaankatu 1d, Vuorimiehenkatu 8b)" :paragraph (str para para) }
-                                              {:heading "Vartiokylän tontin 45475/1 asemakaavan muuttaminen (nro 12139; Vartioharjun hoivakoti)" :paragraph para }]))
+  (db/insert-events [{:heading "§ 5 - Lainan myöntäminen Helsinki Stadion Oy:lle" :register-number "HEL 2012-004159" 
+                      :category "10 06 00 Rakennusten ja rakennelmien suunnittelu ja toteutus" :decision-text para
+                      :attachments "" :summary para}
+                     {:heading "Ullanlinnan tontin 7/133/5 ja puistoalueen asemakaavan muuttaminen (nro 12117, Tehtaankatu 1d, Vuorimiehenkatu 8b)" :register-number "HEL 2012-004323" 
+                      :category "10 06 00 Rakennusten ja rakennelmien suunnittelu ja toteutus" :decision-text para
+                      :attachments "" :summary (str para para)}
+                        {:heading "Vartiokylän tontin 45475/1 asemakaavan muuttaminen (nro 12139; Vartioharjun hoivakoti)" :register-number "HEL 2012-004186" 
+                      :category "10 06 00 Rakennusten ja rakennelmien suunnittelu ja toteutus" :decision-text para
+                      :attachments "" :summary para}]))
 
 (defn startup[] 
   (println "Starting server")
