@@ -9,16 +9,14 @@
 
 (defn connect []
   (info "connecting to mongo")
-  (let [^MongoOptions opts (mongo/mongo-options :threads-allowed-to-block-for-connection-multiplier 300)
-      ^ServerAddress sa  (mongo/server-address "127.0.0.1" 27017)]
-  (mongo/connect! sa opts)
-  (mongo/set-db! (mongo/get-db "open-helsinki"))))
+  (mongo/connect-via-uri! "mongodb://open-helsinki:<pass>@linus.mongohq.com:10009/aJyf0psUuaNdowiprXwaA"))
 
 (defn- disconnect []
   (info "disconnecting from mongo")
   (mongo/disconnect!))
 
 (defn- in-connection [fun]
+  "This should probably have a try/finally clause"
   (connect)
   (let [result (fun)]
     (disconnect)
