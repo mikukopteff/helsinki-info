@@ -12,7 +12,7 @@ directives = {
   }
 };
 
-$.ajax('http://localhost:3000/events').done(
+$.ajax('/events').done(
   function(json){
     $('#events').render(json, directives);
   });
