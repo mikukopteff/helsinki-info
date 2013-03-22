@@ -7,8 +7,10 @@
                  [com.novemberain/monger "1.4.2"]
                  [org.clojure/data.json "0.2.1"]
                  [org.clojure/tools.logging "0.2.6"]]
-  :plugins [[lein-ring "0.8.2"]]
+  :plugins [[lein-ring "0.8.2"]
+            [lein-cloudbees "1.0.3"]]
   :ring {:handler helsinki-info.handler/app,
         :init helsinki-info.tasks/startup }
+  :cloudbees-app-id "miku/helsinki-info"
   :profiles
   {:dev {:dependencies [[ring-mock "0.1.3"]]}})
