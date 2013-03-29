@@ -14,6 +14,7 @@ require(['jquery', 'transparency', 'underscore-min','bootstrap.min'], function($
   $.ajax('/event/' + getParameterByName("id")).done(
     function(json){
       $('#decision').render(json);
+      $('#decision-details').render(json);
     });
 
 });
