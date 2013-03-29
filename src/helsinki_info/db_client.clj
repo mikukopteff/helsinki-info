@@ -23,15 +23,20 @@
     result))
 
 (defn- convert-id [events]
-  (assoc events :_id (.toString (get events :_id))))
+  (if (contains? events :_id)
+    (assoc events :_id (.toString (get events :_id)))))
 
 (defn find-events []
   (in-connection
-    (fn [](map #(convert-id %) (doall (mongo-collection/find-maps "events"))))))
+    (fn [](map #(convert-id %) 
+      (doall (mongo-collection/find-maps "events"))))))
 
 (defn find-event [id]
-  (in-connection
-    #(convert-id (mongo-collection/find-one-as-map "events" { :_id (ObjectId. id) }))))
+  (in-connection 
+      #(convert-id
+        (try 
+          (mongo-collection/find-one-as-map "events" { :_id (ObjectId. id) })
+          (catch Exception e)))))
 
 (defn delete-events []
   (in-connection
@@ -41,3 +46,4 @@
   "This function need to check for oid and then added if it's not there! Check monger _id documentation"
   (in-connection 
     #(mongo-collection/insert-batch "events" data)))
+  

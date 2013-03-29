@@ -28,6 +28,10 @@
       (is (= (:status response) 200))
       (is (= (get (parse-json response) "heading") "§ 5 - Lainan myöntäminen Helsinki Stadion Oy:lle"))
       (is (= (get (parse-json response) "_id") "51558fcb0364623664defe36"))))
+
+  (testing "single event fetching with id"
+    (let [response (app (request :get "/event/this-id-is-probably-nonexistent"))]
+      (is (= (:status response) 404))))
   
   (testing "not-found route"
     (let [response (app (request :get "/invalid"))]

@@ -6,20 +6,30 @@
             [helsinki-info.db-client :as db]
             [clojure.data.json :as json]))
 
+(defn success
+      [items]
+      { :status 200
+      :headers {"Content-Type" "application/json"}
+      :body (json/write-str items)})
+
+(defn not-found
+      [msg]
+      { :status 404
+      :headers {"Content-Type" "application/json"}
+      :body msg })
+
 (defroutes app-routes
   (GET "/" [] (resp/file-response "index.html" {:root "resources/public"}))
   (GET "/ping" [] "pong")
   (GET "/events" []
-    {:status 200
-     :headers {"Content-Type" "application/json"}
-     :body (json/write-str (db/find-events))})
+    (success (db/find-events)))
   (GET "/event/:id" [id]
-    {:status 200
-     :headers {"Content-Type" "application/json"}
-     :body (json/write-str (db/find-event id))})
+    (let [event (db/find-event id)] 
+      (if (nil? event) 
+        (not-found "Event Item not found")
+        (success event))))
   (route/resources "/")
   (route/not-found "Not Found"))
 
 (def app
   (handler/site app-routes))
-
