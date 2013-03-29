@@ -13,6 +13,10 @@
     {:status 200
      :headers {"Content-Type" "application/json"}
      :body (json/write-str (db/find-events))})
+  (GET "/event/:id" [id]
+    {:status 200
+     :headers {"Content-Type" "application/json"}
+     :body (json/write-str (db/find-event id))})
   (route/resources "/")
   (route/not-found "Not Found"))
 
