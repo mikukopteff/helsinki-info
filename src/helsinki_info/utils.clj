@@ -1,4 +1,8 @@
 (ns helsinki-info.utils)
 
 (defn props[] 
-  {:mongo.uri "mongodb://open-helsinki:x@linus.mongohq.com:10009/aJyf0psUuaNdowiprXwaA"})
+  {:mongo.uri 
+    (let [mongo-uri (System/getProperty "mongo.uri")]
+      (if (nil? mongo-uri) 
+        "mongodb://127.0.0.1/open-helsinki"
+        mongo-uri))})
