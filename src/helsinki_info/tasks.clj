@@ -1,7 +1,8 @@
 (ns helsinki-info.tasks
   (:use overtone.at-at)
   (:use [clojure.tools.logging :only (info)])
-  (:require [helsinki-info.db-client :as db]))
+  (:require [helsinki-info.db-client :as db])
+  (:import [org.bson.types ObjectId]))
 
 (def pool (mk-pool))
 
@@ -17,7 +18,8 @@ Lainan erityisehto: Lainansaaja sitoutuu maksamaan lainasta pois sen osuuden, jo
 (defn- init-events []
   "This function is here until we have a place to get the actual http data"
   (db/delete-events)
-  (db/insert-events [{:heading "§ 5 - Lainan myöntäminen Helsinki Stadion Oy:lle" :register-number "HEL 2012-004159" 
+  (db/insert-events [{:_id (ObjectId. "51558fcb0364623664defe36")
+                      :heading "§ 5 - Lainan myöntäminen Helsinki Stadion Oy:lle" :register-number "HEL 2012-004159" 
                       :category "10 06 00 Rakennusten ja rakennelmien suunnittelu ja toteutus" :decision-text para
                       :attachments "" :summary para}
                      {:heading "Ullanlinnan tontin 7/133/5 ja puistoalueen asemakaavan muuttaminen (nro 12117, Tehtaankatu 1d, Vuorimiehenkatu 8b)" :register-number "HEL 2012-004323" 
