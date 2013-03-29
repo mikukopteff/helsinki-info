@@ -1,15 +1,15 @@
 (ns helsinki-info.db-client
   (:require [monger.core :as mongo]
-            [monger.collection :as mongo-collection])
+            [monger.collection :as mongo-collection]
+            [helsinki-info.utils :as utils])
   (:use [clojure.tools.logging :only (info)])
-  (:import [com.mongodb MongoOptions ServerAddress]
-           [com.mongodb DB WriteConcern]
+  (:import [com.mongodb DB WriteConcern]
            [org.bson.types ObjectId]))
 
 
-(defn connect []
+(defn- connect []
   (info "connecting to mongo")
-  (mongo/connect-via-uri! "mongodb://open-helsinki:<pass>@linus.mongohq.com:10009/aJyf0psUuaNdowiprXwaA"))
+  (mongo/connect-via-uri! ((utils/props):mongo.uri)))
 
 (defn- disconnect []
   (info "disconnecting from mongo")
