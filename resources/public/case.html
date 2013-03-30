@@ -58,7 +58,7 @@
   </div>
   
   <div class="container-fluid">
-    <div class="row-fluid">
+    <div class="row-fluid" id="decision">
       <div class="span3">
         <ul class="nav nav-list">
         <li class="nav-header">Käsittelyhistoria</li>
@@ -70,19 +70,21 @@
         </ul>
       </div>
 
-      <div class="span6" id="decision">
+      <div class="span6">
         <div class="fb-like" data-send="true" data-width="450" data-show-faces="true"></div>
         <h3 data-bind="heading"></h3>
         <p data-bind="summary"></p>
         <p class="lead">Päätösteksti</p>
         <p data-bind="decision-text"></p>
       </div>
-      <div class"span3" id="decision-details">
-        <p> Diaarinumero:</p>
-        <p data-bind="register-number"></p>
-        <o>Tehtäväluokka</p>
-        <p data-bind="category"></p>
-        <p>Liitteet</p>
+      <div class="span3">
+        <dl>
+          <dt>Diaarinumero</dt>
+          <dd data-bind="register-number"></dd>
+          <dt>Tehtäväluokka</dt>
+          <dd data-bind="category"></dd>
+          <dt>Liitteet</dt>
+        </dl>
       </div>
     </div>
   <hr>
