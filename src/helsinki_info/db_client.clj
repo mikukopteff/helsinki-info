@@ -22,9 +22,14 @@
     (disconnect)
     result))
 
-(defn- convert-id [events]
-  (if (contains? events :_id)
-    (assoc events :_id (.toString (get events :_id)))))
+(defn- convert-id [event]
+  (if (contains? event :_id)
+    (assoc event :_id (.toString (get event :_id)))))
+
+(defn add-id [events]
+    (map 
+      #(if-not (contains? % :_id) 
+        (conj % {:_id (ObjectId.)}) %) events))
 
 (defn find-events []
   (in-connection
@@ -45,5 +50,4 @@
 (defn insert-events [data]
   "This function need to check for oid and then added if it's not there! Check monger _id documentation"
   (in-connection 
-    #(mongo-collection/insert-batch "events" data)))
-  
+    #(mongo-collection/insert-batch "events" (add-id data))))
