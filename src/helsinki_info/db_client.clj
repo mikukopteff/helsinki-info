@@ -1,7 +1,10 @@
 (ns helsinki-info.db-client
-  (:require [monger.core :as mongo]
+  (:require [monger.joda-time]
+            [monger.json]
+            [monger.core :as mongo]
             [monger.collection :as mongo-collection]
-            [helsinki-info.utils :as utils])
+            [helsinki-info.utils :as utils]
+            [clj-time.core :as time])
   (:use [clojure.tools.logging :only (info)])
   (:import [com.mongodb DB WriteConcern]
            [org.bson.types ObjectId]))
