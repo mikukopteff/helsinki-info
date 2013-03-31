@@ -17,5 +17,8 @@ Lainan erityisehto: Lainansaaja sitoutuu maksamaan lainasta pois sen osuuden, jo
                       :category "10 06 00 Rakennusten ja rakennelmien suunnittelu ja toteutus" :decision-text para
                       :attachments "" :summary (str para para)}
                         {:heading "Vartiokylän tontin 45475/1 asemakaavan muuttaminen (nro 12139; Vartioharjun hoivakoti)" :register-number "HEL 2012-004186" 
+                      :category "10 08 00 Joku Kategoriatieto jne" :decision-text para
+                      :attachments "" :summary para}
+                      {:heading "Helsingin Stadion Oy:n käsittely liittyen Lainaan" :register-number "HEL 2012-004159" 
                       :category "10 06 00 Rakennusten ja rakennelmien suunnittelu ja toteutus" :decision-text para
-                      :attachments "" :summary para}])
+                      :attachments "" :summary (str para para)}])
