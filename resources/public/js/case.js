@@ -1,4 +1,11 @@
-require(['jquery', 'transparency', 'underscore-min','bootstrap.min'], function($, Transparency) {
+require.config({
+    paths: {
+        "moment": "moment.min",
+    }
+});
+
+require(['jquery', 'transparency', 'moment','bootstrap.min'], function($, Transparency, moment, bootstrap) {
+
   function getParameterByName(name) {
     name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
     var regexS = "[\\?&]" + name + "=([^&#]*)";
@@ -10,11 +17,18 @@ require(['jquery', 'transparency', 'underscore-min','bootstrap.min'], function($
       return decodeURIComponent(results[1].replace(/\+/g, " "));
   }
 
+  function formatStrings(events) {
+    events.publishTime = moment(events["publish-time"]).format('DD.MM.YYYY HH.mm');
+    events.eventTime = moment(events["event-time"]).format('DD.MM.YYYY');
+    events.headingDate = events.heading + ' ' + events.eventTime;
+  }
+
   jQuery.fn.render = Transparency.jQueryPlugin;
   $.ajax('/event/' + getParameterByName("id")).done(
-    function(json){
-      $('#decision').render(json);
-      $('#decision-details').render(json);
-    });
+    function(events){
+      formatStrings(events)
+      console.log(events);
+      $('#decision').render(events);
+  });
 
 });

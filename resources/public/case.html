@@ -64,7 +64,7 @@
         <li class="nav-header">Käsittelyhistoria</li>
         <li><a href="#">Ensimmäinen käsittely 23.5.2009</a></li>
         <li><a href="#">Toinen päätös 12.4.2010</a></li>
-        <li class="active"><a href="#">Valiokuntakäsittely 15.2.2012</a></li>
+        <li class="active"><a data-bind="headingDate" href="#"></a></li>
         <li class="nav-header">Tulevat käsittelyt</li>
         <li><a class="text-warning" href="#">Valiokuntakäsittely 15.8.2013</a></li>
         </ul>
@@ -79,10 +79,14 @@
       </div>
       <div class="span3">
         <dl>
+          <dt>Käsittelypäivä</dt>
+          <dd data-bind="eventTime"></dd>
           <dt>Diaarinumero</dt>
           <dd data-bind="register-number"></dd>
           <dt>Tehtäväluokka</dt>
           <dd data-bind="category"></dd>
+          <dt>Asian julkaisupäivä</dt>
+          <dd data-bind="publishTime"></dd>
           <dt>Liitteet</dt>
         </dl>
       </div>
