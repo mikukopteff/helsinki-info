@@ -28,6 +28,12 @@
       (if (nil? event) 
         (not-found "Event Item not found")
         (success event))))
+  (GET "/events/:register-number" [register-number]
+    (println register-number)
+    (let [events (db/find-events-by-regnum register-number)]
+      (if (empty? events)
+        (not-found "No events with this register number")
+        (success events))))
   (route/resources "/")
   (route/not-found "Not Found"))
 
