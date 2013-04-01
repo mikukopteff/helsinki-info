@@ -5,7 +5,6 @@ require.config({
 });
 
 require(['jquery', 'transparency', 'moment','bootstrap.min', 'underscore-min'], function($, Transparency, moment, bootstrap) {
-var futureEventTextPrinted = false; //this is so ugly, god
 
   function getParameterByName(name) {
     name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
@@ -42,11 +41,7 @@ var futureEventTextPrinted = false; //this is so ugly, god
     $('#related-events').render(events, directives);
     $('#related-events li [data-oid="' + window.currentEvent._id + '"]').parent().addClass('active');
     $('#related-events').prepend($('<li>Käsittelyhistoria</li>').addClass('nav-header'));//I hate the fact that I'm doing this. There should be a way to to this trasnparency.js
-
-    //        <li class="nav-header">Käsittelyhistoria</li>
-    //active         <li class="active"><a data-bind="headingDate" href="#"></a></li>
-    //        <li class="nav-header">Tulevat käsittelyt</li>
-        //<li><a class="text-warning" href="#">Valiokuntakäsittely 15.8.2013</a></li>
+    $('#related-events .text-warning').before($('<li>Tulevat käsittelyt</li>').addClass('nav-header'));
     window.relatedEvents = events;
   }
 
