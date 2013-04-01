@@ -1,10 +1,12 @@
 (ns helsinki-info.db-client
+  (:refer-clojure :exclude [sort find])
   (:require [monger.joda-time]
             [monger.json]
             [monger.core :as mongo]
             [monger.collection :as mongo-collection]
             [helsinki-info.utils :as utils]
-            [clj-time.core :as time])
+            [clj-time.core :as time]
+            [monger.query :as query])
   (:use [clojure.tools.logging :only (info)])
   (:import [com.mongodb DB WriteConcern]
            [org.bson.types ObjectId]))
@@ -29,7 +31,7 @@
   (if (contains? event :_id)
     (assoc event :_id (.toString (get event :_id)))))
 
-(defn add-id [events]
+(defn- add-id [events]
     (map 
       #(if-not (contains? % :_id) 
         (conj % {:_id (ObjectId.)}) %) events))
@@ -54,3 +56,11 @@
   "This function need to check for oid and then added if it's not there! Check monger _id documentation"
   (in-connection 
     #(mongo-collection/insert-batch "events" (add-id data))))
+
+(defn find-events-by-regnum [regnum]
+  (in-connection
+    #(doall (query/with-collection "events"
+      (query/find {:register-number regnum})
+      (query/sort (sorted-map :event-time 1))))))
+
+
