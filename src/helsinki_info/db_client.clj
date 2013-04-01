@@ -43,7 +43,7 @@
   (in-connection 
       #(convert-id
         (try 
-          (mongo-collection/find-one-as-map "events" { :_id (ObjectId. id) })
+          (mongo-collection/find-map-by-id "events" (ObjectId. id))
           (catch Exception e)))))
 
 (defn delete-events []

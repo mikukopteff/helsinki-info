@@ -13,4 +13,4 @@
 (deftest db-insert
   (testing "_id addition to objects"
     (insert-events data)
-    (is (= 3 (count (find-events))))))
+    (is (= 5 (count (find-events))))))

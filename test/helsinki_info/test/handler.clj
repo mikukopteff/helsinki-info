@@ -21,7 +21,7 @@
     (let [response (app (request :get "/events"))]
       (is (= (:status response) 200))
       (is (= (get (first (parse-json response)) "heading") "§ 5 - Lainan myöntäminen Helsinki Stadion Oy:lle"))
-      (is (= (count (parse-json response)) 3))))
+      (is (= (count (parse-json response)) 5))))
 
   (testing "single event fetching with id"
     (let [response (app (request :get "/event/51558fcb0364623664defe36"))]
