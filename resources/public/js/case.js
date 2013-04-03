@@ -4,7 +4,7 @@ require.config({
     }
 });
 
-require(['jquery', 'transparency', 'moment','bootstrap.min', 'underscore-min'], function($, Transparency, moment, bootstrap) {
+require(['transparency', 'moment','bootstrap.min','jquery', 'underscore-min'], function(Transparency, moment, bootstrap, $) {
 
   function getParameterByName(name) {
     name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
