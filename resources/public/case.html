@@ -59,21 +59,21 @@
   </div>
 
   <div class="container-fluid">
-    <div class="row-fluid" id="event">
+    <div class="row-fluid">
       <div class="span3">
         <ul class="nav nav-list" id="related-events">
           <li><a data-bind="headingDate" href="#"></a></li>
         </ul>
       </div>
 
-      <div class="span6">
+      <div class="span6" id="event-main">
         <div class="fb-like" data-send="true" data-width="450" data-show-faces="true"></div>
         <h3 data-bind="heading"></h3>
         <p data-bind="summary"></p>
         <p class="lead">Päätösteksti</p>
         <p data-bind="decision-text"></p>
       </div>
-      <div class="span3">
+      <div class="span3" id="event-detail">
         <dl>
           <dt>Käsittelypäivä</dt>
           <dd data-bind="eventTime"></dd>

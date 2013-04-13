@@ -33,26 +33,42 @@ require(['transparency', 'moment','bootstrap.min','jquery', 'underscore-min'], f
           return 'text-warning';  
       }
     }
+  }
+
+  function selectCurrentEvent(event) {
+    $('#event-main').render(event);
+    $('#event-detail').render(event);
+    window.currentEvent = event;
+  }
+
+  function highlightCurrentEvent(event) {
+    $('#related-events li').removeClass('active')
+    $('#related-events li [data-oid="' + event._id + '"]').parent().addClass('active');
   } 
+
+  function onRelatedEventSwitch(event) {
+    var oid = event.currentTarget.childNodes[0].getAttribute('data-oid');
+    var newEvent = _.find(window.relatedEvents, function(element){ return element._id === oid; })
+    selectCurrentEvent(newEvent);
+    highlightCurrentEvent(newEvent);
+  }
 
   function onRelatedEventsFetch(events) {
     _.each(events, formatStrings);
-    console.log(window.currentEvent);
     $('#related-events').render(events, directives);
-    $('#related-events li [data-oid="' + window.currentEvent._id + '"]').parent().addClass('active');
-    $('#related-events').prepend($('<li>Käsittelyhistoria</li>').addClass('nav-header'));//I hate the fact that I'm doing this. There should be a way to to this trasnparency.js
-    $('#related-events .text-warning').before($('<li>Tulevat käsittelyt</li>').addClass('nav-header'));
+    $('#related-events').prepend($('<li>Käsittelyhistoria</li>').addClass('nav-header'));//Figure out a better way.
+    $('#related-events .text-warning').parent().before($('<li>Tulevat käsittelyt</li>').addClass('nav-header'));
+    highlightCurrentEvent(window.currentEvent);
+    $('#related-events li:not(.nav-header)').click(onRelatedEventSwitch);
     window.relatedEvents = events;
   }
 
   function onEventFetch(event) {
     formatStrings(event);
-    $('#event').render(event);
-    window.currentEvent = event;
+    selectCurrentEvent(event);
     $.ajax('/events/' + event['register-number']).done(onRelatedEventsFetch);
   }
   jQuery.fn.render = Transparency.jQueryPlugin;
   $.ajax('/event/' + getParameterByName("id")).done(onEventFetch);
-
 
 });
