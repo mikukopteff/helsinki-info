@@ -53,7 +53,6 @@
     #(mongo-collection/remove "events")))
 
 (defn insert-events [data]
-  "This function need to check for oid and then added if it's not there! Check monger _id documentation"
   (in-connection 
     #(mongo-collection/insert-batch "events" (add-id data))))
 
