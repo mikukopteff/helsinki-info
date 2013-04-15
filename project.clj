@@ -8,7 +8,8 @@
                  [org.clojure/data.json "0.2.1"]
                  [org.clojure/tools.logging "0.2.6"]
                  [clj-time "0.5.0"]
-                 [cheshire "5.0.2"]]
+                 [cheshire "5.0.2"]
+                 [clj-http "0.7.1"]]
   :plugins [[lein-ring "0.8.2"]
             [lein-cloudbees "1.0.3"]]
   :ring {:handler helsinki-info.handler/app,
