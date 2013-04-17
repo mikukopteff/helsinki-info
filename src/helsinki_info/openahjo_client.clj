@@ -2,12 +2,11 @@
   (:require [clj-http.client :as client]
             [clj-time.core :as time]
             [clojure.data.json :as json])
-  (:use [clojure.tools.logging :only (info)])
+  (:use [clojure.tools.logging :only (info)]
+        [clojure.set])
   (:import [org.bson.types ObjectId]))
 
 (def base-url "http://dev.hel.fi")
-
-(def agenda-url "/openahjo/v1/agenda_item/?format=json&limit=1")
 
 (defn- call-openahjo [url]
   (info "calling openahjo:" url)
@@ -16,6 +15,11 @@
 (defn- combine-meetings[item]
   (conj item (call-openahjo (str (get item "meeting") "?format=json"))))
 
+(defn change-id[item]
+  (rename-keys item {"id" :_id}))
 
-(defn fetch-new-items []
-  (map combine-meetings ((call-openahjo agenda-url) "objects")))
+(def agenda-url "/openahjo/v1/agenda_item/?format=json&limit=1")
+
+(defn fetch-all-items []
+  "This function is mainly used to get all the data from the api"
+  (map #(change-id (combine-meetings %))  ((call-openahjo agenda-url) "objects")))
