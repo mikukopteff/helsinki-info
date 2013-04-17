@@ -31,10 +31,10 @@
   (if (contains? event :_id)
     (assoc event :_id (.toString (get event :_id)))))
 
-(defn- add-id [events]
+(defn- add-id [coll]
     (map 
       #(if-not (contains? % :_id) 
-        (conj % {:_id (ObjectId.)}) %) events))
+        (conj % {:_id (ObjectId.)}) %) coll))
 
 (defn find-events []
   (in-connection
@@ -52,9 +52,9 @@
   (in-connection
     #(mongo-collection/remove "events")))
 
-(defn insert-events [data]
+(defn insert [data, collection]
   (in-connection 
-    #(mongo-collection/insert-batch "events" (add-id data))))
+    #(mongo-collection/insert-batch collection (add-id data))))
 
 (defn find-events-by-regnum [regnum]
   (in-connection
