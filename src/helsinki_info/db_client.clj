@@ -36,10 +36,10 @@
       #(if-not (contains? % :_id) 
         (conj % {:_id (ObjectId.)}) %) coll))
 
-(defn find-events []
+(defn find-collections [collection]
   (in-connection
     (fn [](map #(convert-id %) 
-      (doall (mongo-collection/find-maps "events"))))))
+      (doall (mongo-collection/find-maps collection))))))
 
 (defn find-event [id]
   (in-connection 
@@ -48,9 +48,9 @@
           (mongo-collection/find-map-by-id "events" (ObjectId. id))
           (catch Exception e)))))
 
-(defn delete-events []
+(defn delete [collection]
   (in-connection
-    #(mongo-collection/remove "events")))
+    #(mongo-collection/remove collection)))
 
 (defn insert [data, collection]
   (in-connection 

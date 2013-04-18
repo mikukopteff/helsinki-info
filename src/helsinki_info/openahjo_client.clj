@@ -22,5 +22,13 @@
   "This function is mainly used to get all the data from the api"
   (map combine-meetings ((call-openahjo agenda-url) "objects")))
 
+(defn rearrange [agenda-item]
+  ;need to check here if case already exists in db, if yes, then jsut add the rest there, else switch the items with case and boom!
+  (let [item (get agenda-item "item")]
+    (println (get agenda-item "id"))
+    (dissoc agenda-item "item")
+    (conj item {:bar "foo"} )))
+
 (defn store-items []
-  (db/insert (fetch-all-items) "items"))
+  ;check if db has already with reg id, then add it there if it exists
+  (db/insert (rearrange (fetch-all-items)) "items"))
