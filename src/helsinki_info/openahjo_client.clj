@@ -16,18 +16,17 @@
 (defn- combine-meetings[item]
   (rearrange (conj item (call-openahjo (str (get item "meeting") "?format=json")))))
 
-(def agenda-url "/openahjo/v1/agenda_item/?format=json&limit=1")
+(def agenda-url "/openahjo/v1/agenda_item/?format=json&limit=2")
 
 (defn fetch-all-items []
   "This function is mainly used to get all the data from the api"
   (map combine-meetings ((call-openahjo agenda-url) "objects")))
 
 (defn rearrange [agenda-item]
-  ;need to check here if case already exists in db, if yes, then jsut add the rest there, else switch the items with case and boom!
+  ;need to check here if case(item) already exists in db, if yes then attach it to the existing one
  (let [item (get agenda-item "item")]
-    (dissoc agenda-item "item")
-    (conj item {:agenda-items [agenda-item]})))
+    (conj item {:items [(dissoc agenda-item "item")]})))
 
 (defn store-items []
   ;check if db has already with reg id, then add it there if it exists
-  (db/insert (fetch-all-items) "items"))
+  (db/insert (fetch-all-items) "cases"))
