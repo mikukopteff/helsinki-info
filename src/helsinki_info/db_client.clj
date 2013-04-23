@@ -48,6 +48,11 @@
           (mongo-collection/find-map-by-id "events" (ObjectId. id))
           (catch Exception e)))))
 
+(defn find-by-case [id]
+  (in-connection
+    (fn [](map #(convert-id %) 
+      (doall (mongo-collection/find-maps "cases" {:slug id}))))))
+
 (defn delete [collection]
   (in-connection
     #(mongo-collection/remove collection)))
