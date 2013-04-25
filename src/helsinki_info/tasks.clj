@@ -11,8 +11,8 @@
 
 (defn- init-events []
   "This function is here until we have a place to get the actual http data"
-  (db/delete-events)
-  (db/insert-events data))
+  (db/delete "events")
+  (db/insert data "events"))
 
 (defn startup[] 
   (println "Starting server")

@@ -22,7 +22,7 @@
   (GET "/" [] (resp/file-response "index.html" {:root "resources/public"}))
   (GET "/ping" [] "pong")
   (GET "/events" []
-    (success (db/find-events)))
+    (success (db/find-collections "events")))
   (GET "/event/:id" [id]
     (let [event (db/find-event id)] 
       (if (nil? event) 
