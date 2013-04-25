@@ -8,3 +8,6 @@ pom.xml
 .lein-repl-history
 .lein-failures
 *DS_Store
+.idea/
+*.iml
+
