@@ -50,8 +50,7 @@
 
 (defn find-by-case [id]
   (in-connection
-    (fn [](map #(convert-id %) 
-      (doall (mongo-collection/find-one-as-map "cases" {:slug id}))))))
+    #(convert-id (mongo-collection/find-one-as-map "cases" {:slug id}))))
 
 (defn delete [collection]
   (in-connection
