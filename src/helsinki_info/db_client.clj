@@ -34,7 +34,9 @@
 (defn- add-id [coll]
     (map 
       #(if-not (contains? % :_id) 
-        (conj % {:_id (ObjectId.)}) %) coll))
+        (do(conj % {:_id (ObjectId.)}))
+        (do(assoc % :_id (ObjectId. (get % :_id))))) 
+    coll))
 
 (defn find-collections [collection]
   (in-connection
@@ -59,6 +61,14 @@
 (defn insert [data, collection]
   (in-connection 
     #(mongo-collection/insert-batch collection (add-id data))))
+
+(defn update [data, collection]
+  (in-connection
+      #(mongo-collection/update-by-id collection (ObjectId. (get data :_id)) (dissoc data :_id))))
+
+(defn insert-single [element, collection]
+  (in-connection
+      #(mongo-collection/insert collection (merge element {:_id (ObjectId.)}))))
 
 (defn find-events-by-regnum [regnum]
   (in-connection
