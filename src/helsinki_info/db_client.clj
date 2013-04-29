@@ -34,9 +34,7 @@
 (defn- add-id [coll]
     (map 
       #(if-not (contains? % :_id) 
-        (do(conj % {:_id (ObjectId.)}))
-        (do(assoc % :_id (ObjectId. (get % :_id))))) 
-    coll))
+        (conj % {:_id (ObjectId.)}) %) coll))
 
 (defn find-collections [collection]
   (in-connection
