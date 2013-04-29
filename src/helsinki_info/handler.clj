@@ -21,15 +21,14 @@
 (defroutes app-routes
   (GET "/" [] (resp/file-response "index.html" {:root "resources/public"}))
   (GET "/ping" [] "pong")
-  (GET "/events" []
-    (success (db/find-collections "events")))
-  (GET "/event/:id" [id]
-    (let [event (db/find-event id)] 
-      (if (nil? event) 
+  (GET "/cases" []
+    (success (db/find-collections "cases")))
+  (GET "/case/:slug" [slug]
+    (let [case (db/find-by-case slug)] 
+      (if (nil? case) 
         (not-found "Event Item not found")
-        (success event))))
+        (success case))))
   (GET "/events/:register-number" [register-number]
-    (println register-number)
     (let [events (db/find-events-by-regnum register-number)]
       (if (empty? events)
         (not-found "No events with this register number")
@@ -39,3 +38,4 @@
 
 (def app
   (handler/site app-routes))
+

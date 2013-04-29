@@ -12,8 +12,9 @@ directives = {
   }
 };
 
-$.ajax('/events').done(
+$.ajax('/cases').done(
   function(json){
-    $('#events').render(json, directives);
+    console.log(json);
+    $('#cases').render(json, directives);
   });
 });
