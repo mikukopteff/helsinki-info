@@ -9,7 +9,7 @@
 
 (def base-url "http://dev.hel.fi")
 
-(def agenda-url "/openahjo/v1/agenda_item/?format=json&offset=0&limit=30")
+(def agenda-url "/openahjo/v1/agenda_item/?format=json&offset=10&limit=4")
 
 (defn- call-openahjo [url]
   (info "calling openahjo:" url)

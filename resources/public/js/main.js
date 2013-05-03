@@ -7,7 +7,8 @@ directives = {
       return this._id;
     },
     href: function(params) {
-      return 'case.html?id=' + this._id;
+      var itemIndex = (this.items.length > 1) ? this.items.length - 1 : 0; //This is just for now. When first page listing is done, will pick the newest
+      return 'case.html?id=' + this.slug + '#' +this.items[itemIndex].id;
     }
   }
 };

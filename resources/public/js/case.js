@@ -17,10 +17,10 @@ require(['transparency', 'moment','bootstrap.min','jquery', 'underscore-min'], f
       return decodeURIComponent(results[1].replace(/\+/g, " "));
   }
 
-  function formatStrings(event) {
-    event.publishTime = moment(event['publish-time']).format('DD.MM.YYYY HH.mm');
-    event.eventTime = moment(event['event-time']).format('DD.MM.YYYY');
-    event.headingDate = event.heading + ' ' + event.eventTime;
+  function formatStrings(items) {
+    items.publishTime = moment(items['publish-time']).format('DD.MM.YYYY HH.mm');
+    items.eventTime = moment(items['event-time']).format('DD.MM.YYYY');
+    items.headingDate = items.category_name + ' ' + items.eventTime;
   }
 
   directives = {
@@ -32,8 +32,14 @@ require(['transparency', 'moment','bootstrap.min','jquery', 'underscore-min'], f
         if (moment(this['event-time']).isAfter(moment())) 
           return 'text-warning';  
       }
+    },
+    category_name: {
+      text: function() {
+        console.log (this);
+        return this.category_origin_id + ' ' + this.category_name;
     }
   }
+}
 
   function selectCurrentEvent(event) {
     $('#event-main').render(event);
@@ -63,12 +69,14 @@ require(['transparency', 'moment','bootstrap.min','jquery', 'underscore-min'], f
     window.relatedEvents = events;
   }
 
-  function onEventFetch(event) {
-    formatStrings(event);
-    selectCurrentEvent(event);
-    $.ajax('/events/' + event['register-number']).done(onRelatedEventsFetch);
+  function onCaseFetch(items) {
+    console.log(items);
+    formatStrings(items);
+    selectCurrentEvent(items);
   }
+
   jQuery.fn.render = Transparency.jQueryPlugin;
-  $.ajax('/event/' + getParameterByName("id")).done(onEventFetch);
+  var slug = getParameterByName('id');
+  $.ajax('/case/' + slug).done(onCaseFetch);
 
 });
