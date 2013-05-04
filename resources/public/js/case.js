@@ -18,8 +18,7 @@ require(['transparency', 'moment','bootstrap.min','jquery', 'underscore-min'], f
   }
 
   function formatStrings(items) {
-    items.publishTime = moment(items['publish-time']).format('DD.MM.YYYY HH.mm');
-    items.eventTime = moment(items['event-time']).format('DD.MM.YYYY');
+    items.eventTime = moment(items['date']).format('DD.MM.YYYY');
     items.headingDate = items.category_name + ' ' + items.eventTime;
   }
 
@@ -32,19 +31,30 @@ require(['transparency', 'moment','bootstrap.min','jquery', 'underscore-min'], f
         if (moment(this['event-time']).isAfter(moment())) 
           return 'text-warning';  
       }
-    },
-    category_name: {
-      text: function() {
-        console.log (this);
-        return this.category_origin_id + ' ' + this.category_name;
     }
   }
-}
 
-  function selectCurrentEvent(event) {
-    $('#event-main').render(event);
-    $('#event-detail').render(event);
-    window.currentEvent = event;
+  function selectCurrentItem(acase) {
+    return _.find(acase.items, function(element) { return element.id = window.location.hash.replace("#", ""); });
+  }
+
+  htmlDirs = {
+    content: {
+      text: {
+        innerHTML: function(params) {
+          return this.text;
+        }
+      }
+    }
+  }
+
+  function selectCurrentData(acase) {    
+    var currentItem = selectCurrentItem(acase);
+    var merged = $.extend(acase, currentItem);
+    console.log(merged);
+    $('#event-main').render(merged, htmlDirs);
+    $('#event-detail').render(merged);
+    window.currentCase = acase;
   }
 
   function highlightCurrentEvent(event) {
@@ -59,20 +69,19 @@ require(['transparency', 'moment','bootstrap.min','jquery', 'underscore-min'], f
     highlightCurrentEvent(newEvent);
   }
 
-  function onRelatedEventsFetch(events) {
-    _.each(events, formatStrings);
-    $('#related-events').render(events, directives);
+  function onRelatedEventsFetch(items) {
+    _.each(items, formatStrings);
+    $('#related-events').render(items, directives);
     $('#related-events').prepend($('<li>Käsittelyhistoria</li>').addClass('nav-header'));//Figure out a better way.
     $('#related-events .text-warning').parent().before($('<li>Tulevat käsittelyt</li>').addClass('nav-header'));
     highlightCurrentEvent(window.currentEvent);
     $('#related-events li:not(.nav-header)').click(onRelatedEventSwitch);
-    window.relatedEvents = events;
   }
 
-  function onCaseFetch(items) {
-    console.log(items);
-    formatStrings(items);
-    selectCurrentEvent(items);
+  function onCaseFetch(acase) {
+    console.log(acase);
+    selectCurrentData(acase);
+    //setRelatedEvents(acase.items)
   }
 
   jQuery.fn.render = Transparency.jQueryPlugin;
