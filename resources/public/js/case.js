@@ -44,6 +44,14 @@ require(['transparency', 'moment','bootstrap.min','jquery', 'underscore-min'], f
       }
     }
   }
+  
+  detailDirectives = {
+    geo: {
+      text: function(params) {
+        return this.geometries.length > 0 ? this.geometries[0].name : "Ei tiedossa" ;
+      }
+    }
+  }
 
   function selectCurrentItem(acase, itemId) {
     return _.find(acase.items, function(element) { return element.id == itemId });
@@ -52,7 +60,7 @@ require(['transparency', 'moment','bootstrap.min','jquery', 'underscore-min'], f
   function setCurrentData(acase, currentItem) {   
     var merged = $.extend(acase, currentItem);
     $('#event-main').render(merged, itemDirectives);
-    $('#event-detail').render(merged);
+    $('#event-detail').render(merged, detailDirectives);
   }
 
   function highlightCurrentEvent(hashId) {
