@@ -17,15 +17,16 @@ require(['transparency', 'moment','bootstrap.min','jquery', 'underscore-min'], f
       return decodeURIComponent(results[1].replace(/\+/g, " "));
   }
 
-  function formatStrings(items) {
-    items.eventTime = moment(items['date']).format('DD.MM.YYYY');
-    items.headingDate = items.category_name + ' ' + items.eventTime;
-  }
-
-  directives = {
-    headingDate: {
-      "data-oid": function(params) {
-        return this._id;
+  relatedDirectives = {
+    relatedLink: {
+      text: function(params) {
+        return this.committee_name + ' ' + this.date;
+      },
+      href: function(params) {
+        return '#' + this.id;
+      },
+      id: function(params) {
+        return this.id;
       },
       class: function(params) {
         if (moment(this['event-time']).isAfter(moment())) 
@@ -34,11 +35,7 @@ require(['transparency', 'moment','bootstrap.min','jquery', 'underscore-min'], f
     }
   }
 
-  function selectCurrentItem(acase) {
-    return _.find(acase.items, function(element) { return element.id = window.location.hash.replace("#", ""); });
-  }
-
-  htmlDirs = {
+  itemDirectives = {
     content: {
       text: {
         innerHTML: function(params) {
@@ -48,40 +45,44 @@ require(['transparency', 'moment','bootstrap.min','jquery', 'underscore-min'], f
     }
   }
 
-  function selectCurrentData(acase) {    
-    var currentItem = selectCurrentItem(acase);
-    var merged = $.extend(acase, currentItem);
-    console.log(merged);
-    $('#event-main').render(merged, htmlDirs);
-    $('#event-detail').render(merged);
-    window.currentCase = acase;
+  function selectCurrentItem(acase, itemId) {
+    return _.find(acase.items, function(element) { return element.id = itemId });
   }
 
-  function highlightCurrentEvent(event) {
+  function setCurrentData(acase, currentItem) {   
+    console.log(currentItem);
+    var merged = $.extend(acase, currentItem);
+    $('#event-main').render(merged, itemDirectives);
+    $('#event-detail').render(merged);
+  }
+
+  function highlightCurrentEvent(currentId) {
     $('#related-events li').removeClass('active')
-    $('#related-events li [data-oid="' + event._id + '"]').parent().addClass('active');
+    $('#related-events li [href="' + currentId + '"]').parent().addClass('active');
   } 
 
   function onRelatedEventSwitch(event) {
-    var oid = event.currentTarget.childNodes[0].getAttribute('data-oid');
-    var newEvent = _.find(window.relatedEvents, function(element){ return element._id === oid; })
-    selectCurrentEvent(newEvent);
-    highlightCurrentEvent(newEvent);
+    event.preventDefault();
+    console.log(event);
+    var itemId = event.currentTarget.childNodes[0].getAttribute('id');
+    var currentItem = selectCurrentItem(window.currentItem, itemId);
+    setCurrentData(window.currentItem, currentItem);
+    //highlightCurrentEvent(newEvent);
   }
 
-  function onRelatedEventsFetch(items) {
-    _.each(items, formatStrings);
-    $('#related-events').render(items, directives);
+  function setRelatedItems(acase) {
+    $('#related-events').render(acase.items, relatedDirectives);
     $('#related-events').prepend($('<li>Käsittelyhistoria</li>').addClass('nav-header'));//Figure out a better way.
     $('#related-events .text-warning').parent().before($('<li>Tulevat käsittelyt</li>').addClass('nav-header'));
-    highlightCurrentEvent(window.currentEvent);
+    highlightCurrentEvent(window.location.hash);
     $('#related-events li:not(.nav-header)').click(onRelatedEventSwitch);
   }
 
   function onCaseFetch(acase) {
-    console.log(acase);
-    selectCurrentData(acase);
-    //setRelatedEvents(acase.items)
+    window.currentCase = acase; 
+    setRelatedItems(acase);
+    var currentItem = selectCurrentItem(acase, window.location.hash.replace('#', ''));
+    setCurrentData(acase, currentItem);
   }
 
   jQuery.fn.render = Transparency.jQueryPlugin;
