@@ -25,7 +25,7 @@ require(['transparency', 'moment','bootstrap.min','jquery', 'underscore-min'], f
       href: function(params) {
         return '#' + this.id;
       },
-      id: function(params) {
+      "data-id": function(params) {
         return this.id;
       },
       class: function(params) {
@@ -55,17 +55,18 @@ require(['transparency', 'moment','bootstrap.min','jquery', 'underscore-min'], f
     $('#event-detail').render(merged);
   }
 
-  function highlightCurrentEvent(currentId) {
+  function highlightCurrentEvent(hashId) {
+    window.location.href = hashId;
     $('#related-events li').removeClass('active')
-    $('#related-events li [href="' + currentId + '"]').parent().addClass('active');
+    $('#related-events li [href="' + hashId + '"]').parent().addClass('active');
   } 
 
   function onRelatedEventSwitch(event) {
     event.preventDefault();
-    var itemId = event.currentTarget.childNodes[0].getAttribute('id');
+    var itemId = event.currentTarget.childNodes[0].getAttribute('data-id');
     var currentItem = selectCurrentItem(window.currentCase, itemId);
     setCurrentData(window.currentCase, currentItem);
-    //highlightCurrentEvent(newEvent);
+    highlightCurrentEvent('#' + itemId);
   }
 
   function setRelatedItems(acase) {
