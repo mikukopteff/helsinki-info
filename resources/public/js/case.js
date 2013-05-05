@@ -46,11 +46,10 @@ require(['transparency', 'moment','bootstrap.min','jquery', 'underscore-min'], f
   }
 
   function selectCurrentItem(acase, itemId) {
-    return _.find(acase.items, function(element) { return element.id = itemId });
+    return _.find(acase.items, function(element) { return element.id == itemId });
   }
 
   function setCurrentData(acase, currentItem) {   
-    console.log(currentItem);
     var merged = $.extend(acase, currentItem);
     $('#event-main').render(merged, itemDirectives);
     $('#event-detail').render(merged);
@@ -63,10 +62,9 @@ require(['transparency', 'moment','bootstrap.min','jquery', 'underscore-min'], f
 
   function onRelatedEventSwitch(event) {
     event.preventDefault();
-    console.log(event);
     var itemId = event.currentTarget.childNodes[0].getAttribute('id');
-    var currentItem = selectCurrentItem(window.currentItem, itemId);
-    setCurrentData(window.currentItem, currentItem);
+    var currentItem = selectCurrentItem(window.currentCase, itemId);
+    setCurrentData(window.currentCase, currentItem);
     //highlightCurrentEvent(newEvent);
   }
 
@@ -81,7 +79,8 @@ require(['transparency', 'moment','bootstrap.min','jquery', 'underscore-min'], f
   function onCaseFetch(acase) {
     window.currentCase = acase; 
     setRelatedItems(acase);
-    var currentItem = selectCurrentItem(acase, window.location.hash.replace('#', ''));
+    var currentIndex = window.location.hash.replace('#', '') != '' ? window.location.hash.replace('#', '') : 0
+    var currentItem = selectCurrentItem(acase, currentIndex);
     setCurrentData(acase, currentItem);
   }
 
