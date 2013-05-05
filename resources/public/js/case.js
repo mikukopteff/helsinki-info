@@ -6,6 +6,13 @@ require.config({
 
 require(['transparency', 'moment','bootstrap.min','jquery', 'underscore-min'], function(Transparency, moment, bootstrap, $) {
 
+  var Translations = {
+    "draft resolution": "Päätösesitys",
+    "presenter": "Esittelijä",
+    "resolution": "Päätös",
+    "summary": "Yhteenveto"
+  }
+
   function getParameterByName(name) {
     name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
     var regexS = "[\\?&]" + name + "=([^&#]*)";
@@ -41,10 +48,15 @@ require(['transparency', 'moment','bootstrap.min','jquery', 'underscore-min'], f
         innerHTML: function(params) {
           return this.text;
         }
+      },
+      type: {
+        text: function(params) {
+          return Translations[this.type];
+        }
       }
     }
   }
-  
+
   detailDirectives = {
     geo: {
       text: function(params) {
