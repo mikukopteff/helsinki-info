@@ -69,10 +69,28 @@ require(['transparency', 'moment','bootstrap.min','jquery', 'underscore-min'], f
     return _.find(acase.items, function(element) { return element.id == itemId });
   }
 
+  function renderMap(data) {
+    if (data.geometries.length > 0) {
+      var map = L.map('map').setView([60.170833, 24.9375], 13);
+      L.tileLayer('http://{s}.tile.cloudmade.com/{key}/{style}/256/{z}/{x}/{y}.png', {
+       attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
+       maxZoom: 18,
+       key: 'BC9A493B41014CAABB98F0471D759707',
+       style: 998
+       }).addTo(map);
+
+      var marker = L.marker(data.geometries[0].coordinates.reverse()).addTo(map);
+      marker.bindPopup(data.geometries[0].name).openPopup();
+    } else {
+      $('#map').hide();
+    }
+  }
+
   function setCurrentData(acase, currentItem) {   
     var merged = $.extend(acase, currentItem);
     $('#event-main').render(merged, itemDirectives);
     $('#event-detail').render(merged, detailDirectives);
+    renderMap(merged);
   }
 
   function highlightCurrentEvent(hashId) {
