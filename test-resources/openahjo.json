@@ -1,0 +1,569 @@
+{
+meta: {
+limit: 10,
+next: "/openahjo/v1/agenda_item/?format=json&limit=10&offset=20",
+offset: 10,
+previous: "/openahjo/v1/agenda_item/?format=json&limit=10&offset=0",
+total_count: 815
+},
+objects: [
+{
+attachments: [
+{
+agenda_item: "/openahjo/v1/agenda_item/380/",
+file_type: null,
+file_uri: null,
+hash: null,
+id: 986,
+name: null,
+number: 1,
+public: false,
+resource_uri: "/openahjo/v1/attachment/986/"
+}
+],
+content: [
+{
+text: "<p>Lautakunta pÃ¤Ã¤tti antaa kaupunginhallitukselle kaupunginvaltuutettu Kauko Koskisen ja 18 muun kaupunginvaltuutetun aloitteesta seuraavan lausunnon:</p> <h3>MaankÃ¤ytÃ¶n tavoitteista ja sÃ¤Ã¤nnelty vuokra-asuntotuotanto</h3> <p>Kaupunginvaltuusto pÃ¤Ã¤tti syyskuussa 2012 hyvÃ¤ksyÃ¤ asumisen ja siihen liittyvÃ¤n maankÃ¤ytÃ¶n toteutusohjelman 2012 (AM-ohjelma). Toteutusohjelmassa linjataan Helsingin kaupungin asunto- ja maapoliittiset periaatteet. Toteutusohjelman mukaan asuntotuotannon mÃ¤Ã¤rÃ¤llisenÃ¤ tavoitteena on 5?000 asunnon vuotuinen asuntotuotanto, josta 3 600 asuntoa toteutetaan kaupungin luovuttamille tonteille. Asuntotuotannon rahoitus- ja hallintamuotojakauma mÃ¤Ã¤rÃ¤ytyy ohjelman mukaan siten, ettÃ¤ 20 % asuntotuotannosta toteutetaan valtion tukemana vuokra-asuntotuotantona (1 000 asuntoa, joista 250 erityisryhmille), 40 % ns. vÃ¤limuodon asuntotuotantona (Hitas-, osaomistus-, asumisoikeus-, opiskelija- ja nuorisoasunnot 2 000 asuntoa, joista 300 opiskelija- ja nuorisoasuntoja) ja 40 % vapaa-rahoitteisena sÃ¤Ã¤ntelemÃ¤ttÃ¶mÃ¤nÃ¤ omistus- ja vuokra-asuntotuotantona (2 000 asuntoa, joista 700 vuokra-asuntoja).</p> <p>TÃ¤llÃ¤ hetkellÃ¤ kaupungilla on varattuna tontteja kokonaisuudessaan lÃ¤hes 14 000 asunnon tuotantoa varten eli noin 1, 23 milj. k-mÂ². AsuntomÃ¤Ã¤rien mukaan laskettuna koko varauskannasta noin 22 % on varattu valtion tukemaan vuokra-asuntotuotantoon (ARA) eli noin 3 000 asunnon tuotantoa vastaava mÃ¤Ã¤rÃ¤. Helsingin asuntotuotantotoimistolle (Att) on varattu noin 5 700 asunnon tuotantoa vastaava mÃ¤Ã¤rÃ¤. Valtion tukemaan sÃ¤Ã¤nneltyyn vuokra-asuntotuotantoon on nÃ¤istÃ¤ tontinvarausehdoissa osoitettu 42 % (noin 2 400 asuntoa). Rahoitus- ja hallintamuodon mukaan tarkasteltuna sÃ¤Ã¤nneltyyn vuokra-asuntotuotantoon varatuista tonteista noin 77 % on varattu asuntotuotantotoimistolle. KÃ¤ytÃ¤nnÃ¶ssÃ¤ asuntotuotantotoimisto rakennuttaa siis valtaosan sÃ¤Ã¤nneltyyn vuokra-asuntotuotantoon osoitetusta tuotannosta HelsingissÃ¤. Vuonna 2012 HelsingissÃ¤ valmistui kokonaisuudessaan 842 valtion tukemaa vuokra-asuntoa.</p> <h3>Rakentamisen kustannuskÃ¤sitteistÃ¤ ja -muodostumisesta yleisesti</h3> <p>Rakennuksesta aiheutuvat kustannukset voidaan karkeasti jakaa investointi- ja yllÃ¤pitokustannuksiin. SÃ¤Ã¤nnellyn vuokra-asuntotuotannon yhteydessÃ¤ voidaan investointikustannuskÃ¤sitettÃ¤ laajentaa termiin hankinta-arvo, jota Asumisen rahoitus- ja kehittÃ¤miskeskus (ARA) kÃ¤yttÃ¤Ã¤ tarkasteltaessa hankkeiden taloudellisuutta. Rakennuksen hankinta-arvo termi sisÃ¤ltÃ¤Ã¤ kaikki hankkeen toteutumisesta aiheutuneet kustannukset (rakentamisesta vÃ¤littÃ¶mÃ¤t investointikustannukset eli rakennuskustannukset yleisimmin), erilaiset liittymismaksut (kunnallistekniikka) sekÃ¤ tontista (maa-alueesta, osto/vuokra) aiheutuvat kustannukset. LisÃ¤ksi hankinta-arvo voi sisÃ¤ltÃ¤Ã¤ mahdollisia harkinnanvaraisia lainoituksen ulkopuolelle jÃ¤Ã¤viÃ¤ kustannuseriÃ¤. Hankinta-arvo voi sisÃ¤ltÃ¤Ã¤ myÃ¶s hankkeen rahoitus- ja markkinointikuluja, jotka siten hankinta-arvossa lasketaan rakennuskustannuksiin kuuluviksi. Hankinta-arvo on tavallaan osin laajasisÃ¤ltÃ¶isempi kuin kÃ¤site rakennuskustannukset. Hankinta-arvo ei kuitenkaan sisÃ¤llÃ¤ tiloissa tapahtuvan toiminnan vaatimia investointeja.</p> <p>Yleisesti tarkasteltaessa rakennuskustannus (rakentamisesta aiheutuva investointikustannus) muodostuu keskeisesti asuntotuotannossa tarvittavien tilojen mÃ¤Ã¤rÃ¤stÃ¤ ja laadusta (tilaohjelma), lainsÃ¤Ã¤dÃ¤nnÃ¶n kautta tulevista itse rakennukseen ja elinympÃ¤ristÃ¶Ã¶n kohdistuvista vaatimuksista (turvallisuus, terveellisyys, viihtyisyys), suunnitteluratkaisuista (yksittÃ¤iset fyysiset ratkaisut, massoittelut), olosuhdetekijÃ¶istÃ¤ (sijaintiin liittyvÃ¤t ominaisuudet, perustamisolosuhteet, maaperÃ¤ jne.) ja tonttikohtaisista sekÃ¤ kaavallisista ominaisuuksista (rakennusoikeus, hankekoko, erityiset mÃ¤Ã¤rÃ¤ykset). LisÃ¤ksi rakennuskustannuksiin vaikuttavat oleellisesti myÃ¶s talouden suhdanteet (markkinatilanne, kilpailu) ja hankkeen toteuttamismuodot ja -aikataulut sekÃ¤ pÃ¤Ã¤tÃ¶ksenteon oikea-aikaisuus.</p> <h3>Hankekohtaisten vaatimusten yhteys rakennuskustannuksiin</h3> <p>Helsingin uudet asuinalueet rakennetaan asukasrakenteeltaan tasapainoisiksi kokonaisuuksiksi, joiden kaupunkikuva on korkeatasoinen riippumatta alueelle rakennettavien talojen rahoitus- ja hallintamuodoista. TÃ¤mÃ¤ tarkoittaa sitÃ¤, ettÃ¤ tuotteena sÃ¤Ã¤nnellyn vuokratuotannon pitÃ¤isi sisÃ¤ltÃ¤Ã¤ samoja kaupunkikuvallisia, toiminnallisia ja ympÃ¤ristÃ¶llisiÃ¤ laatuarvoja kuin vapaarahoitteinenkin tuotanto. Vastaavasti edellÃ¤ kuvattujen kaupunkiympÃ¤ristÃ¶llisten arvojen lisÃ¤ksi myÃ¶s lainsÃ¤Ã¤dÃ¤nnÃ¶stÃ¤ tulevat vaatimukset ovat samoja niin sÃ¤Ã¤nnellylle kuin sÃ¤Ã¤ntelemÃ¤ttÃ¶mÃ¤llekin tuotannolle. Muuttuviksi tekijÃ¶iksi tÃ¤stÃ¤ nÃ¤kÃ¶kulmasta jÃ¤Ã¤ olosuhdetekijÃ¤t, suunnitteluratkaisut ja suhdanteet.</p> <h3>OlosuhdetekijÃ¤t</h3> <p>OlosuhdetekijÃ¤t ovat rakennuskustannusten kannalta merkityksellisiÃ¤ ja aiheuttavat esimerkiksi pohjarakentamisen kautta hankkeelle merkittÃ¤vÃ¤sti kustannuksia. HelsingissÃ¤ on nykyisin hyvin tavanomaista, ettÃ¤ pohjaolosuhteet ovat vaativia ja aiheuttavat massiivisia esirakentamistoimia ja esimerkiksi alueellisia stabilointeja. MyÃ¶s suojautuminen liikennemelulta ja pienhiukkasilta aiheuttaa kustannuksia.</p> <p>OlosuhdetekijÃ¤t kohdistuvat periaatteessa suoraan hankkeeseen ja sen yhteydessÃ¤ tehtÃ¤viin pÃ¤Ã¤tÃ¶ksiin sekÃ¤ realisoituvat suunnittelussa ja toteutuksessa. PelkÃ¤stÃ¤Ã¤n vaativat perustamisolosuhteet voivat aiheuttaa rakennuskustannuksissa 10 - 20 % kokonaiskustannuksia nostavan vaikutuksen.</p> <h3>Suunnitteluratkaisu, laadulliset tekijÃ¤t</h3> <p>Kaupunkikuvalliset ja ympÃ¤ristÃ¶lliset laatuarvot sekÃ¤ lainsÃ¤Ã¤dÃ¤nnÃ¶stÃ¤ tulevat vaatimukset heijastuvat kaavaratkaisun kautta myÃ¶s rakennussuunnittelussa tehtÃ¤viin valintoihin. Rakennussuunnittelussa voidaan tontille sijoitettava rakennus suunnitella ja toteuttaa monin eri tavoin. Suunnitteluvaihtoehtojen vÃ¤liset vaikutukset voivat keskenÃ¤Ã¤n olla suuriakin rakennuskustannusten nÃ¤kÃ¶kulmasta. Vastaavasti myÃ¶s kaavan suunnitteluratkaisu voi sitoa rakennuskustannuksia pelkÃ¤stÃ¤Ã¤n laadullisten tavoitteiden kautta huomattavasti, kuten esimerkiksi autopaikkojen sijoittelu tontilla rakennusrungon sisÃ¤lle tai pihakannen alle. HelsingissÃ¤ erityisesti autopaikkojen jÃ¤rjestÃ¤minen on haasteellista ja tÃ¤mÃ¤ nostaa rakennuskustannuksia huomattavasti verrattuna muihin kaupunkeihin, joissa pysÃ¤kÃ¶intipolitiikka on mahdollisesti ratkaistu toisin. Toisaalta kohtuuhintaisessa vuokra-asuntotuotannossa on autopaikoituksen jÃ¤rjestÃ¤misessÃ¤ toisinaan annettu kaavassa mÃ¤Ã¤ritetyssÃ¤ autopaikkanormissa helpotusta.</p> <p>Laadullisia vaatimuksia voivat myÃ¶s olla kaavamÃ¤Ã¤rÃ¤ykset esimerkiksi velvoite yhteis- ja kerhotilojen mÃ¤Ã¤rÃ¤stÃ¤, vajaasti rakennettavista kattokerroksista tai vaikkapa huoneistosaunoista. Eli osaltaan kaavassa mÃ¤Ã¤ritellyillÃ¤ laadullisilla asioilla on myÃ¶s rakennussuunnitteluun siirtyvÃ¤ vaikutus. Yksityiskohtaisilla kaavamÃ¤Ã¤rÃ¤yksillÃ¤ ei itsessÃ¤Ã¤n yksittÃ¤isenÃ¤ mÃ¤Ã¤rÃ¤yksenÃ¤ ole rakennuskustannusten kannalta ylikorostuvan suurta merkitystÃ¤, vaan niiden merkitys ilmenee kokonaisuudessaan erityisesti rakennussuunnittelun vapausasteiden sekÃ¤ eri taloudellisten suunnitteluratkaisujen mahdollisuuksien lÃ¶ytÃ¤misen rajoittumisena tÃ¤ltÃ¤ osin. TÃ¤llÃ¤ on yhteys toteuttamiskelpoisuuteen ja rakennuskustannuksiin tÃ¤tÃ¤ kautta.</p> <p>LainsÃ¤Ã¤dÃ¤nnÃ¶llisistÃ¤ suunnitteluratkaisuun vaikuttavista vaatimuksista voidaan mainita muun muassa esteettÃ¶myys, velvoite vÃ¤estÃ¶nsuojan rakentamisesta sekÃ¤ erilaiset energiansÃ¤Ã¤stÃ¶Ã¶n liittyvÃ¤t mÃ¤Ã¤rÃ¤ykset, joiden rakennuskustannuksia korottava vaikutus on ilmeinen. Toisin sanoen nykymÃ¤Ã¤rÃ¤ysten mukainen tuote on aivan eri kuin esimerkiksi vielÃ¤ kymmenen vuotta sitten. NÃ¤mÃ¤ asiat peilautuvat rakennusten tehokkuuden vajaantumiseen sekÃ¤ suunnittelun ja toteutuksen monimutkaistumiseen, joilla on lopulta suora yhteys rakennuskustannuksiin. HelsingissÃ¤ esimerkiksi vuonna 2012 luovutettujen tonttien varausehdoissa on noudatettu rakentamismÃ¤Ã¤rÃ¤yskokoelmaa tiukempia energiatavoitteita (A-energialuokka) sekÃ¤ esteettÃ¶myystavoitteita.</p> <h3>Suhdanteet, markkinatilanne, kilpailu</h3> <p>Talouden, markkinoiden ja suhdanteiden nÃ¤kÃ¶kulma on merkityksellinen rakennuskustannuksissa, hankinta-arvossa. Yleisesti voidaan todeta, ettÃ¤ pelkÃ¤stÃ¤Ã¤n suhdanteiden vaihtelu voi johtaa siihen, ettÃ¤ sinÃ¤llÃ¤Ã¤n toteuttamiskelpoista hanketta ei urakkatarjousten niukkuuden tai urakkatarjoushintojen korkean tason vuoksi ole jÃ¤rkevÃ¤Ã¤ viedÃ¤ eteenpÃ¤in. MyÃ¶s toimijoiden vÃ¤hyys sekÃ¤ preferenssit osallistua sÃ¤Ã¤nnellyn vuokra-asuntotuotannon urakkatarjouskilpailuihin johtanevat osaltaan myÃ¶s korkeisiin kustannuksiin. Teknisesti vaikeissa kohteissa on varmasti myÃ¶s edellÃ¤ kuvattujen olosuhdetekijÃ¶iden ja vaikean suunnitteluratkaisun osalta kyse kohdekohtaisesti riskinkantokyvystÃ¤ ja tÃ¤mÃ¤ johtaa luontaisesti korkeampiin urakkatarjoushintoihin ja siten korkeampiin rakennuskustannuksiin.</p> <h3>JohtopÃ¤Ã¤tÃ¶ksiÃ¤</h3> <p>Rakennuskustannusten muodostuminen on siis hyvin monen tekijÃ¤n kumuloituva yhteissumma. Osaa tekijÃ¶istÃ¤ voidaan hallita helpommin ja osaa vaikeammin. YksittÃ¤isesti nostettuina tekijÃ¶inÃ¤ on HelsingissÃ¤ tavanomaisilla vaikeilla perustamisolosuhteilla (yl. olosuhdetekijÃ¤t) ja pysÃ¤kÃ¶innin jÃ¤rjestÃ¤misellÃ¤ (yl. suunnitteluratkaisu) suurin merkitys Helsingin korkeampiin rakennuskustannuksiin. LisÃ¤ksi merkityksellisiÃ¤ ovat markkinoiden toimivuus, suhdanteet, tekniset haasteet ja tÃ¤tÃ¤ kautta muodostuva urakkatarjoushintataso. On siis ilmeistÃ¤, ettÃ¤ jos samaan kaavaratkaisuun kohdistuu hyvin tiukat kaavamÃ¤Ã¤rÃ¤ykset (suunnitteluratkaisu, laadulliset tekijÃ¤t), vÃ¤hÃ¤inen rakennusoikeus, huonot perustamisolosuhteet (olosuhdetekijÃ¤t) ja ajankohdallisesti sekÃ¤ tuotannollisesti vÃ¤Ã¤rÃ¤t ratkaisut (urakkatarjousten vÃ¤hÃ¤isyys ja hintataso), on lopputuloksena todennÃ¤kÃ¶isesti huomattavasti kalliimpi ratkaisu rakennuskustannusten nÃ¤kÃ¶kulmasta kuin muissa kaupungeissa tavanomaisena pidetty rakentamisen kustannustaso.</p> <p>PyrittÃ¤essÃ¤ kohtuuhintaiseen asuntotuotantoon tulee kaavoituksessa pyrkiÃ¤ minimoimaan olosuhdetekijÃ¶iden rakennuskustannuksiin tulevat vaikutukset. Kaavoituksessa tulisi jo lÃ¤htÃ¶kohtaisesti esimerkiksi maaperÃ¤olosuhteiden osalta pyrkiÃ¤ sijoittamaan ja massoittelemaan rakennukset sekÃ¤ mitoittamaan rakennusoikeus oikein siten, ettÃ¤ hankekohtaiset perustamiskustannukset (olosuhdetekijÃ¤t) olisivat mahdollisimman vÃ¤hÃ¤iset ja hankkeissa olisi mahdollista saavuttaa kokonaistaloudellisuus. Vastaavasti myÃ¶s pysÃ¤kÃ¶intijÃ¤rjestelyjen ratkaisua tulisi erityisen tarkkaan suunnitella. Muun muassa Ruoholahden, Herttoniemenrannan ja Arabianrannan kaavaratkaisuissa tehokkaasta rakentamisesta huolimatta on autopaikoitus sijoitettu osittain maantasoon ja mahdollistettu nÃ¤in myÃ¶s kohtuuhintaisen asuntotuotannon toteuttaminen. Samoin Kruunuvuoren Haakoninlahti 1 kaava-alueella on nÃ¤istÃ¤ nÃ¤kÃ¶kulmista tarkastellen hyvin osoitettu soveltuvimmat tontit valtion tukemaan sÃ¤Ã¤nneltyyn vuokra-asuntotuotantoon ja onnistuttu siten vÃ¤hentÃ¤mÃ¤Ã¤n rakennuskustannuksia nostavia tekijÃ¶itÃ¤.</p> <p>KiinteistÃ¶toimi on myÃ¶s pyrkinyt tontinluovutuksen keinoin lisÃ¤Ã¤mÃ¤Ã¤n uusien rakennusalan toimijoiden etabloitumista Helsinkiin sekÃ¤ pyrkinyt nÃ¤in edistÃ¤mÃ¤Ã¤n rakennusalan kilpailua. LisÃ¤ksi on pyritty erilaisin kannustimin lisÃ¤Ã¤mÃ¤Ã¤n asuntotuotantotoimistolle kohdistuvan sÃ¤Ã¤nnellyn tuotannon urakkatarjoushalukkuutta ja yleistÃ¤ kiinnostuvuutta.</p> <p>Rakentamisen kustannuksia ja rakennusalan markkinoita on tutkittu monessa eri yhteydessÃ¤, esimerkiksi kilpailuviraston selvityksiÃ¤ 1/2008 â€rakennusalan markkinoiden toimivuus-ongelma-alueita ja edistÃ¤misen mahdollisuuksiaâ€. Viime vuosien aikana on myÃ¶s kaavoituksen yhteydessÃ¤ kehitetty kustannusarvioinnin menetelmiÃ¤ sekÃ¤ lisÃ¤tty kustannustietoisuuden kulkua eri hallintokuntien vÃ¤lillÃ¤ suunnittelusta toteutusvaiheeseen. Kustannustietouden parantamiseen tulee edelleen panostaa. Kumppanuuskaavoituksella on tavoiteltu myÃ¶s kustannustietouden lisÃ¤Ã¤mistÃ¤ kaavoitusvaiheessa.</p> <p>Kaupungin omassa asuntotuotannossa tulee varmistaa, ettÃ¤ urakoiden kilpailutuskÃ¤ytÃ¤nnÃ¶t ovat kokonaistaloudellisesti edullisia. Vaihtoehtoisia tapoja kilpailuttaa, kuten mm. KVR-urakointi, tulee tutkia.</p> <p>Rakentamisen kustannuksia tulisi jatkossa tarkastella myÃ¶s suhteessa koettuun asumisen ja elinympÃ¤ristÃ¶n laatuun eli, tuovatko asetetut laadulliset tavoitteet ja tÃ¤tÃ¤ kautta korkeammat rakennuskustannukset rakennuksen loppukÃ¤yttÃ¤jÃ¤lle huomattavaa arvoa elinympÃ¤ristÃ¶n tai asumisen laadun kohoamisena. Oikeaa rakennuskustannusta ei sinÃ¤llÃ¤Ã¤n ole, vaan kyse on tavallaan tavoitteiden tÃ¤yttÃ¤misestÃ¤ suhteessa panoksiin eli kokonaistaloudellisuudesta. TÃ¤ssÃ¤ yhteydessÃ¤ olisi hyvÃ¤ tutkia rakentamisen normituksen tiukkuutta ja tarpeellisuutta sekÃ¤ saavutettavia hyÃ¶tyjÃ¤.</p>",
+type: "resolution"
+},
+{
+text: "<p>Esko Patrikainen: Muutan esitystÃ¤ni seuraavasti:</p> <p>Lausuntoehdotukseen lisÃ¤tÃ¤Ã¤n uusi 16. kappale.</p> <p>Lausuntoehdotuksen viimeisen kappaleen viimeinen virke poistetaan ja toiseksi viimeinen virke muutetaan kuulumaan seuraavasti: TÃ¤ssÃ¤ yhteydessÃ¤ olisi hyvÃ¤ tutkia rakentamisen normituksen tiukkuutta ja tarpeellisuutta sekÃ¤ saavutettavia hyÃ¶tyjÃ¤.</p>",
+type: "hearing"
+}
+],
+from_minutes: true,
+id: 380,
+index: 132,
+issue: {
+category: "/openahjo/v1/category/6/",
+category_name: "Valtuuston aloitetoiminta",
+category_origin_id: "00 00 03",
+geometries: [ ],
+id: 11,
+register_id: "HEL 2012-013814",
+resource_uri: "/openahjo/v1/issue/11/",
+slug: "hel-2012-013814",
+subject: "KiinteistÃ¶lautakunnan lausunto kaupunginhallitukselle kaupunginvaltuutettu Kauko Koskisen valtuustoaloitteesta koskien kaupungin asuntorakentamisen kustannuksia HelsingissÃ¤",
+summary: "Valtuutettu Kauko Koskinen ja 18 muuta valtuutettua esittÃ¤vÃ¤t aloitteessaan, ettÃ¤ selvitettÃ¤isiin, miksi aravuokra-asuntojen rakennuskustannukset ovat HelsingissÃ¤ muuta maata korkeammat."
+},
+last_modified_time: "2013-03-29T11:02:00",
+meeting: {
+committee: "/openahjo/v1/committee/28/",
+committee_name: "KiinteistÃ¶lautakunta",
+date: "2013-03-21",
+id: 28,
+minutes: true,
+number: 6,
+resource_uri: "/openahjo/v1/meeting/28/",
+year: 2013
+},
+resource_uri: "/openahjo/v1/agenda_item/380/"
+},
+{
+attachments: [
+{
+agenda_item: "/openahjo/v1/agenda_item/210/",
+file_type: "pdf",
+file_uri: "http://dev.hel.fi/openahjo/media/att/93272d6df66d4560a31bcb5d7e063e12b2a78d63.pdf",
+hash: "93272d6df66d4560a31bcb5d7e063e12b2a78d63",
+id: 405,
+name: "Valtuutettu Kauko Koskisen aloite",
+number: 1,
+public: true,
+resource_uri: "/openahjo/v1/attachment/405/"
+},
+{
+agenda_item: "/openahjo/v1/agenda_item/210/",
+file_type: "pdf",
+file_uri: "http://dev.hel.fi/openahjo/media/att/8a12644508d7ea22992b1d6fdac06dc1bb67f845.pdf",
+hash: "8a12644508d7ea22992b1d6fdac06dc1bb67f845",
+id: 406,
+name: "Rakennuslautakunnan lausunto 22.1.2013",
+number: 2,
+public: true,
+resource_uri: "/openahjo/v1/attachment/406/"
+}
+],
+content: [
+{
+text: "<p>Kaupunginhallitus pÃ¤Ã¤ttÃ¤nee esittÃ¤Ã¤ kaupunginvaltuustolle, ettÃ¤ kaupunginvaltuusto pÃ¤Ã¤ttÃ¤isi seuraavaa:</p> <p>Kaupunginvaltuusto pÃ¤Ã¤ttÃ¤nee katsoa valtuutettu Kauko Koskisen aloitteen loppuun kÃ¤sitellyksi.</p>",
+type: "draft resolution"
+},
+{
+text: "<p>Valtuutettu Kauko Koskinen ja 18 muuta valtuutettua esittÃ¤vÃ¤t aloitteessaan, ettÃ¤ selvitettÃ¤isiin, miksi aravuokra-asuntojen rakennuskustannukset ovat HelsingissÃ¤ muuta maata korkeammat.</p> <p>Kaupunginhallitus viittaa saatuihin lausuntoihin ja toteaa, ettÃ¤ rakennuskustannusten muodostuminen on hyvin monen tekijÃ¤n kumuloituva yhteissumma. Osaa tekijÃ¶istÃ¤ voidaan hallita helpommin ja osaa vaikeammin. HelsingissÃ¤ eri hallintokuntien yhteistyÃ¶nÃ¤ tutkittiin vuosien 2011â€“12 aikana asuntotuotantokaavojen toteuttamiskelpoisuutta. Painopisteeksi tyÃ¶ssÃ¤ muodostui muun muassa kustannustarkastelu. Selvityksen perusteella oli todettavissa, ettÃ¤ Helsingille tyypillisiÃ¤ merkittÃ¤vimpiÃ¤ yksittÃ¤isiÃ¤ rakentamiskustannuksiin vaikuttavia tekijÃ¶itÃ¤ ovat vaikeat perustamisolosuhteet ja pysÃ¤kÃ¶innin jÃ¤rjestÃ¤minen.</p> <p>LisÃ¤ksi merkityksellisiÃ¤ ovat markkinoiden toimivuus, suhdanteet, tekniset haasteet ja tÃ¤tÃ¤ kautta muodostuva urakkatarjoushintataso. On ilmeistÃ¤, ettÃ¤ jos samaan kaavaratkaisuun kohdistuu hyvin tiukat kaavamÃ¤Ã¤rÃ¤ykset (suunnitteluratkaisu, laadulliset tekijÃ¤t), vÃ¤hÃ¤inen rakennusoikeus, huonot perustamisolosuhteet (olosuhdetekijÃ¤t) ja ajankohdallisesti sekÃ¤ tuotannollisesti vÃ¤Ã¤rÃ¤t ratkaisut (urakkatarjousten vÃ¤hÃ¤isyys ja hintataso), on lopputuloksena todennÃ¤kÃ¶isesti huomattavasti kalliimpi ratkaisu rakennuskustannusten nÃ¤kÃ¶kulmasta kuin muissa kaupungeissa tavanomaisena pidetty rakentamisen kustannustaso.</p> <p>Helsingin kaupungin tietokeskuksen tilasto Asuntojen vuokrat HelsingissÃ¤ vuonna 2012 osoittaa, ettÃ¤ vuonna 2012 vapaarahoitteisten vuokra-asuntojen keskivuokra oli 16,04 â‚¬/m2/kk, vapaarahoitteisten asuntojen uusien vuokrasuhteiden keskivuokra 18,35 â‚¬/m2/kk ja ara-asuntojen keskivuokra 11,13 â‚¬/m2/kk. Rakennuskustannuksiin vaikuttavien tekijÃ¶iden lisÃ¤ksi on siis syytÃ¤ tarkastella myÃ¶s aravuokra-asuntojen hintatasoa, jota voidaan Helsingin rakennuskustannukset huomioiden pitÃ¤Ã¤ verrattain kohtuuhintaisena. Maaliskuussa julkistetulla valtion asuntopoliittisella uudistuksella, jolla tavoitellaan erityisesti kohtuuhintaisen valtion tukeman vuokra-asuntotuotannon rakennuttamisen edellytysten parantamista kasvukeskuksissa, ennakoidaan osaltaan olevan positiivisia vaikutuksia HelsingissÃ¤ ainakin Hekan ara-asuntokannassa.</p> <p>Kaupunginhallitus toteaa, ettÃ¤ asumisen ja siihen liittyvÃ¤n toteutusohjelman 2012 tÃ¤ytÃ¤ntÃ¶Ã¶npanon osalta on parhaillaan vireillÃ¤ kaksi eri selvitystÃ¤, joiden tarkoituksena on tuottaa tietoa siitÃ¤, miten asumiskustannuksia olisi mahdollista alentaa HelsingissÃ¤ kaupungin omin keinoin. Kaupunginhallitus pÃ¤Ã¤tti 29.10.2012 kehottaa talous- ja suunnittelukeskusta vastaamaan erillisselvityksen teettÃ¤misestÃ¤ Helsingin rakennusmarkkinoiden toimivuudesta. Selvitys pyritÃ¤Ã¤n saattamaan valmiiksi vuoden 2013 aikana. LisÃ¤ksi kaupunginjohtajan 14.11.2012 asettama asuntotuotantoprosessin sujuvoittamistyÃ¶ryhmÃ¤ on laatimassa vuoden 2013 loppuun mennessÃ¤ ehdotuksen asuntotuotannon edellytysten parantamisesta HelsingissÃ¤ kohtuuhintaisen ja laadukkaan asuntotuotannon nÃ¤kÃ¶kulmasta. TyÃ¶ryhmÃ¤n tarkoituksena on lÃ¶ytÃ¤Ã¤ asuntotuotantoprosessia nopeuttavia ja tehostavia sekÃ¤ kustannuksia alentavia toimenpiteitÃ¤.</p> <p>Kaupunginhallitus katsoo, ettei uuden selvityksen tekeminen aravuokra-asuntojen rakentamiskustannuksista ole nÃ¤in ollen nyt tarpeen.</p>",
+type: "presenter"
+}
+],
+from_minutes: false,
+id: 210,
+index: 27,
+issue: {
+category: "/openahjo/v1/category/6/",
+category_name: "Valtuuston aloitetoiminta",
+category_origin_id: "00 00 03",
+geometries: [ ],
+id: 11,
+register_id: "HEL 2012-013814",
+resource_uri: "/openahjo/v1/issue/11/",
+slug: "hel-2012-013814",
+subject: "KiinteistÃ¶lautakunnan lausunto kaupunginhallitukselle kaupunginvaltuutettu Kauko Koskisen valtuustoaloitteesta koskien kaupungin asuntorakentamisen kustannuksia HelsingissÃ¤",
+summary: "Valtuutettu Kauko Koskinen ja 18 muuta valtuutettua esittÃ¤vÃ¤t aloitteessaan, ettÃ¤ selvitettÃ¤isiin, miksi aravuokra-asuntojen rakennuskustannukset ovat HelsingissÃ¤ muuta maata korkeammat."
+},
+last_modified_time: "2013-04-30T11:02:00",
+meeting: {
+committee: "/openahjo/v1/committee/2/",
+committee_name: "Kaupunginhallitus",
+date: "2013-04-29",
+id: 15,
+minutes: false,
+number: 17,
+resource_uri: "/openahjo/v1/meeting/15/",
+year: 2013
+},
+resource_uri: "/openahjo/v1/agenda_item/210/"
+},
+{
+attachments: [
+{
+agenda_item: "/openahjo/v1/agenda_item/11/",
+file_type: null,
+file_uri: null,
+hash: null,
+id: 14,
+name: null,
+number: 1,
+public: false,
+resource_uri: "/openahjo/v1/attachment/14/"
+}
+],
+content: [
+{
+text: "<p>Asuntotuotantotoimikunta pÃ¤Ã¤tti antaa kaupunginhallitukselle seuraavan lausunnon:</p> <h3>Lausunto</h3> <p>Asuntototuotantotoimikunta pitÃ¤Ã¤ tÃ¤rkeÃ¤nÃ¤ toimenpiteitÃ¤, joilla luodaan edellytyksiÃ¤ kohtuuhintaisen asuntotuotannon toteuttamiseksi HelsingissÃ¤. KesÃ¤llÃ¤ 2012 allekirjoitetun Helsingin seudun ja valtion vÃ¤lisen maankÃ¤ytÃ¶n, asumisen ja liikenteen (MAL) aiesopimuksen yhtenÃ¤ tavoitteena on kohtuuhintainen asuntotuotanto. Kuten valtuustoaloitteessa todetaan, rakennuskustannukset ovat HelsingissÃ¤ korkeammat kuin muualla Suomessa. Kustannusten eron voi todeta myÃ¶s Valtion asumisen rahoitus- ja kehittÃ¤miskeskuksen (ARA) raporteista. Luotettavaa ja vertailukelpoista selvitystÃ¤ eri puolelle Suomea rakennettujen asuntojen rakennuskustannusten eroavuuksien syistÃ¤ ja yksittÃ¤isten seikkojen kustannusvaikutuksista ei tiettÃ¤vÃ¤sti ole tehty, vaikkakin monia kustannuksia nostavia syitÃ¤ on yleisesti tiedossa.</p> <p>Tilastokeskuksen julkaisema rakennuskustannusindeksi kuvaa rakentamisen tuotantopanosten, tarvikkeiden, palkkojen ja muiden panosten hintojen kehitystÃ¤ suhteessa indeksille mÃ¤Ã¤ritellyn perusvuoden hintatasoon nÃ¤hden. Rakennuskustannusten eroja eri puolella Suomea kuvaa laajaan tutkimus- ja kehitystyÃ¶hÃ¶n perustuva Haahtela-yhtymÃ¤n julkaisema Haahtela-hintaindeksi. Haahtela-indeksin avulla rakennuskustannusindeksin lukemat on pyritty muuttamaan reaalimaailmaan soveltuviksi, koska rakennuskustannusindeksi ei kuvaa kattavasti rakentamisen hinnan muodostumista eikÃ¤ etenkÃ¤Ã¤n sen muutoksia. Haahtela-indeksi on muuttuvapainoinen ja muuttuvahintainen rakentamisen hintaindeksi, joka kuvaa eri alueiden tarjoushintatason kehittymistÃ¤ eri puolilla Suomea. Suomi on jaettu kunnittain kuuteen eri indeksialueeseen alkaen pÃ¤Ã¤kaupunkiseudusta ja pÃ¤Ã¤ttyen halvan rakentamisen paikkakuntiin. IndeksiÃ¤ kÃ¤ytetÃ¤Ã¤n yleisesti uudis-, korjaus- ja nykyhintoja arvioitaessa ja myÃ¶s asuntotuotantotoimiston rakennushankkeiden kustannusohjaus perustuu tÃ¤hÃ¤n. TÃ¤llÃ¤ hetkellÃ¤ eri alueiden kalleusero on Haahtela-indeksillÃ¤ mitaten 12 prosenttia.</p> <h3>Kustannuksiin vaikuttaa markkinatilanne</h3> <p>Rakennuskustannukset muodostuvat urakkakustannuksista, suunnittelukustannuksista, rakennuttajan kustannuksista ja rahoituskustannuksista. Tontin hinta ei sisÃ¤lly rakennuskustannuksiin. Urakkakustannukset muodostuvat hankkeen rakentamiseen tarvittavien materiaalien hinnoista sekÃ¤ tyÃ¶n hinnoista ja tyÃ¶menekeistÃ¤. Materiaalien hinta ei ole yhtÃ¤ aluesidonnaista kuin tyÃ¶n hinta. Resurssien hintojen ero eri puolella Suomea muodostuukin lÃ¤hes kokonaan tyÃ¶n hinnan ja tyÃ¶menekin eroista. Halvan tyÃ¶voiman alueella saman tuotteen tekeminen on kallista aluetta halvempaa. Korkeasuhdanteessa alueelliset erot korostuvat ja matalasuhdanteessa kaventuvat.</p> <p>Rakennuskustannukset ovat riippuvaisia vallitsevasta kilpailutilanteesta, mikÃ¤ taas on riippuvainen rakentamisen mÃ¤Ã¤rÃ¤stÃ¤ ja talouden yleisestÃ¤ tilanteesta. PÃ¤Ã¤kaupunkiseudulla asuntorakentaminen ei heilahtele suhdanteiden mukaan aivan yhtÃ¤ voimakkaasti kuin muualla Suomessa, koska muuttoliikkeen ansiosta asunnoista on kova kysyntÃ¤. Korkeasuhdanteessa monet rakennusliikkeet rakentavat mieluummin omia vapaarahoitteisia myyntikohteitaan kuin osallistuvat ara-tuotannon urakkakilpailuihin. Rakentamisen kapasiteetin ylikuormittuminen johtaa katteiden nostamiseen ja tyÃ¶n hinta nousee. Kun tÃ¶itÃ¤ on vÃ¤hÃ¤n, kilpailu hillitsee urakoitsijoiden kateodotuksia.</p> <h3>Tuotteet ovat erilaisia</h3> <p>Puhuttaessa rakennushankkeiden kalleudesta tai edullisuudesta ja vertailtaessa eri puolille Suomea rakennettujen asuntojen hintoja, tulee ymmÃ¤rtÃ¤Ã¤ kustannusten lisÃ¤ksi myÃ¶s millainen rakennus on kyseessÃ¤.</p> <p>Helsinki on Suomen metropolialuetta ja sitÃ¤ halutaan kehittÃ¤Ã¤ kilpailukykyisenÃ¤ tieteen, taiteen ja hyvien palvelujen vetovoimaan perustuvana maailmanluokan liiketoiminta- ja innovaatiokeskuksena. Tavoite luo haastetta myÃ¶s asuntorakentamiselle. Turvallisuus, terveellisyys, toimivuus, viihtyisyys ja esteettisyys olivat ympÃ¤ristÃ¶ominaisuuksien ohella merkittÃ¤viÃ¤ laatumuutoksia VTT:n vuosien 1994-2005 vÃ¤lisen tuotannon laadun kehittymistÃ¤ selvittÃ¤neiden tutkimusten mukaan. Viranomaisvaatimusten ohella tutkimukset osoittivat, ettÃ¤ rakentajien vapaaehtoinen panostus laatuun oli ajanjaksolla todella merkittÃ¤vÃ¤Ã¤ (Vainio, Terttu et. al. Asuntotuotannon laatukustannukset 1994-2005, VTT 2006 ja Vainio, Terttu et al. Kohti yksikÃ¶llisempÃ¤Ã¤ â€“ Asuntotuotannon laatumuutokset 1990â€“2005, VTT 2008). Asuinrakennusten ulkonÃ¤Ã¶lle ja asuin- ja yhteistiloille asetettu vaatimustaso on HelsingissÃ¤ kasvanut muuta maata voimakkaammin. NÃ¤mÃ¤ vaatimukset kohdistuvat yhtÃ¤lÃ¤isinÃ¤ kaikelle asuntotuotannolle hallintamuodosta riippumatta.</p> <p>HelsingissÃ¤ on viime vuosina kaavoitettu laadukkaita, korkeatasoisia asemakaavoja, joissa edellytetÃ¤Ã¤n monimuotoisia rakennuksia. Saman kerrosalan voi monissa osin Suomea massoitella yksinkertaisemmin. HelsingissÃ¤ rakennusten julkisivuja on usein mÃ¤Ã¤rÃ¤tty toteutettavaksi paikalla muuraten ja toisinaan myÃ¶s rapaten. Muualla Suomessa elementtirakenteiset julkisivut ovat edelleen olleet paljon kÃ¤ytetty ratkaisu. Toisaalta HelsingissÃ¤ tavanomainen vÃ¤lipohjarakenne on elementtirakenteinen vÃ¤lipohja, kun taas mm. Tampereella paikallisten urakoitsijoiden yleisesti kÃ¤yttÃ¤mÃ¤ ratkaisu on paikalla valettu vÃ¤lipohja. Eri alueilla on siten erilaisille toteutusratkaisuille omat markkinat ja siten oma hinta.</p> <p>Monilla Helsingin uusilla kaava-alueilla tulee ylimpien kerrosten olla vajaita, parvekkeiden sisÃ¤Ã¤nvedettyjÃ¤ tai ripustettuja, porrashuoneiden lÃ¤pikuljettavia ja kattojen liikennÃ¶ityjÃ¤ terassikattoja. LisÃ¤vaatimuksia rakentamiselle on asetettu myÃ¶s alueellisissa rakentamistapaohjeissa. Kaikilla edellÃ¤ mainituilla kaupunkikuvaa ja asumisen viihtyisyyttÃ¤ parantavilla vaatimuksilla on kustannuksia nostava vaikutus.</p> <h3>Rakentamispaikasta ja maankÃ¤ytÃ¶n tehokkuudesta merkittÃ¤vÃ¤ kustannusvaikutus</h3> <p>Helsingin hyvÃ¤t asuinrakentamistontit on pÃ¤Ã¤sÃ¤Ã¤ntÃ¶isesti jo rakennettu. PÃ¤Ã¤kaupungissa onkin viime vuosina laadittu asemakaavoja ja rakennettu asuinrakennuksia pohjarakennusolosuhteiltaan aiempaa huomattavasti vaikeammille alueille, kuten savikkoalueille, entisille satama-alueille, teollisuuden jÃ¤ttÃ¶maille ja liikennealueille. TÃ¤mÃ¤ on edellyttÃ¤nyt rakennusten ja putkilinjojen paaluttamista pitkillÃ¤ paaluilla, usein on myÃ¶s jouduttu kÃ¤yttÃ¤mÃ¤Ã¤n erittÃ¤in kalliita terÃ¤sporapaaluja. Muualla Suomessa tontit ovat suurempia ja vÃ¤ljemmillÃ¤ tonteilla rakennuksen toiminnot voidaan usein sijoittaa siten, ettÃ¤ pohjanvahvistus jÃ¤Ã¤ mahdollisimman vÃ¤hÃ¤iseksi, eikÃ¤ esimerkiksi kellaria rakenneta. Pohja- ja tulvaveteen liittyvÃ¤t lisÃ¤haasteet ovat myÃ¶s olleet HelsingissÃ¤ tyypillisiÃ¤ kustannuksia nostavia asioita. TÃ¤yttÃ¶mailla maaperÃ¤ on usein saastunutta, jolloin pilaantuneen maan poiskuljetus ja kaatopaikkamaksut nostavat kustannuksia. Liikennealueiden lÃ¤heisyydessÃ¤ melulta suojautuminen edellyttÃ¤Ã¤ raskaampaa ja tiiviimpÃ¤Ã¤ vaipparakennetta ja ikkunoita sekÃ¤ parvekkeiden lasitusta.</p> <p>Helsingin uusilla aluerakentamisalueilla aluetehokkuudelle asetetut tavoitteet estÃ¤vÃ¤t maantasopysÃ¤kÃ¶innin ja yleisin pysÃ¤kÃ¶intiratkaisu on kustannuksiltaan korkea korttelikohtainen pihakansien alle sijoitettu pysÃ¤kÃ¶intilaitos. Muualla Suomessa yleisin pysÃ¤kÃ¶intiratkaisu, maantasopysÃ¤kÃ¶inti, tarkoittaisi pienempÃ¤Ã¤ kerrosalaa ja tehottomuutta maankÃ¤ytÃ¶n kokonaistaloudellisuudessa. PysÃ¤kÃ¶intiratkaisun kustannusvaikutus onkin yksi suurimpia kustannuksia asuinrakentamisessa. Pihakansi tai rakennusten kellareihin sijoitetut autopaikat nostavat asuntojen kustannuksia merkittÃ¤vÃ¤sti etenkin Helsingin huonon maaperÃ¤n tonteilla.</p> <h3>Asuntotuotantotoimisto rakentaa kestÃ¤vÃ¤Ã¤ laatua kaikille</h3> <p>Helsingin asuntorakentamisen yhtenÃ¤ tavoitteena on segregaation ehkÃ¤isy. Asuinrakentamisessa tÃ¤mÃ¤ tarkoittaa, ettÃ¤ hallintomuodoiltaan erilaiset asuinrakennukset eivÃ¤t katukuvassa erotu toisistaan. Vuokratalon tulee olla yhtÃ¤ korkealuokkainen kuin naapurissa sijaitseva omistusasuntorakennus.</p> <p>Asuntotuotantotoimisto on panostanut tietoisesti asuntojen laatuun mm. kÃ¤yttÃ¤mÃ¤llÃ¤ Suomen parhaita asuntosuunnittelijoita ja asettamalla tavoitteeksi laadukkaat ja aikaa kestÃ¤vÃ¤t suunnitteluratkaisut myÃ¶s vuokra- ja asumisoikeusasuntotuotannossa. Investointikustannuksiltaan kalliimpi rakenne, jÃ¤rjestelmÃ¤ tai materiaali on yleensÃ¤ elinkaarikustannuksiltaan taloudellisempi ja nÃ¤in ollen jÃ¤rkevÃ¤mpi valinta.</p> <p>TÃ¤ydennysrakentamisella pyritÃ¤Ã¤n tasapainottamaan vanhojen alueiden eriarvoistumista. Hiipuvilla alueilla asuntojen laatutasoa nostamalla voidaan nostaa myÃ¶s alueen yleistÃ¤ imagoa, parantaa viihtyisyyttÃ¤ ja kaupunkikuvaa. Valmiiksi rakennetussa ympÃ¤ristÃ¶ssÃ¤ rakentaminen on kuitenkin usein logistisesti vaikeaa ja pieni hankekoko nostaa jo sinÃ¤nsÃ¤ rakentamisen kustannuksia.</p> <p>RakentamismÃ¤Ã¤rÃ¤ykset ja esteettÃ¶myysmÃ¤Ã¤rÃ¤ykset ovat samanlaiset joka puolella Suomea, mutta tiiviisti rakennettavilla Helsingin tonteilla maasto-olosuhteista johtuen esteettÃ¶myyskustannuksetkin nousevat usein korkeammiksi kuin pÃ¤Ã¤kaupunkiseudun ulkopuolella vÃ¤ljemmillÃ¤ tonteilla.</p> <h3>Asumista palvelevien tilojen vaatimuksissa eroja</h3> <p>MÃ¤Ã¤rÃ¤ysten ja sÃ¤Ã¤dÃ¶sten tulkinnoissa saattaa myÃ¶s olla edelleen eroja eri puolella Suomea esim. esteettÃ¶myyteen ja paloturvallisuuteen liittyvissÃ¤ asioissa. Yhteisten tulkintojen rakentamiseksi on toisaalta tehty paljon yhteistyÃ¶tÃ¤ aluekeskuksissa ja myÃ¶s pÃ¤Ã¤kaupunkiseudun kunnissa. Helsingin, Espoon, Vantaan ja Kauniaisen rakennusvalvontaviranomaiset ovat pyrkineet ottamaan kÃ¤yttÃ¶Ã¶n yhtenÃ¤iset kÃ¤ytÃ¤nnÃ¶t asuinrakennusten aputilojen mitoitusohjeissa. SiitÃ¤kin huolimatta yhteistilojen osuus on HelsingissÃ¤ suurempi kuin muissa kaupungeissa. Helsingin ara-vuokratuotannossa asumista palvelevia toimintoja toteutetaan yhteistiloihin sellaisille toiminnoille, jotka muualla Suomessa ja HelsingissÃ¤kin omistustuotannossa toteutetaan asunnon sisÃ¤Ã¤n. TÃ¤llaisia ovat mm. saunat ja vaatehuoltotilat. ARA:n tilastojen mukaan Helsinkiin vuosina 2008-2012 rahoituspÃ¤Ã¤tÃ¶ksen saaneissa ara-vuokra-asuntohankkeissa oli yhteistiloja keskimÃ¤Ã¤rin 11,42 prosenttia hankkeen asuntojen alasta, kun se muualla Suomessa oli vastaavana aikana 10,36 prosenttia. Yhteistilojen mÃ¤Ã¤rÃ¤n trendi on ollut kasvava. LisÃ¤Ã¤ntyneet yhteistilat ovat nostaneet asumisen tasoa, mutta samalla pÃ¤Ã¤llekkÃ¤istoiminnot hyvin varusteltujen asuntojen kanssa ovat lisÃ¤Ã¤ntyneet ja asuntojen kustannukset nousseet.</p> <h3>Lopuksi</h3> <p>EdellÃ¤ on esitetty useita tekijÃ¶itÃ¤, jotka johtavat Helsingin korkeampiin rakennuskustannuksiin. Varsinaisen selvityksen teettÃ¤minen on haasteellista, koska luotettavan hintatiedon saaminen urakoitsijoilta on vaikeaa. MikÃ¤li perusteellisempi selvitys katsotaan tarpeelliseksi, on se tehtÃ¤vÃ¤ ammattitaitoisesti ja kustannusten erojen syyt analysoitava tarkoin, jotta tuloksesta voidaan tehdÃ¤ oikeita johtopÃ¤Ã¤tÃ¶ksiÃ¤.</p>",
+type: "resolution"
+},
+{
+text: "<p>Hallintokeskus pyytÃ¤Ã¤ lausuntoa Kauko Koskisen ym. valtuustoaloitteesta koskien Helsingin aravavuokra-asuntojen muuta maata korkeampien rakennuskustannusten selvittÃ¤mistÃ¤.</p>",
+type: "presenter"
+}
+],
+from_minutes: true,
+id: 11,
+index: 43,
+issue: {
+category: "/openahjo/v1/category/6/",
+category_name: "Valtuuston aloitetoiminta",
+category_origin_id: "00 00 03",
+geometries: [ ],
+id: 11,
+register_id: "HEL 2012-013814",
+resource_uri: "/openahjo/v1/issue/11/",
+slug: "hel-2012-013814",
+subject: "KiinteistÃ¶lautakunnan lausunto kaupunginhallitukselle kaupunginvaltuutettu Kauko Koskisen valtuustoaloitteesta koskien kaupungin asuntorakentamisen kustannuksia HelsingissÃ¤",
+summary: "Valtuutettu Kauko Koskinen ja 18 muuta valtuutettua esittÃ¤vÃ¤t aloitteessaan, ettÃ¤ selvitettÃ¤isiin, miksi aravuokra-asuntojen rakennuskustannukset ovat HelsingissÃ¤ muuta maata korkeammat."
+},
+last_modified_time: "2013-04-11T11:01:00",
+meeting: {
+committee: "/openahjo/v1/committee/26/",
+committee_name: "Asuntotuotantotoimikunta",
+date: "2013-04-03",
+id: 3,
+minutes: true,
+number: 4,
+resource_uri: "/openahjo/v1/meeting/3/",
+year: 2013
+},
+resource_uri: "/openahjo/v1/agenda_item/11/"
+},
+{
+attachments: [
+{
+agenda_item: "/openahjo/v1/agenda_item/12/",
+file_type: "pdf",
+file_uri: "http://dev.hel.fi/openahjo/media/att/244eee5e3ad20f29b542eee68fc71b18805316ac.pdf",
+hash: "244eee5e3ad20f29b542eee68fc71b18805316ac",
+id: 15,
+name: "Ohjelma",
+number: 1,
+public: true,
+resource_uri: "/openahjo/v1/attachment/15/"
+}
+],
+content: [
+{
+text: "<p>Asuntotuotantotoimikunta pÃ¤Ã¤tti, ettÃ¤ toimikunnan jÃ¤senet, tai varsinaisen jÃ¤senen estyneenÃ¤ ollessa hÃ¤nen varajÃ¤senensÃ¤, voivat osallistua XXXV valtakunnalliseen asunto- ja yhdyskuntapÃ¤ivÃ¤Ã¤n 16.5.2013 HelsingissÃ¤, ja ettÃ¤ pÃ¤ivÃ¤stÃ¤ aiheutuvat kustannukset maksetaan asuntotuotantotoimiston koulutukseen varatuista mÃ¤Ã¤rÃ¤rahoista.</p>",
+type: "resolution"
+},
+{
+text: "<p>SFHP ry jÃ¤rjestÃ¤Ã¤ XXXV valtakunnallisen asunto- ja yhdyskuntapÃ¤ivÃ¤n torstaina 16.5.2013 Helsingin yliopiston PÃ¤Ã¤rakennuksessa.</p> <p>Osallistumismaksu on 295 euroa, joka sisÃ¤ltÃ¤Ã¤ alv:n, ohjelman ja tarjoilut sekÃ¤ illallisen.</p> <p>Ilmoittautuminen 29.4.2013 mennessÃ¤: Ulla Kauppinen 310 32316 tai sÃ¤hkÃ¶postilla ulla.kauppinen@att.hel.fi. Ilmoittautuneille ei lÃ¤hetetÃ¤ erillistÃ¤ vahvistuskutsua.</p>",
+type: "presenter"
+}
+],
+from_minutes: true,
+id: 12,
+index: 44,
+issue: {
+category: "/openahjo/v1/category/96/",
+category_name: "Virkamatka",
+category_origin_id: "01 02 02 00",
+geometries: [ ],
+id: 12,
+register_id: "HEL 2013-004553",
+resource_uri: "/openahjo/v1/issue/12/",
+slug: "hel-2013-004553",
+subject: "Osallistuminen XXXV valtakunnalliseen asunto- ja yhdyskuntapÃ¤ivÃ¤Ã¤n",
+summary: "SFHP ry jÃ¤rjestÃ¤Ã¤ XXXV valtakunnallisen asunto- ja yhdyskuntapÃ¤ivÃ¤n torstaina 16.5.2013 Helsingin yliopiston PÃ¤Ã¤rakennuksessa."
+},
+last_modified_time: "2013-04-11T11:01:00",
+meeting: {
+committee: "/openahjo/v1/committee/26/",
+committee_name: "Asuntotuotantotoimikunta",
+date: "2013-04-03",
+id: 3,
+minutes: true,
+number: 4,
+resource_uri: "/openahjo/v1/meeting/3/",
+year: 2013
+},
+resource_uri: "/openahjo/v1/agenda_item/12/"
+},
+{
+attachments: [ ],
+content: [
+{
+text: "<p>Asuntotuotantotoimikunta pÃ¤Ã¤tti merkitÃ¤ hallituksen kehysriihen asuntopoliittiset pÃ¤Ã¤tÃ¶kset tiedoksi.</p>",
+type: "resolution"
+},
+{
+text: "<p>Hallitus on pÃ¤Ã¤ttÃ¤nyt kehysriihessÃ¤Ã¤n asuntopoliittisesta uudistuspaketista, jolla vastataan vuokra-asuntopulaan erityisesti Helsingin seudulla ja kasvukeskuksissa ja jolla tuetaan tyÃ¶voiman alueellista liikkuvuutta. Paketti sisÃ¤ltÃ¤Ã¤ erilaisia toimia koko asuntotuotantoketjun kehittÃ¤miseksi. Asuntorakentamisen vauhdittamiseksi nykyisin kÃ¤ytÃ¶ssÃ¤ olevia tyÃ¶kaluja, mm. lainajÃ¤rjestelmiÃ¤ parannetaan sekÃ¤ tuodaan uusia ratkaisuja asuntopulan helpottamiseksi.</p> <p>Uudistuspaketti sisÃ¤ltÃ¤Ã¤ seuraavat keskeiset elementit:</p> <p>Valtion omistama Kruunuasunnot ryhtyy rakennuttamaan kohtuuhintaisia vuokra-asuntoja Helsingin seudulle. Valtio ja sen omistamat yhtiÃ¶t osoittavat sille tontteja kohtuuhintaan. Maapolitiikan hoitoa kehitetÃ¤Ã¤n ja kÃ¤ytÃ¤ntÃ¶jÃ¤ yhtenÃ¤istetÃ¤Ã¤n Helsingin seudulla. KeskeisenÃ¤ tyÃ¶kaluna on valtion ja Helsingin seudun kuntien vÃ¤linen maankÃ¤ytÃ¶n, asumisen ja liikenteen (MAL) aiesopimus. Sen toimeenpanossa varmistetaan kaavatuotannon riittÃ¤vyys ja se, ettÃ¤ kunnat tuottavat alueelleen kohtuuhintaista vuokra-asuntotuotantoa sopimuksen mukaisesti. RiittÃ¤vÃ¤n tonttivarannon varmistamiseksi maankÃ¤yttÃ¶- ja rakennuslakiin lisÃ¤tÃ¤Ã¤n kunnille velvoite lisÃ¤tÃ¤ tonttivarantoa, mikÃ¤li asumiseen varattujen tonttien mÃ¤Ã¤rÃ¤ ei riitÃ¤ sovittujen tavoitteiden saavuttamiseen.</p> <p>Tuotannon rahoitusedellytyksiÃ¤ parannetaan ottamalla kÃ¤yttÃ¶Ã¶n kÃ¤ynnistysavustus Helsingin seudulla vuosina 2013 - 2015. Sen suuruus on 10.000 euroa asuntoa kohden, kuitenkin kuntien omistamille yhtiÃ¶ille 5.000 euroa. Korkotukilainoituksen kilpailukyvystÃ¤ huolehditaan alentamalla omavastuukorkoa nykyisestÃ¤ 1,7 prosentista yhteen prosenttiin vuosina 2013 - 2015. Nykyisen korkotukilainoituksen rinnalle luodaan uusi korkotukilainamuoto, jossa rajoitusaika on 20 vuotta ja tuen mÃ¤Ã¤rÃ¤ pienempi. Voimassaolevan asuntokannan kohtuuhintaisuutta edistetÃ¤Ã¤n alentamalla perusparannuksen korkotukilainoituksen omavastuukorko mÃ¤Ã¤rÃ¤aikaisesti 3,4 prosentista 2,35 prosenttiin.</p> <p>Investointiavustuksen ja korkotukilainoituksen myÃ¶ntÃ¤misvaltuutta lisÃ¤tÃ¤Ã¤n. Samalla arvioidaan investointiavustuksen avustusprosenttien taso. LisÃ¤ksi hissi- ja korjausavustusten myÃ¶ntÃ¤misvaltuuksia korotetaan ja arvioidaan hissiavustuksen avustusprosentin suuruus.</p> <p>Normitalkoita jatketaan rakennuskustannusten alentamiseksi. KÃ¤yttÃ¶Ã¶n otetaan mm. mÃ¤Ã¤rÃ¤aikainen vuoden 2015 loppuun kestÃ¤vÃ¤ kokeilu, jossa puretaan uusien kerrostalojen esteettÃ¶myysmÃ¤Ã¤rÃ¤yksiÃ¤ muiden kuin ensimmÃ¤isen ja toisen kerroksen osalta. MaankÃ¤yttÃ¶- ja rakennuslain autopaikkanormeja tarkistetaan sekÃ¤ kÃ¤ynnistetÃ¤Ã¤n vuoden 2015 loppuun kestÃ¤vÃ¤ kokeilu, jossa ARA-tuetussa vuokra-asuntotuotannossa autopaikkakustannukset erotetaan asunnon hinnasta.</p>",
+type: "presenter"
+}
+],
+from_minutes: true,
+id: 13,
+index: 45,
+issue: {
+category: "/openahjo/v1/category/448/",
+category_name: "Asuntotuotannon ohjaus ja kehittÃ¤minen",
+category_origin_id: "10 07 00",
+geometries: [ ],
+id: 13,
+register_id: "HEL 2013-004605",
+resource_uri: "/openahjo/v1/issue/13/",
+slug: "hel-2013-004605",
+subject: "Hallituksen kehysriihen asuntopoliittiset pÃ¤Ã¤tÃ¶kset",
+summary: "Hallitus on pÃ¤Ã¤ttÃ¤nyt kehysriihessÃ¤Ã¤n asuntopoliittisesta uudistuspaketista, jolla vastataan vuokra-asuntopulaan erityisesti Helsingin seudulla ja kasvukeskuksissa ja jolla tuetaan tyÃ¶voiman alueellista liikkuvuutta. Paketti sisÃ¤ltÃ¤Ã¤ erilaisia toimia koko asuntotuotantoketjun kehittÃ¤miseksi. Asuntorakentamisen vauhdittamiseksi nykyisin kÃ¤ytÃ¶ssÃ¤ olevia tyÃ¶kaluja, mm. lainajÃ¤rjestelmiÃ¤ parannetaan sekÃ¤ tuodaan uusia ratkaisuja asuntopulan helpottamiseksi."
+},
+last_modified_time: "2013-04-11T11:01:00",
+meeting: {
+committee: "/openahjo/v1/committee/26/",
+committee_name: "Asuntotuotantotoimikunta",
+date: "2013-04-03",
+id: 3,
+minutes: true,
+number: 4,
+resource_uri: "/openahjo/v1/meeting/3/",
+year: 2013
+},
+resource_uri: "/openahjo/v1/agenda_item/13/"
+},
+{
+attachments: [
+{
+agenda_item: "/openahjo/v1/agenda_item/14/",
+file_type: null,
+file_uri: null,
+hash: null,
+id: 16,
+name: null,
+number: 1,
+public: false,
+resource_uri: "/openahjo/v1/attachment/16/"
+}
+],
+content: [
+{
+text: "<p>Asuntotuotantotoimikunta pÃ¤Ã¤tti hyvÃ¤ksyÃ¤ toimintakertomuksen vuodelta 2012 ja lÃ¤hettÃ¤Ã¤ toimintakertomuksen kaupunginhallitukselle, tarkastusvirastolle ja tietokeskukselle sen valmistuttua painosta.</p>",
+type: "resolution"
+},
+{
+text: "<p>Asuntotuotantotoimiston ja -toimikunnan toiminnasta vuodelta 2012 on valmistunut toimintakertomus.</p>",
+type: "presenter"
+}
+],
+from_minutes: true,
+id: 14,
+index: 46,
+issue: {
+category: "/openahjo/v1/category/9/",
+category_name: "Toiminnan suunnittelu ja seuranta",
+category_origin_id: "00 01 01",
+geometries: [ ],
+id: 14,
+register_id: "HEL 2013-004437",
+resource_uri: "/openahjo/v1/issue/14/",
+slug: "hel-2013-004437",
+subject: "Asuntotuotantotoimiston ja â€“toimikunnan toimintakertomus vuodelta 2012",
+summary: "Asuntotuotantotoimiston ja -toimikunnan toiminnasta vuodelta 2012 on valmistunut toimintakertomus."
+},
+last_modified_time: "2013-04-11T11:01:00",
+meeting: {
+committee: "/openahjo/v1/committee/26/",
+committee_name: "Asuntotuotantotoimikunta",
+date: "2013-04-03",
+id: 3,
+minutes: true,
+number: 4,
+resource_uri: "/openahjo/v1/meeting/3/",
+year: 2013
+},
+resource_uri: "/openahjo/v1/agenda_item/14/"
+},
+{
+attachments: [
+{
+agenda_item: "/openahjo/v1/agenda_item/35/",
+file_type: null,
+file_uri: null,
+hash: null,
+id: 43,
+name: null,
+number: 1,
+public: false,
+resource_uri: "/openahjo/v1/attachment/43/"
+},
+{
+agenda_item: "/openahjo/v1/agenda_item/35/",
+file_type: null,
+file_uri: null,
+hash: null,
+id: 44,
+name: null,
+number: 2,
+public: false,
+resource_uri: "/openahjo/v1/attachment/44/"
+}
+],
+content: [
+{
+text: "<p>Asuntotuotantotoimikunta pÃ¤Ã¤ttÃ¤nee merkitÃ¤ rahoituskilpailun tulokset tiedoksi ja esittÃ¤Ã¤ Helsingin kaupungin asunnot Oy:lle, KiinteistÃ¶ Oy Helsingin Palveluasunnoille ja Helsingin Asumisoikeus Oy:lle lainojen ottamista kÃ¤ydyn kilpailutuksen perusteella.</p>",
+type: "draft resolution"
+},
+{
+text: "<p>Asuntotuotantotoimiston 26.4.2013 pÃ¤Ã¤ttyneessÃ¤ lainakilpailutuksessa korkotukilainatarjoukset pyydettiin seuraaville kohteille:</p> <p>KiinteistÃ¶ Oy Helsingin Palveluasunnot, Aurinkolahden asumisyksikkÃ¶</p> <div> <table class="msoUcTable" tabindex="-1" border="1" bordercolor="buttontext"><colgroup><col><col></colgroup><tbody valign="top"><tr><td> <div> alustava hankinta-arvo </div> </td> <td> <div> 4.142.500Â e </div> </td> </tr><tr><td> <div> asuntoja </div> </td> <td> <div> 13Â kpl </div> </td> </tr><tr><td> <div> korkotukilainamÃ¤Ã¤rÃ¤ </div> </td> <td> <div> 1.675.003 e </div> </td> </tr><tr><td> <div> alv-palautus, investointiavustus </div> </td> <td> <div> 2.467.497Â e </div> </td> </tr></tbody></table></div> <p>Heka Myllypuro Alakiventie 6 peruskorjaus</p> <div> <table class="msoUcTable" tabindex="-1" border="1" bordercolor="buttontext"><colgroup><col><col></colgroup><tbody valign="top"><tr><td> <div> alustava hankinta-arvo </div> </td> <td> <div> 14.817.266e </div> </td> </tr><tr><td> <div> asuntoja </div> </td> <td> <div> 156Â kpl </div> </td> </tr><tr><td> <div> korkotukilainamÃ¤Ã¤rÃ¤ </div> </td> <td> <div> 10.846.000Â e </div> </td> </tr><tr><td> <div> omarahoituslainamÃ¤Ã¤rÃ¤ </div> </td> <td> <div> Â Â 3.971.266 e </div> </td> </tr></tbody></table></div> <p>Heka Malminkartano Parivaljakontie 6 peruskorjaus</p> <div> <table class="msoUcTable" tabindex="-1" border="1" bordercolor="buttontext"><colgroup><col><col></colgroup><tbody valign="top"><tr><td> <div> alustava hankinta-arvo </div> </td> <td> <div> 9.000.000 e </div> </td> </tr><tr><td> <div> asuntoja </div> </td> <td> <div> 96Â kpl </div> </td> </tr><tr><td> <div> korkotukilainamÃ¤Ã¤rÃ¤ </div> </td> <td> <div> 6.400.000Â e </div> </td> </tr><tr><td> <div> omarahoituslainamÃ¤Ã¤rÃ¤ </div> </td> <td> <div> 2.600.000Â e </div> </td> </tr></tbody></table></div> <p>Helsingin Asumisoikeus Oy/Startti</p> <div> <table class="msoUcTable" tabindex="-1" border="1" bordercolor="buttontext"><colgroup><col><col></colgroup><tbody valign="top"><tr><td> <div> alustava hankinta-arvo </div> </td> <td> <div> 11.377.400Â e </div> </td> </tr><tr><td> <div> asuntoja </div> </td> <td> <div> 39 kplÂ </div> </td> </tr><tr><td> <div> korkotukilainamÃ¤Ã¤rÃ¤ </div> </td> <td> <div> Â 9.670.790 e </div> </td> </tr><tr><td> <div> asumisoikeusmaksut </div> </td> <td> <div> Â 1.706.610 Â e </div> </td> </tr></tbody></table></div> <p>Korkotukilainatarjoukset pyydettiin Kuntarahoitus Oyj:ltÃ¤, Danske Bank Oyj:ltÃ¤, Pohjola Pankki Oyj:ltÃ¤ ja Nordea Pankki Oyj:ltÃ¤. Tarjoukset avattiin 29.4.2013. Nordea Pankki Oyj ja Danske Bank Oyj eivÃ¤t jÃ¤ttÃ¤neet lainatarjouksia.</p> <p>Kilpailun tulos: Edullisin oli Kuntarahoitus Oyj:n lainatarjous euribor 6 kk + marginaali 0,9 % - yksikkÃ¶Ã¤.</p>",
+type: "presenter"
+}
+],
+from_minutes: false,
+id: 35,
+index: 11,
+issue: {
+category: "/openahjo/v1/category/194/",
+category_name: "Kilpailutus",
+category_origin_id: "02 08 02 00",
+geometries: [ ],
+id: 15,
+register_id: "HEL 2013-003252",
+resource_uri: "/openahjo/v1/issue/15/",
+slug: "hel-2013-003252",
+subject: "ErÃ¤iden korkotukilainojen kilpailuttaminen",
+summary: "Asuntotuotantotoimiston 26.4.2013 pÃ¤Ã¤ttyneessÃ¤ lainakilpailutuksessa korkotukilainatarjoukset pyydettiin seuraaville kohteille:"
+},
+last_modified_time: "2013-05-04T11:02:00",
+meeting: {
+committee: "/openahjo/v1/committee/26/",
+committee_name: "Asuntotuotantotoimikunta",
+date: "2013-05-08",
+id: 5,
+minutes: false,
+number: 6,
+resource_uri: "/openahjo/v1/meeting/5/",
+year: 2013
+},
+resource_uri: "/openahjo/v1/agenda_item/35/"
+},
+{
+attachments: [
+{
+agenda_item: "/openahjo/v1/agenda_item/15/",
+file_type: null,
+file_uri: null,
+hash: null,
+id: 17,
+name: null,
+number: 1,
+public: false,
+resource_uri: "/openahjo/v1/attachment/17/"
+},
+{
+agenda_item: "/openahjo/v1/agenda_item/15/",
+file_type: null,
+file_uri: null,
+hash: null,
+id: 18,
+name: null,
+number: 2,
+public: false,
+resource_uri: "/openahjo/v1/attachment/18/"
+}
+],
+content: [
+{
+text: "<p>Asuntotuotantotoimikunta pÃ¤Ã¤tti merkitÃ¤ rahoituskilpailun tulokset tiedoksi ja esittÃ¤Ã¤ Helsingin kaupungin asunnot Oy:lle ja Helsingin Asumisoikeus Oy:lle lainojen ottamista kÃ¤ydyn kilpailutuksen perusteella.</p>",
+type: "resolution"
+},
+{
+text: "<p>Asuntotuotantotoimiston 4.3.2013 pÃ¤Ã¤ttyneessÃ¤ lainakilpailutuksessa korkotukilainatarjoukset pyydettiin seuraaville kohteille:</p> <p>Heka ViikinmÃ¤ki Henrik LÃ¤ttilÃ¤isen katu 12</p> <div> <table class="msoUcTable" tabindex="-1" border="1" bordercolor="buttontext"><colgroup><col><col></colgroup><tbody valign="top"><tr><td> <div> alustava hankinta-arvo </div> </td> <td> <div> 10.622.546Â e </div> </td> </tr><tr><td> <div> asuntoja </div> </td> <td> <div> 50 kpl </div> </td> </tr><tr><td> <div> korkotukilainamÃ¤Ã¤rÃ¤ </div> </td> <td> <div> 10.091.410Â e </div> </td> </tr><tr><td> <div> tertiÃ¤Ã¤rilainamÃ¤Ã¤rÃ¤ </div> </td> <td> <div> Â Â Â Â  531.136 e </div> </td> </tr></tbody></table></div> <p>Heka ViikinmÃ¤ki Harjannetie 13</p> <div> <table class="msoUcTable" tabindex="-1" border="1" bordercolor="buttontext"><colgroup><col><col></colgroup><tbody valign="top"><tr><td> <div> alustava hankinta-arvo </div> </td> <td> <div> 10.202.400Â e </div> </td> </tr><tr><td> <div> asuntoja </div> </td> <td> <div> 39Â kpl </div> </td> </tr><tr><td> <div> korkotukilainamÃ¤Ã¤rÃ¤ </div> </td> <td> <div> Â 9.692.280 e </div> </td> </tr><tr><td> <div> tertiÃ¤Ã¤rilainamÃ¤Ã¤rÃ¤ </div> </td> <td> <div> Â  Â  510.120 e </div> </td> </tr></tbody></table></div> <p>Heka Vallila MÃ¤kelÃ¤nkatu 37-43 peruskorjaus</p> <div> <table class="msoUcTable" tabindex="-1" border="1" bordercolor="buttontext"><colgroup><col><col></colgroup><tbody valign="top"><tr><td> <div> alustava hankinta-arvo </div> </td> <td> <div> 9.957.335Â e </div> </td> </tr><tr><td> <div> asuntoja </div> </td> <td> <div> 86Â kpl </div> </td> </tr><tr><td> <div> korkotukilainamÃ¤Ã¤rÃ¤ </div> </td> <td> <div> 9.052.000Â e </div> </td> </tr><tr><td> <div> tertiÃ¤Ã¤rilainamÃ¤Ã¤rÃ¤ </div> </td> <td> <div> Â Â  905.335Â e </div> </td> </tr></tbody></table></div> <p>Helsingin Asumisoikeus Oy/AlppikylÃ¤npuisto</p> <div> <table class="msoUcTable" tabindex="-1" border="1" bordercolor="buttontext"><colgroup><col><col></colgroup><tbody valign="top"><tr><td> <div> alustava hankinta-arvo </div> </td> <td> <div> 13.792.500 e </div> </td> </tr><tr><td> <div> asuntoja </div> </td> <td> <div> 59 kplÂ </div> </td> </tr><tr><td> <div> korkotukilainamÃ¤Ã¤rÃ¤ </div> </td> <td> <div> 11.723.600Â e </div> </td> </tr><tr><td> <div> asumisoikeusmaksut </div> </td> <td> <div> Â Â 2.068.900 e </div> </td> </tr></tbody></table></div> <p>Helsingin Asumisoikeus Oy /Sprintti</p> <div> <table class="msoUcTable" tabindex="-1" border="1" bordercolor="buttontext"><colgroup><col><col></colgroup><tbody valign="top"><tr><td> <div> alustava hankinta-arvo </div> </td> <td> <div> 12.005.300 e </div> </td> </tr><tr><td> <div> asuntoja </div> </td> <td> <div> 41 kpl </div> </td> </tr><tr><td> <div> korkotukilainamÃ¤Ã¤rÃ¤ </div> </td> <td> <div> 10.204.505 e </div> </td> </tr><tr><td> <div> asumisoikeusmaksut </div> </td> <td> <div> Â  1.800.795 e </div> </td> </tr></tbody></table></div> <p>Uudiskohteiden korkotukilainatarjoukset pyydettiin Kuntarahoitus Oyj:ltÃ¤, Sampo Pankki Oyj:ltÃ¤, Pohjola Pankki Oyj:ltÃ¤ ja Nordea Pankki Oyj:ltÃ¤. Tarjoukset avattiin 4.3.2013. Nordea Pankki Oyj ja Sampo Pankki Oyj eivÃ¤t jÃ¤ttÃ¤neet lainatarjouksia.</p> <p>Kilpailun tulos: Edullisin oli Kuntarahoitus Oyj:n lainatarjous euribor 6 kk + marginaali 0,9 % - yksikkÃ¶Ã¤.</p>",
+type: "presenter"
+}
+],
+from_minutes: true,
+id: 15,
+index: 47,
+issue: {
+category: "/openahjo/v1/category/194/",
+category_name: "Kilpailutus",
+category_origin_id: "02 08 02 00",
+geometries: [ ],
+id: 15,
+register_id: "HEL 2013-003252",
+resource_uri: "/openahjo/v1/issue/15/",
+slug: "hel-2013-003252",
+subject: "ErÃ¤iden korkotukilainojen kilpailuttaminen",
+summary: "Asuntotuotantotoimiston 26.4.2013 pÃ¤Ã¤ttyneessÃ¤ lainakilpailutuksessa korkotukilainatarjoukset pyydettiin seuraaville kohteille:"
+},
+last_modified_time: "2013-04-11T11:01:00",
+meeting: {
+committee: "/openahjo/v1/committee/26/",
+committee_name: "Asuntotuotantotoimikunta",
+date: "2013-04-03",
+id: 3,
+minutes: true,
+number: 4,
+resource_uri: "/openahjo/v1/meeting/3/",
+year: 2013
+},
+resource_uri: "/openahjo/v1/agenda_item/15/"
+},
+{
+attachments: [
+{
+agenda_item: "/openahjo/v1/agenda_item/16/",
+file_type: null,
+file_uri: null,
+hash: null,
+id: 19,
+name: null,
+number: 1,
+public: false,
+resource_uri: "/openahjo/v1/attachment/19/"
+},
+{
+agenda_item: "/openahjo/v1/agenda_item/16/",
+file_type: null,
+file_uri: null,
+hash: null,
+id: 20,
+name: null,
+number: 2,
+public: false,
+resource_uri: "/openahjo/v1/attachment/20/"
+}
+],
+content: [
+{
+text: "<p>Asuntotuotantotoimikunta pÃ¤Ã¤tti oikeuttaa toimiston tekemÃ¤Ã¤n Heka Myllypuro Alakiventie 5 peruskorjauksen urakkasopimuksen Lujatalo Oy:n kanssa arvonlisÃ¤verolliseen hintaan 13.341.667 euroa, kuitenkin enintÃ¤Ã¤n Helsingin kaupungin asunnot Oy:n ja Asumisen rahoitus- ja kehittÃ¤miskeskuksen hyvÃ¤ksymÃ¤n urakkahinnan mukaisena.</p>",
+type: "resolution"
+},
+{
+text: "<p>Kohde on valmistunut vuosina 1975-1976 ja sijaitsee VartiokylÃ¤n alueella, tontilla 45145/5, osoitteessa Alakiventie 5. Kohteessa on 156 vuokra-asuntoa (8935,5asm2), pÃ¤ivÃ¤toimintakeskus (617 htm2) ja huoltokeskus (558 htm2) sekÃ¤ isÃ¤nnÃ¶itsijÃ¤toimisto (431,5 htm2).</p> <p>Asuntotuotantotoimikunta on hyvÃ¤ksynyt Arkkitehtitoimisto Esko HyvÃ¤rinen & Co Ky:n luonnospiirustukset 19.9.2012.</p> <p>Hankintalain mukaisella rajoitetulla menettelyllÃ¤ pyydetyt urakkatarjoukset on avattu 19.3.2013.</p> <p>Tarjoukset pyydettiin seuraavilta urakoitsijoilta:</p> <ul type="disc"><li>LemminkÃ¤inen Talo Oy</li> <li>Rakennus- ja InsinÃ¶Ã¶ritoimisto Tricon Oy</li> <li>Consti Julkisivut Oy</li> <li>YIT Rakennus Oy</li> <li>Lujatalo Oy</li> <li>Rakennustuote Oy</li> <li>Uudenmaan Mestari-Rakentajat Oy</li> </ul> <p>Tarjous saatiin Lujatalo Oy:ltÃ¤, YIT Rakennus Oy:ltÃ¤, Consti Julkisivut Oy:ltÃ¤ ja Uudenmaan Mestari-Rakentajat Oy:ltÃ¤. Muut eivÃ¤t vastanneet.</p> <p>Kokonaistaloudellisesti edullisimman tarjouksen antoi Lujatalo Oy.</p> <p>Kokonaistaloudellisesti edullisimman tarjouksen perusteella lasketut, Asumisen rahoitus- ja kehittÃ¤miskeskukselle hyvÃ¤ksyttÃ¤vÃ¤ksi esitettÃ¤vÃ¤t peruskorjauskustannukset ovat 14.817.266 euroa(1.406 e/htm2 ). Kustannukset jakautuvat asunnoille 13.557.802 euroa (1.517 e/asm2), isÃ¤nnÃ¶itsijÃ¤toimistolle 459.336 euroa (1.065/htm2), pÃ¤ivÃ¤toimintakeskukselle 770.495 euroa (1.249 e/htm2) ja huoltokeskukselle 29.633 euroa (53 e/htm2).</p> <p>Urakkatarjouksen perusteella lasketut peruskorjauskustannukset alittavat luonnospiirustuksista lasketun rakennusosa-arvion mukaiset kustannukset 12,1 %:lla (194 e/htm2, kustannustaso , RI = 121,8).</p> <p>Peruskorjauskustannukset jaetaan kahteen luokkaan seuraavasti:</p> <ul type="disc"><li>kÃ¤ytÃ¶stÃ¤ ja ikÃ¤Ã¤ntymisestÃ¤ aiheutuvat kustannukset 1.023 e/htm2 (72,8 %) </li> <li>teknisen ja/tai toiminnallisen laatutason nostamisesta aiheutuvat kustannukset 383 e/htm2 (27,2 %).</li> </ul> <p>Energiatehokkuuden parantamiseen vaikuttavien toimenpiteiden osuus peruskorjauskustannuksista on 206 e/asm2 (14,6 %).</p> <p>Kun laatutason parantamisesta aiheutuvat kustannukset otetaan huomioon, on korjausaste 44 %.</p> <div> <table class="msoUcTable" tabindex="-1" border="1" bordercolor="buttontext"><colgroup><col><col></colgroup><tbody valign="top"><tr><td> <div> Rahoitussuunnitelma: </div> </td> <td> <div> Â </div> </td> </tr><tr><td> <div> - korkotukilaina </div> </td> <td> <div> 10.846.000Â e </div> </td> </tr><tr><td> <div> - omarahoitusosuus </div> </td> <td> <div> Â Â 3.971.266 e </div> </td> </tr><tr><td> <div> Rahoitus yhteensÃ¤ </div> </td> <td> <div> 14.817.266 e </div> </td> </tr></tbody></table></div> <p>Kustannukset sisÃ¤ltÃ¤vÃ¤t alv:n 24 %.</p> <p>Peruskorjaus on suunniteltu aloitettavaksi toukokuussa 2013.</p>",
+type: "presenter"
+}
+],
+from_minutes: true,
+id: 16,
+index: 48,
+issue: {
+category: "/openahjo/v1/category/197/",
+category_name: "Kilpailutus",
+category_origin_id: "02 08 03 00",
+geometries: [
+{
+coordinates: [
+25.077758683528398,
+60.22071379562326
+],
+name: "Alakiventie 5",
+type: "Point"
+}
+],
+id: 16,
+register_id: "HEL 2013-004255",
+resource_uri: "/openahjo/v1/issue/16/",
+slug: "hel-2013-004255",
+subject: "Heka Myllypuro Alakiventie 5 peruskorjauksen kokonaisurakkatarjoukset ja urakkasopimuksen tekeminen",
+summary: "Kohde on valmistunut vuosina 1975-1976 ja sijaitsee VartiokylÃ¤n alueella, tontilla 45145/5, osoitteessa Alakiventie 5. Kohteessa on 156 vuokra-asuntoa (8935,5asm2), pÃ¤ivÃ¤toimintakeskus (617 htm2) ja huoltokeskus (558 htm2) sekÃ¤ isÃ¤nnÃ¶itsijÃ¤toimisto (431,5 htm2)."
+},
+last_modified_time: "2013-04-11T11:01:00",
+meeting: {
+committee: "/openahjo/v1/committee/26/",
+committee_name: "Asuntotuotantotoimikunta",
+date: "2013-04-03",
+id: 3,
+minutes: true,
+number: 4,
+resource_uri: "/openahjo/v1/meeting/3/",
+year: 2013
+},
+resource_uri: "/openahjo/v1/agenda_item/16/"
+},
+{
+attachments: [ ],
+content: [
+{
+text: "<p>Asuntotuotantotoimikunta pÃ¤Ã¤tti palauttaa asian uudelleen valmisteltavaksi.</p>",
+type: "resolution"
+},
+{
+text: "<p>Kohde sijaitsee Puotilassa, korttelissa 45076 tontilla 1, osoitteessa Korsholmantie 9. Urakkasopimus on allekirjoitettu 6.5.2011. Kokonaisurakoitsija on YIT Rakennus Oy.</p> <p>Kohteen urakkasumma on 4.697.000 euroa.</p> <p>Nyt tilattavien lisÃ¤tÃ¶iden (tarjoukset nrot 58B, 59B, 73A, 78, 83, 87, 92A, 93, 96A, 97, 99A, 101, 102, 103A, 104) kustannukset ovat yhteensÃ¤ 656.004,16 euroa.</p> <p>Kohteen muutostÃ¶itÃ¤ kÃ¤siteltiin 19.12.2012, jolloin toimisto sai oikeuden tilata muutostÃ¶itÃ¤ 450.237,72 eurolla. Aikaisemmin muutostÃ¶itÃ¤ oli tilattu 502.256,80 eurolla. Nyt tilattavaksi esitettyjen muutostÃ¶iden ja aiemmin tilattujen muutostÃ¶iden yhteissummaksi muodostuu 1.758.498,68 euroa.</p> <p>LisÃ¤tÃ¶iden kustannukset ovat aiheutuneet pÃ¤Ã¤osin siitÃ¤, ettÃ¤ suunniteltujen, uusien parvekkeiden kannatusratkaisu on jouduttu muuttamaan urakan aikana, ennen kuin parvekkeiden asennustyÃ¶ oli suunniteltu aloitettavaksi.</p> <p>Urakkasopimuksen mukaisesti parvekkeet oli suunniteltu ripustetuiksi parvekkeiksi. Ennen parvekkeiden asennustyÃ¶n aloittamista tuotantopiirustuksien suunnittelija ilmoitti, ettÃ¤ parvekkeiden tuentatapaan sisÃ¤ltyy riskejÃ¤. Asiasta saatujen selvityksen perusteella rakennuttaja muutti parvekkeet alhaalta pilareilla tuetuiksi.</p> <p>TyÃ¶t parvekkeiden osalta valmistuvat huhtikuun aikana ja pihan asfaltti- ja istutustyÃ¶t toukokuun aikana. Em. tÃ¶istÃ¤ aiheutuu vielÃ¤ n. 100.000 euron kustannus, mikÃ¤ esitetÃ¤Ã¤n hyvÃ¤ksyttÃ¤vÃ¤ksi tÃ¤ssÃ¤ yhteydessÃ¤.</p>",
+type: "presenter"
+}
+],
+from_minutes: true,
+id: 17,
+index: 49,
+issue: {
+category: "/openahjo/v1/category/195/",
+category_name: "Hankinta ilman kilpailutusta",
+category_origin_id: "02 08 02 01",
+geometries: [
+{
+coordinates: [
+25.082420040526472,
+60.216178416829955
+],
+name: "Korsholmantie 9",
+type: "Point"
+}
+],
+id: 17,
+register_id: "HEL 2012-016863",
+resource_uri: "/openahjo/v1/issue/17/",
+slug: "hel-2012-016863",
+subject: "Heka Puotinharju Korsholmantie 9 rakennusurakan lisÃ¤tyÃ¶t",
+summary: "Kohde sijaitsee Puotilassa, korttelissa 45076 tontilla 1, osoitteessa Korsholmantie 9. Urakkasopimus on allekirjoitettu 6.5.2011. Kokonaisurakoitsija on YIT Rakennus Oy."
+},
+last_modified_time: "2013-04-11T11:01:00",
+meeting: {
+committee: "/openahjo/v1/committee/26/",
+committee_name: "Asuntotuotantotoimikunta",
+date: "2013-04-03",
+id: 3,
+minutes: true,
+number: 4,
+resource_uri: "/openahjo/v1/meeting/3/",
+year: 2013
+},
+resource_uri: "/openahjo/v1/agenda_item/17/"
+}
+]
+}
