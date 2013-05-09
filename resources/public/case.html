@@ -85,7 +85,9 @@
       <div class="span3" id="event-detail">
         <dl>
           <dt>Käsittelypäivä</dt>
-          <dd data-bind="date"></dd>
+          <div data-bind="meeting">
+            <dd data-bind="date"></dd>
+          </div>
           <dt>Diaarinumero</dt>
           <dd data-bind="register_id"></dd>
           <dt>Tehtäväluokka</dt>

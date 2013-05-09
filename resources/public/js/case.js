@@ -27,7 +27,7 @@ require(['transparency', 'moment','bootstrap.min','jquery', 'underscore-min'], f
   relatedDirectives = {
     relatedLink: {
       text: function(params) {
-        return this.committee_name + ' ' + this.date;
+        return this.meeting.committee_name + ' ' + this.meeting.date;
       },
       href: function(params) {
         return '#' + this.id;
@@ -116,6 +116,7 @@ require(['transparency', 'moment','bootstrap.min','jquery', 'underscore-min'], f
   }
 
   function onCaseFetch(acase) {
+    console.log(acase);
     window.currentCase = acase; 
     setRelatedItems(acase);
     var currentIndex = window.location.hash.replace('#', '') != '' ? window.location.hash.replace('#', '') : 0
