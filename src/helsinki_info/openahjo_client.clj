@@ -11,22 +11,22 @@
 
 (def agenda-url "/openahjo/v1/agenda_item/?format=json&offset=10&limit=20")
 
-(defn call-openahjo [url]
+(defn- call-openahjo [url]
   (info "calling openahjo:" url)
   (json/read-str (:body (client/get (str base-url url)))))
 
-(defn select-case [item]
+(defn- select-case [item]
   (let [case (get item "issue")]
     (let [existing-case (db/find-by-case (get case "slug"))]
       (if (empty? existing-case)
         case
         existing-case))))
 
-(defn update-existing [case]
+(defn- update-existing [case]
   (info "updating an existing case")
   (db/update case "cases"))
 
-(defn insert-new [case]
+(defn- insert-new [case]
   (info "inserting new case")
   (db/insert-single case "cases"))            
 

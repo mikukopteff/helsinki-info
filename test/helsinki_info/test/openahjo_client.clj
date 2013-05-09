@@ -13,5 +13,5 @@
 
 (deftest openahjo-crawl
   (testing "data is crawled and formatted to open helsinki format"
-    (insert-test-cases data)
+    (fetch-all-items  (slurp "test-resources/openahjo.json"))
     (is (= 5 (count (find-collections "cases"))))))
