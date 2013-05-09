@@ -41,12 +41,6 @@
     (fn [](map #(convert-id %) 
       (doall (mongo-collection/find-maps collection))))))
 
-(defn find-event [id]
-  (in-connection 
-      #(convert-id
-        (try 
-          (mongo-collection/find-map-by-id "events" (ObjectId. id))
-          (catch Exception e)))))
 
 (defn find-by-case [id]
   (in-connection
@@ -67,11 +61,5 @@
 (defn insert-single [element, collection]
   (in-connection
       #(mongo-collection/insert collection (merge element {:_id (ObjectId.)}))))
-
-(defn find-events-by-regnum [regnum]
-  (in-connection
-    #(doall (query/with-collection "events"
-      (query/find {:register-number regnum})
-      (query/sort (sorted-map :event-time 1))))))
 
 

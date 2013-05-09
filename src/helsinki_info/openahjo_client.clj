@@ -37,9 +37,7 @@
         (insert-new (conj case {:items [(dissoc item "issue")]}))
         (update-existing (assoc case :items (conj items (dissoc item "issue"))))))))
 
-(defn fetch-all-items 
-  ([] (fetch-all-items (call-openahjo agenda-url)))
-  ([fun]
+(defn fetch-all-items [url]
   "This function is mainly used to get all the data from the api"
-  (map rearrange (get fun "objects"))))
+  (map rearrange (get (call-openahjo url) "objects")))
 

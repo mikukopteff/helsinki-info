@@ -4,13 +4,13 @@
         helsinki-info.mock-data))
 
 (defn db-setup [f]
-  (delete-events)
+  (delete "events")
   (f)
-  (delete-events))
+  (delete "events"))
 
 (use-fixtures :each db-setup)
 
 (deftest db-insert
   (testing "_id addition to objects"
-    (insert-events data)
-    (is (= 5 (count (find-events))))))
+    (insert data "events")
+    (is (= 5 (count (find-collections "events"))))))

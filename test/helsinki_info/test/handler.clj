@@ -12,13 +12,14 @@
 (defn db-setup [f]
   (tasks/startup)
   (f)
-  (db/delete-events))
+  (db/delete "events"))
 
 (use-fixtures :each db-setup)
+(comment
 
 (deftest test-app
   (testing "events route"
-    (let [response (app (request :get "/events"))]
+    (let [response (app (request :get "/cases"))]
       (is (= (:status response) 200))
       (is (= (get (first (parse-json response)) "heading") "§ 5 - Lainan myöntäminen Helsinki Stadion Oy:lle"))
       (is (= (count (parse-json response)) 5))))
@@ -42,3 +43,4 @@
       (is (= (:status response) 200))
       (is (instance? java.io.File (:body response)))
       (is (= (.getPath (:body response)) "resources/public/index.html" )))))
+)
