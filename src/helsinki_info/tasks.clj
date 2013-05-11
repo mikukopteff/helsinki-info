@@ -1,8 +1,10 @@
 (ns helsinki-info.tasks
   (:use overtone.at-at)
-  (:use helsinki-info.mock-data)
   (:use [clojure.tools.logging :only (info)])
-  (:require [helsinki-info.db-client :as db]))
+  (:require [helsinki-info.db-client :as db]
+            [clojure.data.json :as json]
+            [helsinki-info.openahjo-client :as openahjo]))
+  
 
 (def pool (mk-pool))
 
@@ -12,7 +14,7 @@
 (defn- init-events []
   "This function is here until we have a place to get the actual http data"
   (db/delete "events")
-  (db/insert data "events"))
+  (doall (openahjo/fetch-all-items  (json/read-str (slurp "test-resources/openahjo.json")))))
 
 (defn startup[] 
   (println "Starting server")
