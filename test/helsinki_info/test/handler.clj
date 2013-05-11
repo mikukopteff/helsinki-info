@@ -1,6 +1,7 @@
 (ns helsinki-info.test.handler
   (:require [clojure.data.json :as json])
   (:require [helsinki-info.db-client :as db])
+  (:require [helsinki-info.openahjo-client :as openahjo])
   (:require [helsinki-info.tasks :as tasks])
   (:use clojure.test
         ring.mock.request  
@@ -10,28 +11,29 @@
   (json/read-str (:body response)))
 
 (defn db-setup [f]
-  (tasks/startup)
+  (db/delete "cases")
+  (doall (openahjo/fetch-all-items  (json/read-str (slurp "test-resources/openahjo-5.json"))))
   (f)
-  (db/delete "events"))
+  (db/delete "cases"))
 
 (use-fixtures :each db-setup)
-(comment
+
 
 (deftest test-app
-  (testing "events route"
+  (testing "cases route"
     (let [response (app (request :get "/cases"))]
       (is (= (:status response) 200))
-      (is (= (get (first (parse-json response)) "heading") "§ 5 - Lainan myöntäminen Helsinki Stadion Oy:lle"))
-      (is (= (count (parse-json response)) 5))))
+      (is (= (get (first (parse-json response)) "summary") "SFHP ry järjestää XXXV valtakunnallisen asunto- ja yhdyskuntapäivän torstaina 16.5.2013 Helsingin yliopiston Päärakennuksessa."))
+      (is (= (count (parse-json response)) 3))))
 
-  (testing "single event fetching with id"
-    (let [response (app (request :get "/event/51558fcb0364623664defe36"))]
+  (testing "case fetching with slug"
+    (let [response (app (request :get "/case/hel-2012-013814"))]
       (is (= (:status response) 200))
-      (is (= (get (parse-json response) "heading") "§ 5 - Lainan myöntäminen Helsinki Stadion Oy:lle"))
-      (is (= (get (parse-json response) "_id") "51558fcb0364623664defe36"))))
+      (is (= (get (parse-json response) "summary") "Valtuutettu Kauko Koskinen ja 18 muuta valtuutettua esittävät aloitteessaan, että selvitettäisiin, miksi aravuokra-asuntojen rakennuskustannukset ovat Helsingissä muuta maata korkeammat."))
+      (is (= (get (parse-json response) "subject") "Kiinteistölautakunnan lausunto kaupunginhallitukselle kaupunginvaltuutettu Kauko Koskisen valtuustoaloitteesta koskien kaupungin asuntorakentamisen kustannuksia Helsingissä"))))
 
   (testing "single event fetching with id"
-    (let [response (app (request :get "/event/this-id-is-probably-nonexistent"))]
+    (let [response (app (request :get "/case/this-id-is-probably-nonexistent"))]
       (is (= (:status response) 404))))
   
   (testing "not-found route"
@@ -43,4 +45,3 @@
       (is (= (:status response) 200))
       (is (instance? java.io.File (:body response)))
       (is (= (.getPath (:body response)) "resources/public/index.html" )))))
-)
