@@ -1,9 +1,8 @@
 (ns helsinki-info.test.openahjo-client
   (:require [clojure.data.json :as json])
   (:use clojure.test  
-        helsinki-info.openahjo-client
-        helsinki-info.db-client
-        helsinki-info.mock-data))
+        helsinki-info.test.utils
+        helsinki-info.db-client))
 
 (defn db-setup [f]
   (delete "cases")
@@ -14,5 +13,5 @@
 
 (deftest openahjo-crawl
   (testing "data is crawled and formatted to open helsinki format"
-    (doall (fetch-all-items  (json/read-str (slurp "test-resources/openahjo-5.json"))))
+    (insert-test-data)
     (is (= 3 (count (find-collections "cases"))))))

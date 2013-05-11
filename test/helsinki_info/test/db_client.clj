@@ -1,16 +1,16 @@
 (ns helsinki-info.test.db-client
   (:use clojure.test  
         helsinki-info.db-client
-        helsinki-info.mock-data))
+        helsinki-info.test.utils))
 
 (defn db-setup [f]
-  (delete "events")
+  (delete "cases")
   (f)
-  (delete "events"))
+  (delete "cases"))
 
 (use-fixtures :each db-setup)
 
 (deftest db-insert
   (testing "_id addition to objects"
-    (insert data "events")
-    (is (= 5 (count (find-collections "events"))))))
+    (insert-test-data)
+    (is (= 3 (count (find-collections "cases"))))))

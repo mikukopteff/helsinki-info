@@ -1,7 +1,7 @@
 (ns helsinki-info.test.handler
   (:require [clojure.data.json :as json])
   (:require [helsinki-info.db-client :as db])
-  (:require [helsinki-info.openahjo-client :as openahjo])
+  (:require [helsinki-info.test.utils :as utils])
   (:require [helsinki-info.tasks :as tasks])
   (:use clojure.test
         ring.mock.request  
@@ -12,7 +12,7 @@
 
 (defn db-setup [f]
   (db/delete "cases")
-  (doall (openahjo/fetch-all-items  (json/read-str (slurp "test-resources/openahjo-5.json"))))
+  (utils/insert-test-data)
   (f)
   (db/delete "cases"))
 
