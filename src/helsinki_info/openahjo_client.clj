@@ -42,7 +42,6 @@
   ([data]
   "This function is mainly used to get all the data from the api"
   (doall (map rearrange (get data "objects")))
-  (println (get data "meta"))
   (let [next-url (get (get data "meta") "next")]
     (if-not (nil? next-url)
       (fetch-all-items (call-openahjo next-url))
