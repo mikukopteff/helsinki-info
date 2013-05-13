@@ -9,7 +9,9 @@
 
 (def base-url "http://dev.hel.fi")
 
-(def agenda-url "/openahjo/v1/agenda_item/?format=json&offset=805&limit=5")
+(def starting-url "/openahjo/v1/agenda_item/?format=json&offset=805&limit=5")
+
+(def new-items-url "/openahjo/v1/agenda_item/?format=json&order_by=-last_modified_time")
 
 (defn- call-openahjo [url]
   (info "calling openahjo:" url)
@@ -38,7 +40,7 @@
         (update-existing (assoc case :items (conj items (dissoc item "issue"))))))))
 
 (defn fetch-all-items 
-  ([] (fetch-all-items (call-openahjo agenda-url)))
+  ([] (fetch-all-items (call-openahjo starting-url)))
   ([data]
   "This function is mainly used to get all the data from the api"
   (doall (map rearrange (get data "objects")))
