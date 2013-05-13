@@ -23,7 +23,6 @@
   (testing "cases route"
     (let [response (app (request :get "/cases"))]
       (is (= (:status response) 200))
-      (is (= (get (first (parse-json response)) "summary") "SFHP ry järjestää XXXV valtakunnallisen asunto- ja yhdyskuntapäivän torstaina 16.5.2013 Helsingin yliopiston Päärakennuksessa."))
       (is (= (count (parse-json response)) 3))))
 
   (testing "case fetching with slug"
