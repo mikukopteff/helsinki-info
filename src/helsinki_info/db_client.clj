@@ -7,17 +7,17 @@
             [helsinki-info.utils :as utils]
             [clj-time.core :as time]
             [monger.query :as query])
-  (:use [clojure.tools.logging :only (info)])
+  (:use [clojure.tools.logging])
   (:import [com.mongodb DB WriteConcern]
            [org.bson.types ObjectId]))
 
 
 (defn- connect []
-  (info "connecting to mongo")
+  (debug "connecting to mongo")
   (mongo/connect-via-uri! ((utils/props):mongo.uri)))
 
 (defn- disconnect []
-  (info "disconnecting from mongo")
+  (debug "disconnecting from mongo")
   (mongo/disconnect!))
 
 (defn- in-connection [fun]

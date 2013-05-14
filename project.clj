@@ -9,6 +9,7 @@
                  [org.clojure/tools.logging "0.2.6"]
                  [clj-time "0.5.0"]
                  [cheshire "5.0.2"]
+                 [log4j "1.2.17"]
                  [clj-http "0.7.1"]]
   :plugins [[lein-ring "0.8.2"]
             [lein-cloudbees "1.0.3"]]

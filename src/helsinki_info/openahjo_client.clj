@@ -53,11 +53,11 @@
   ([data]
   (let [added-to-db (doall (take-while true? (map sort-items-and-store (get data "objects"))))]  
     (if (= (count added-to-db) (count (get data "objects")))
-      (do (println "Only new items found. All updated.")
+      (do (info "Only new items found. All updated.")
       (let [next-url (get (get data "meta") "next")]
         (if-not (nil? next-url)
           (fetch-items (call-openahjo next-url))
-          (println "Last item hit. Stopping items fetching"))))))))
+          (info "Last item hit. Stopping items fetching"))))))))
 
 (defn fetch-new-items []
   (fetch-items (call-openahjo new-items-url)))
