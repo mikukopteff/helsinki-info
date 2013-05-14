@@ -4,6 +4,8 @@
         helsinki-info.openahjo-client))
 
 
-(defn insert-test-data []
-  (doall (fetch-all-items  (json/read-str (slurp "test-resources/openahjo-5.json")))))
+(defn insert-test-data
+  ([] (insert-test-data "test-resources/openahjo-5.json"))
+  ([url]
+    (doall (fetch-items  (json/read-str (slurp url))))))
     

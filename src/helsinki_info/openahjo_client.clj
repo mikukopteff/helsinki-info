@@ -26,7 +26,6 @@
         existing-case))))
 
 (defn- update-existing [case]
-  (println "---------------------- updating")
   (info "updating an existing case")
   (db/update case "cases") 
   true)
@@ -50,15 +49,15 @@
   
 
 (defn fetch-items 
-  ([] (fetch-all-items (call-openahjo new-items-url)))
+  ([] (fetch-items (call-openahjo new-items-url)))
   ([data]
   (let [added-to-db (doall (take-while true? (map sort-items-and-store (get data "objects"))))]  
     (if (= (count added-to-db) (count (get data "objects")))
-      (println "going for next page")
+      (do (println "Only new items found. All updated.")
       (let [next-url (get (get data "meta") "next")]
         (if-not (nil? next-url)
-          (fetch-all-items (call-openahjo next-url))
-          (info "Last item hit. Stopping items fetching")))))))
+          (fetch-items (call-openahjo next-url))
+          (println "Last item hit. Stopping items fetching"))))))))
 
 (defn fetch-new-items []
   (fetch-items (call-openahjo new-items-url)))

@@ -14,7 +14,7 @@
 (defn- init-events []
   "This function is here until we have a place to get the actual http data"
   (db/delete "events")
-  (doall (openahjo/fetch-all-items  (json/read-str (slurp "test-resources/openahjo.json")))))
+  (doall (openahjo/fetch-items  (json/read-str (slurp "test-resources/openahjo.json")))))
 
 (defn startup[] 
   (println "Starting server")
