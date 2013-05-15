@@ -8,14 +8,14 @@
 
 (def pool (mk-pool))
 
-(defn start-scarping[]
-  (every 1000 #(info "Running task") pool))
+(defn start-scraping[]
+  (every 120000 #(openahjo/fetch-new-items) pool :initial-delay 10000))
 
-(defn- init-events []
-  "This function is here until we have a place to get the actual http data"
-  (db/delete "events")
-  (doall (openahjo/fetch-items  (json/read-str (slurp "test-resources/openahjo.json")))))
+(defn- init-cases []
+  (if (= (count (db/find-collections "cases")) 0)   
+    (doall (openahjo/fetch-all-items)))
+  (start-scraping))
 
 (defn startup[] 
-  (println "Starting server")
-  (init-events))
+  (info "Starting server")
+  (init-cases))

@@ -6,8 +6,8 @@
 
 (defn db-setup [f]
   (delete "cases")
-  (f))
-  ;(delete "cases"))
+  (f)
+  (delete "cases"))
 
 (use-fixtures :each db-setup)
 
