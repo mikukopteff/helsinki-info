@@ -62,6 +62,13 @@ require(['transparency', 'moment','bootstrap.min','jquery', 'underscore-min'], f
       text: function(params) {
         return this.geometries.length > 0 ? this.geometries[0].name : "Ei tiedossa" ;
       }
+    },
+    attachments: {
+      name: {
+        href: function(params) {
+          return this.file_uri;
+        }
+      }
     }
   }
 
