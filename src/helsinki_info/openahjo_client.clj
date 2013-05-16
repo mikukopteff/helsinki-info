@@ -4,7 +4,8 @@
             [clojure.data.json :as json]
             [helsinki-info.db-client :as db])
   (:use [clojure.tools.logging :only (info)]
-        [clojure.set])
+        [clojure.set]
+        [clj-time.format])
   (:import [org.bson.types ObjectId]))
 
 (def base-url "http://dev.hel.fi")
@@ -40,8 +41,11 @@
   (db/insert-single case "cases") 
   true)
 
+(def custom-formatter (formatter "yyyy-MM-dd"))
+
 (defn convert-date [item]
-  ;todo add here meeting.date fetching and conversion to actual date)
+  (let [meeting (get item "meeting")]
+    (assoc item "meeting" (assoc meeting "date" (parse custom-formatter (get meeting "date"))))))
 
 (defn- sort-items-and-store [item]
   (let [case (select-case item)]
