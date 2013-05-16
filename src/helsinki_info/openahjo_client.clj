@@ -40,6 +40,9 @@
   (db/insert-single case "cases") 
   true)
 
+(defn convert-date [item]
+  ;todo add here meeting.date fetching and conversion to actual date)
+
 (defn- sort-items-and-store [item]
   (let [case (select-case item)]
     (let [items (get case :items)]
