@@ -48,11 +48,12 @@
     (assoc item "meeting" (assoc meeting "date" (parse custom-formatter (get meeting "date"))))))
 
 (defn- sort-items-and-store [item]
-  (let [case (select-case item)]
-    (let [items (get case :items)]
-      (if (nil? items)
-        (insert-new (conj case {:items [(dissoc item "issue")]}))
-        (update case item items)))))
+  (let [new-item (convert-date item)]
+    (let [case (select-case item)]
+      (let [items (get case :items)]
+        (if (nil? items)
+          (insert-new (conj case {:items [(dissoc new-item "issue")]}))
+          (update case new-item items))))))
   
 
 (defn fetch-items 

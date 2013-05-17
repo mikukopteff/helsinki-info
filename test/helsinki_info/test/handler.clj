@@ -28,8 +28,11 @@
   (testing "case fetching with slug"
     (let [response (app (request :get "/case/hel-2012-013814"))]
       (is (= (:status response) 200))
-      (is (= (get (parse-json response) "summary") "Valtuutettu Kauko Koskinen ja 18 muuta valtuutettua esittävät aloitteessaan, että selvitettäisiin, miksi aravuokra-asuntojen rakennuskustannukset ovat Helsingissä muuta maata korkeammat."))
-      (is (= (get (parse-json response) "subject") "Kiinteistölautakunnan lausunto kaupunginhallitukselle kaupunginvaltuutettu Kauko Koskisen valtuustoaloitteesta koskien kaupungin asuntorakentamisen kustannuksia Helsingissä"))))
+      (let [case (parse-json response)]
+        (is (= (get case "slug") "hel-2012-013814"))
+        (is (= (get (get (first (get case "items")) "meeting") "date") "foo"))
+        (is (= (get case "summary") "Valtuutettu Kauko Koskinen ja 18 muuta valtuutettua esittävät aloitteessaan, että selvitettäisiin, miksi aravuokra-asuntojen rakennuskustannukset ovat Helsingissä muuta maata korkeammat."))
+        (is (= (get case "subject") "Kiinteistölautakunnan lausunto kaupunginhallitukselle kaupunginvaltuutettu Kauko Koskisen valtuustoaloitteesta koskien kaupungin asuntorakentamisen kustannuksia Helsingissä")))))
 
   (testing "single event fetching with id"
     (let [response (app (request :get "/case/this-id-is-probably-nonexistent"))]
