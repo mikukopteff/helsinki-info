@@ -7,7 +7,8 @@
             [helsinki-info.utils :as utils]
             [clj-time.core :as time]
             [monger.query :as query])
-  (:use [clojure.tools.logging])
+  (:use [clojure.tools.logging]
+        [monger.operators])
   (:import [com.mongodb DB WriteConcern]
            [org.bson.types ObjectId]))
 
@@ -65,6 +66,7 @@
 (defn find-popular-new []
   "db.cases.aggregate([{$unwind: '$items'}, {$group: {_id: '$slug', sum_items: {$sum: 1}}}, {$match: {sum_items: {$gte: 3}}}]);"
   ;{$match: {'orders.date': {$gte: new Date('01-02-2013'), $lt: new Date('01-03-2013') }}},
-  )
+  (in-connection
+    #(mongo-collection/aggregate "cases" [{$unwind "$items"}, {$group {:_id "$slug" :sum_items {$sum 1}}}, {$match {:sum_items {$gte 3}}}])))
 
 
