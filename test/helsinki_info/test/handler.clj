@@ -30,7 +30,7 @@
       (is (= (:status response) 200))
       (let [case (parse-json response)]
         (is (= (get case "slug") "hel-2012-013814"))
-        (is (= (get (get (first (get case "items")) "meeting") "date") "foo"))
+        (is (= (get (get (first (get case "items")) "meeting") "date") "2013-03-21T02:00:00.000+02:00"))
         (is (= (get case "summary") "Valtuutettu Kauko Koskinen ja 18 muuta valtuutettua esittävät aloitteessaan, että selvitettäisiin, miksi aravuokra-asuntojen rakennuskustannukset ovat Helsingissä muuta maata korkeammat."))
         (is (= (get case "subject") "Kiinteistölautakunnan lausunto kaupunginhallitukselle kaupunginvaltuutettu Kauko Koskisen valtuustoaloitteesta koskien kaupungin asuntorakentamisen kustannuksia Helsingissä")))))
 
