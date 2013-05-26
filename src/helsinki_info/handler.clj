@@ -21,6 +21,8 @@
 (defroutes app-routes
   (GET "/" [] (resp/file-response "index.html" {:root "resources/public"}))
   (GET "/ping" [] "pong")
+  (GET "/items/newest" []
+    (success (db/find-newest-headings 4)))
   (GET "/cases" []
     (success (db/find-collections "cases")))
   (GET "/case/:slug" [slug]
