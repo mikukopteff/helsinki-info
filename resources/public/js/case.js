@@ -27,7 +27,7 @@ require(['transparency', 'moment','bootstrap.min','jquery', 'underscore-min'], f
   relatedDirectives = {
     relatedLink: {
       text: function(params) {
-        return this.meeting.committee_name + ' ' + this.meeting.date;
+        return this.meeting.committee_name + ' ' + this.meeting.displayDate;
       },
       href: function(params) {
         return '#' + this.id;
@@ -122,9 +122,18 @@ require(['transparency', 'moment','bootstrap.min','jquery', 'underscore-min'], f
     $('#related-events li:not(.nav-header)').click(onRelatedEventSwitch);
   }
 
-  function onCaseFetch(acase) {
-    console.log(acase);
+  function formatDates(acase) {
+    acase.items = _.map(acase.items, function(item) {
+     item.meeting.date = moment(item.meeting.date);
+     item.meeting.displayDate = item.meeting.date.format("DD.MM.YYYY");
+     return item;
+   })
+  }
+
+  function onCaseFetch(acase) {    
     window.currentCase = acase; 
+    formatDates(acase);
+    console.log(acase);
     setRelatedItems(acase);
     var currentIndex = window.location.hash.replace('#', '') != '' ? window.location.hash.replace('#', '') : 0
     var currentItem = selectCurrentItem(acase, currentIndex);
