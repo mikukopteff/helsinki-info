@@ -30,4 +30,7 @@
       (is (= "HEL 2012-013814" (get case :register_id)))
       (is (= 380 (get (first (get case :items)) :id)))
       (is (= "2013-03-21" (unparse time-formatter (get (get (first (get case :items)) :meeting) :date))))
+      (is (= 999 (get (second (get case :items)) :id)))
+      (is (= "2013-03-99" (unparse time-formatter (get (get (second (get case :items)) :meeting) :date))))
+      (is (= "2013-03-99" (unparse time-formatter (get (get (nth (get case :items) 2) :meeting) :date))))
       (is (= "Kiinteistölautakunta" (get (get (first (get case :items)) :meeting) :committee_name))))))
