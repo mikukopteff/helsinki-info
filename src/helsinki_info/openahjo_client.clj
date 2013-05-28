@@ -21,8 +21,8 @@
 
 (defn- select-case [item]
   "Fetches the db case if it is already stored. Case equals issue in the openahjo api"
-  (let [case (get item "issue")]
-    (let [existing-case (db/find-by-case (get case "slug"))]
+  (let [case (get item :issue)]
+    (let [existing-case (db/find-by-case (get case :slug))]
       (if (empty? existing-case)
         case
         existing-case))))
@@ -33,8 +33,8 @@
   true)
 
 (defn- update [old-case, new-item, old-items] 
-  (if-not (some #(=  (get % :id) (get new-item "id") ) old-items)
-    (do (let [all-items (conj old-items (keywordize-keys (dissoc new-item "issue")))]
+  (if-not (some #(=  (get % :id) (get new-item :id) ) old-items)
+    (do (let [all-items (conj old-items (dissoc new-item :issue))]
       (update-existing (assoc old-case :items (sort-by (comp :date :meeting) all-items)))))
   false))
 
@@ -46,22 +46,22 @@
 (def custom-formatter (formatter "yyyy-MM-dd"))
 
 (defn convert-date [item]
-  (let [meeting (get item "meeting")]
-    (assoc item "meeting" (assoc meeting "date" (parse custom-formatter (get meeting "date"))))))
+  (let [meeting (get item :meeting)]
+    (assoc item :meeting (assoc meeting :date (parse custom-formatter (get meeting :date))))))
 
 (defn- sort-items-and-store [item]
   (let [new-item (convert-date item)]
     (let [case (select-case item)]
       (let [items (get case :items)]
         (if (nil? items)
-          (insert-new (conj case {:items [(dissoc new-item "issue")]}))
+          (insert-new (conj case {:items [(dissoc new-item :issue)]}))
           (update case new-item items))))))
   
 
 (defn fetch-items 
   ([] (fetch-items (call-openahjo new-items-url)))
   ([data]
-  (let [added-to-db (doall (take-while true? (map sort-items-and-store (get data "objects"))))]
+  (let [added-to-db (doall (take-while true? (map sort-items-and-store (get (keywordize-keys data) :objects))))]
     (info (str "Items updated:" (count added-to-db)))
     (if (= (count added-to-db) (count (get data "objects")))
       (do (info "Only new items found. All updated.")
