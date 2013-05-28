@@ -73,7 +73,7 @@
   (in-connection
     #(doall (query/with-collection "cases"
       (query/find {})
-      (query/fields [:slug :summary :heading :items :meeting])
+      (query/fields [:slug :summary :heading :items :meeting :subject])
       (query/sort (sorted-map "items.meeting.date" -1))
       (query/limit amount)))))
 

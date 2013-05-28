@@ -13,7 +13,7 @@ directives = {
   }
 };
 
-$.ajax('/cases').done(
+$.ajax('/item/newest').done(
   function(json){
     console.log(json);
     $('#cases').render(json, directives);
