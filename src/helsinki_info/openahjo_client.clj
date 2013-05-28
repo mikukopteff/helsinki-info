@@ -5,7 +5,8 @@
             [helsinki-info.db-client :as db])
   (:use [clojure.tools.logging :only (info)]
         [clojure.set]
-        [clj-time.format])
+        [clj-time.format]
+        [clojure.walk])
   (:import [org.bson.types ObjectId]))
 
 (def base-url "http://dev.hel.fi")
@@ -33,9 +34,9 @@
 
 (defn- update [old-case, new-item, old-items] 
   (if-not (some #(=  (get % :id) (get new-item "id") ) old-items)
-    (do (map #(println (get-in % [:meeting])) (sort-by (comp :date :meeting) (conj old-items (dissoc new-item "issue")))))
-    (update-existing (assoc old-case :items (sort-by (comp :date :meeting) (conj old-items (dissoc new-item "issue"))))))
-    false))
+    (do (let [all-items (conj old-items (keywordize-keys (dissoc new-item "issue")))]
+      (update-existing (assoc old-case :items (sort-by (comp :date :meeting) all-items)))))
+  false))
 
 (defn- insert-new [case]
   (info "inserting new case")
