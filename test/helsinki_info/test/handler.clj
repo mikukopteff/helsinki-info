@@ -38,6 +38,12 @@
     (let [response (app (request :get "/case/this-id-is-probably-nonexistent"))]
       (is (= (:status response) 404))))
   
+  (testing "finding cases with new items"
+    (let [response (app (request :get "/item/newest"))]
+      (is (= (:status response) 200))
+      (let [cases (parse-json response)]
+        (is (= (get (first cases) "slug") "hel-2012-013814")))))
+
   (testing "not-found route"
     (let [response (app (request :get "/invalid"))]
       (is (= (:status response) 404))))
