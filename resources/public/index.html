@@ -63,20 +63,21 @@
 
     <h2>Uusimmat</h2>
     <hr />
-    <span id="cases">
-      <div class="row">
-        <div class="span6">
-          <h2 data-bind="subject"></h2>
-          <p data-bind="summary"></p>
-          <p><a data-bind="oid" class="btn btn-info btn-small" href="#">Lisätietoja</a></p>
-        </div>
+
+      <div class="row" id="new-first-row">
+          <div class="span6">
+            <h2 data-bind="subject"></h2>
+            <p data-bind="summary"></p>
+            <p><a data-bind="oid" class="btn btn-info btn-small" href="#">Lisätietoja</a></p>
+          </div>
+      </div>
+      <div class="row" id="new-second-row">
         <div class="span6">
           <h2 data-bind="subject"></h2>
           <p data-bind="summary"></p>
           <p><a data-bind="oid" class="btn btn-info btn-small" href="#">Lisätietoja</a></p>
         </div>
       </div>
-    </span>
 
     <div class="row">
       <div class="span2 offset10"

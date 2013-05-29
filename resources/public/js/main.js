@@ -15,7 +15,8 @@ directives = {
 
 $.ajax('/item/newest').done(
   function(json){
-    console.log(json);
-    $('#cases').render(json, directives);
+    //console.log(json);
+    $('#new-first-row').render(json.splice(0, 2), directives);
+    $('#new-second-row').render(json.splice(0, 2), directives);
   });
 });
