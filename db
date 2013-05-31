@@ -1,0 +1,6 @@
+db.cases.ensureIndex( { "$**": "text" },{ name: "textIndex", weights: { register_id: 10, summary: 10, }, default_language: "finnish" })
+
+
+ db.cases.getIndexes()
+
+ db.cases.runCommand( "text", { search: "kauko" } )
