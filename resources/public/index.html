@@ -66,16 +66,16 @@
 
       <div class="row" id="new-first-row">
           <div class="span6">
-            <h2 data-bind="subject"></h2>
-            <p data-bind="summary"></p>
-            <p><a data-bind="oid" class="btn btn-info btn-small" href="#">Lisätietoja</a></p>
-          </div>
+          <a data-bind="oid"><h2 data-bind="subject"></h2>
+          <p data-bind="summary"></p>
+          <p class="btn btn-info btn-small" href="#">Lisätietoja</p></a>
+        </div>
       </div>
       <div class="row" id="new-second-row">
         <div class="span6">
-          <h2 data-bind="subject"></h2>
+          <a data-bind="oid"><h2 data-bind="subject"></h2>
           <p data-bind="summary"></p>
-          <p><a data-bind="oid" class="btn btn-info btn-small" href="#">Lisätietoja</a></p>
+          <p class="btn btn-info btn-small" href="#">Lisätietoja</p></a>
         </div>
       </div>
 
