@@ -1,10 +1,10 @@
 (defproject helsinki-info "0.1.0-SNAPSHOT"
   :description "FIXME: write description"
   :url "http://example.com/FIXME"
-  :dependencies [[org.clojure/clojure "1.4.0"]
+  :dependencies [[org.clojure/clojure "1.5.0"]
                  [compojure "1.1.5"]
                  [overtone/at-at "1.1.1"]
-                 [com.novemberain/monger "1.4.2"]
+                 [com.novemberain/monger "1.5.0"]
                  [org.clojure/data.json "0.2.1"]
                  [org.clojure/tools.logging "0.2.6"]
                  [clj-time "0.5.0"]

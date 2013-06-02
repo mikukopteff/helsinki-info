@@ -6,7 +6,8 @@
             [monger.collection :as mongo-collection]
             [helsinki-info.utils :as utils]
             [clj-time.core :as time]
-            [monger.query :as query])
+            [monger.query :as query]
+            [monger.search :as search])
   (:use [clojure.tools.logging]
         [monger.operators])
   (:import [com.mongodb DB WriteConcern]
@@ -77,5 +78,8 @@
       (query/sort (sorted-map "items.meeting.date" -1))
       (query/limit amount)))))
 
+(defn search [string]
+  (in-connection
+    #(map (fn [result] (get result :obj))(search/results-from (search/search "cases" string)))))
 
 

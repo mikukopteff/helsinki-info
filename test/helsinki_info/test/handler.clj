@@ -44,6 +44,12 @@
       (let [cases (parse-json response)]
         (is (= (get (first cases) "slug") "hel-2012-013814")))))
 
+    (testing "find cases using text search"
+    (let [response (app (request :get "/search/kauko"))]
+      (is (= (:status response) 200))
+      (let [cases (parse-json response)]
+        (is (= (get (first cases) "slug") "hel-2012-013814")))))
+
   (testing "not-found route"
     (let [response (app (request :get "/invalid"))]
       (is (= (:status response) 404))))

@@ -8,7 +8,7 @@
 
 (def pool (mk-pool))
 
-(defn start-scraping[])
+(defn start-scraping[]
   (every 600000 #(openahjo/fetch-new-items) pool :initial-delay 10000))
 
 (defn- init-cases []

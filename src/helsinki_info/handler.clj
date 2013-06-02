@@ -2,6 +2,7 @@
   (:use compojure.core)
   (:require [compojure.handler :as handler]
             [compojure.route :as route]
+            [ring.util.codec :as codec]
             [ring.util.response :as resp]
             [helsinki-info.db-client :as db]
             [clojure.data.json :as json]))
@@ -21,6 +22,8 @@
 (defroutes app-routes
   (GET "/" [] (resp/file-response "index.html" {:root "resources/public"}))
   (GET "/ping" [] "pong")
+  (GET "/search/:query" [query] 
+    (success (db/search (codec/url-decode query))))
   (GET "/item/newest" []
     (success (db/find-newest-headings 4)))
   (GET "/cases" []
