@@ -23,6 +23,15 @@ require(['jquery', 'transparency', 'bootstrap.min'], function($, Transparency) {
   };
 
   $('#search').click(onSearch);
+  $('.row.listing').hide();
+  
+  $(document)
+    .ajaxStart(function() {
+      $('#loading').show();
+    })
+    .ajaxStop(function() {
+      $('#loading').hide();
+    });
 
   $.ajax('/item/newest').done(
     function(json){
@@ -31,8 +40,6 @@ require(['jquery', 'transparency', 'bootstrap.min'], function($, Transparency) {
   });
 
   function showSearchListing(json) {
-    $('#listing-loading').fadeOut();
-    console.log(json);
     $('.row.listing').fadeIn(500).render(json, directives);
     $('#listing-header').fadeIn(500).text('Haulla \'' + $('#search-input').val() + '\' löytyi ' + json.length + ' tulosta:')
 
@@ -42,21 +49,9 @@ require(['jquery', 'transparency', 'bootstrap.min'], function($, Transparency) {
     event.preventDefault();
     var input = $('#search-input').val();
     if (input != 'undefined' && input != ''){
-      console.log(input);
       $('#listing-loading').show();
       $('#listing').fadeOut(800);
       $.ajax('/search/' + encodeURI($('#search-input').val())).done(showSearchListing);
     }
   }
-
-  $('.row.listing').hide();
-
-  $('#listing-loading')
-    .hide()
-    .ajaxStart(function() {
-      $(this).show();
-    })
-    .ajaxStop(function() {
-      $(this).hide();
-    });
 });

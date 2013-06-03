@@ -4,25 +4,7 @@ require.config({
     }
 });
 
-require(['transparency', 'moment','bootstrap.min','jquery', 'underscore-min'], function(Transparency, moment, bootstrap, $) {
-
-  var Translations = {
-    "draft resolution": "Päätösesitys",
-    "presenter": "Esittelijä",
-    "resolution": "Päätös",
-    "summary": "Yhteenveto"
-  }
-
-  function getParameterByName(name) {
-    name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
-    var regexS = "[\\?&]" + name + "=([^&#]*)";
-    var regex = new RegExp(regexS);
-    var results = regex.exec(window.location.search);
-    if(results == null)
-      return "";
-    else
-      return decodeURIComponent(results[1].replace(/\+/g, " "));
-  }
+require(['utils', 'transparency', 'moment','bootstrap.min','jquery', 'underscore-min'], function(Utils, Transparency, moment, bootstrap, $) {
 
   relatedDirectives = {
     relatedLink: {
@@ -51,7 +33,7 @@ require(['transparency', 'moment','bootstrap.min','jquery', 'underscore-min'], f
       },
       type: {
         text: function(params) {
-          return Translations[this.type];
+          return Utils.Translations[this.type];
         }
       }
     }
@@ -141,7 +123,7 @@ require(['transparency', 'moment','bootstrap.min','jquery', 'underscore-min'], f
   }
 
   jQuery.fn.render = Transparency.jQueryPlugin;
-  var slug = getParameterByName('id');
+  var slug = Utils.getParameterByName('id');
   $.ajax('/case/' + slug).done(onCaseFetch);
 
 });
