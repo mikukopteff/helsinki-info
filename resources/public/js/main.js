@@ -9,6 +9,16 @@ require(['jquery', 'transparency', 'bootstrap.min'], function($, Transparency) {
       href: function(params) {
         return 'case.html?id=' + this.slug + '#' + this.items[this.items.length - 1].id;
       }
+    },
+    committee: {
+      text: function(params) {
+        return this.items[this.items.length - 1].meeting.committee_name;
+      }
+    },
+    date: {
+      text: function(params) {
+        console.log(this.items[this.items.length - 1].meeting.date);
+      }
     }
   };
 
@@ -20,13 +30,12 @@ require(['jquery', 'transparency', 'bootstrap.min'], function($, Transparency) {
       $('#new-second-row').render(json.splice(0, 2), directives);
   });
 
-  function clearListingArea(){
-    $('#listing').hide(800);
-  }
-
   function showSearchListing(json) {
+    $('#listing-loading').fadeOut();
     console.log(json);
-    //$('#listing').
+    $('.row.listing').fadeIn(500).render(json, directives);
+    $('#listing-header').fadeIn(500).text('Haulla \'' + $('#search-input').val() + '\' löytyi ' + json.length + ' tulosta:')
+
   }
 
   function onSearch(event){
@@ -34,8 +43,9 @@ require(['jquery', 'transparency', 'bootstrap.min'], function($, Transparency) {
     var input = $('#search-input').val();
     if (input != 'undefined' && input != ''){
       console.log(input);
-      clearListingArea();
-      $.ajax('/search/' + $('#search-input').val()).done(showSearchListing);
+      $('#listing-loading').show();
+      $('#listing').fadeOut(800);
+      $.ajax('/search/' + encodeURI($('#search-input').val())).done(showSearchListing);
     }
   }
 
@@ -44,9 +54,9 @@ require(['jquery', 'transparency', 'bootstrap.min'], function($, Transparency) {
   $('#listing-loading')
     .hide()
     .ajaxStart(function() {
-        $(this).show();
+      $(this).show();
     })
     .ajaxStop(function() {
-        $(this).hide();
+      $(this).hide();
     });
 });

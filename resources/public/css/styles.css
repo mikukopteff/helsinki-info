@@ -33,6 +33,9 @@ h3 {
   font-size: 21;
 }
 
+.btn {
+  margin-bottom: 25px;
+}
 #map { 
   height: 220px; 
   width: 200px;
