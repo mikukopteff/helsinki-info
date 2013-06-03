@@ -5,7 +5,8 @@ define([], function() {
       "draft resolution": "Päätösesitys",
       "presenter": "Esittelijä",
       "resolution": "Päätös",
-      "summary": "Yhteenveto"
+      "summary": "Yhteenveto",
+      "hearing": "Kuuleminen"
     },
     getParameterByName: function(name) {
       name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
