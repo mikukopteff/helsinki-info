@@ -1,4 +1,4 @@
-require(['jquery', 'transparency', 'bootstrap.min'], function($, Transparency) {
+require(['utils', 'jquery', 'transparency', 'bootstrap.min'], function(Utils, $, Transparency) {
   jQuery.fn.render = Transparency.jQueryPlugin;
   
   directives = {
@@ -24,14 +24,7 @@ require(['jquery', 'transparency', 'bootstrap.min'], function($, Transparency) {
 
   $('#search').click(onSearch);
   $('.row.listing').hide();
-  
-  $(document)
-    .ajaxStart(function() {
-      $('#loading').show();
-    })
-    .ajaxStop(function() {
-      $('#loading').hide();
-    });
+  Utils.ajaxLoader('#loading');
 
   $.ajax('/item/newest').done(
     function(json){

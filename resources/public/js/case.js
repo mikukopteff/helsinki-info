@@ -54,6 +54,8 @@ require(['utils', 'transparency', 'moment','bootstrap.min','jquery', 'underscore
     }
   }
 
+  Utils.ajaxLoader('#loading');
+
   function selectCurrentItem(acase, itemId) {
     return _.find(acase.items, function(element) { return element.id == itemId });
   }
