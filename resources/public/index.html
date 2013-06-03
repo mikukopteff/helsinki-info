@@ -44,8 +44,8 @@
               <li><a href="#contact">Yhteystiedot</a></li>
             </ul>
             <form class="navbar-form pull-right">
-              <input type="text" class="span2">
-              <button type="submit" class="btn">Haku</button>
+              <input id="search-input" type="text" class="span2">
+              <button type="submit" id="search" class="btn">Haku</button>
             </form>
           </div>
       </div>
@@ -61,29 +61,34 @@
 
     <div class="fb-like" data-send="true" data-width="450" data-show-faces="true"></div>
 
-    <h2>Uusimmat</h2>
-    <hr />
+    <div id="listing">
+      <div id="listing-loading" class="pagination-centered"><img src="img/ajax-loader.gif" /></div>  
+      <h2 id="listing-header">Uusimmat</h2>
+      <hr />
 
-      <div class="row" id="new-first-row">
+        <div class="row" id="new-first-row">
           <div class="span6">
-          <a data-bind="oid"><h2 data-bind="subject"></h2>
-          <p data-bind="summary"></p>
-          <p class="btn btn-info btn-small" href="#">Lisätietoja</p></a>
+            <a data-bind="oid"><h2 data-bind="subject"></h2>
+            <p data-bind="summary"></p>
+            <p class="btn btn-info btn-small" href="#">Lisätietoja</p></a>
+          </div>
+        </div>
+        <div class="row" id="new-second-row">
+          <div class="span6">
+            <a data-bind="oid"><h2 data-bind="subject"></h2>
+            <p data-bind="summary"></p>
+            <p class="btn btn-info btn-small" href="#">Lisätietoja</p></a>
+          </div>
         </div>
       </div>
-      <div class="row" id="new-second-row">
-        <div class="span6">
-          <a data-bind="oid"><h2 data-bind="subject"></h2>
-          <p data-bind="summary"></p>
-          <p class="btn btn-info btn-small" href="#">Lisätietoja</p></a>
+      <div class="row listing">
+        <div class="span12">
+            <a data-bind="oid"><h2 data-bind="subject"></h2>
+            <p data-bind="summary"></p>
+            <p class="btn btn-info btn-small" href="#">Lisätietoja</p></a>
         </div>
       </div>
 
-    <div class="row">
-      <div class="span2 offset10"
-        <p><a href="#" class="btn btn-primary">Lisää päätöksiä...</a></p>
-      </div>
-    </div>
     <hr>
 
     <footer>
