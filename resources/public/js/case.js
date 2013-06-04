@@ -1,10 +1,13 @@
 require.config({
+    baseUrl: "/js/vendor/",
     paths: {
+        "utils": "../utils",
         "moment": "moment.min",
+        "underscore": "underscore-min"
     }
 });
 
-require(['utils', 'transparency', 'moment','bootstrap.min','jquery', 'underscore-min'], function(Utils, Transparency, moment, bootstrap, $) {
+require(['jquery', 'utils', 'transparency', 'moment', 'underscore'], function($, Utils, Transparency, moment, underscore) {
 
   relatedDirectives = {
     relatedLink: {
