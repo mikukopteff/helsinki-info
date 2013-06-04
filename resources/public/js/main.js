@@ -1,4 +1,9 @@
-require(['utils', 'jquery', 'transparency', 'bootstrap.min'], function(Utils, $, Transparency) {
+require.config({
+    paths: {
+        "moment": "moment.min",
+    }
+});
+require(['moment', 'utils', 'jquery', 'transparency', 'bootstrap.min'], function(moment, Utils, $, Transparency) {
   jQuery.fn.render = Transparency.jQueryPlugin;
   
   directives = {
@@ -17,7 +22,12 @@ require(['utils', 'jquery', 'transparency', 'bootstrap.min'], function(Utils, $,
     },
     date: {
       text: function(params) {
-        console.log(this.items[this.items.length - 1].meeting.date);
+        return moment(this.items[this.items.length - 1].meeting.date).format("DD.MM.YYYY");
+      }
+    },
+    summary: {
+      text: function(params) {
+        return  jQuery.trim(this.summary).substring(0, 200).split(" ").slice(0, -1).join(" ") + "...";
       }
     }
   };

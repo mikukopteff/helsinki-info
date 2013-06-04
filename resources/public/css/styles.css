@@ -1,7 +1,5 @@
-#events p{
-  font-size: 16px;
-}
-a:hover {
+
+#listing a:hover, div.row.listing a:hover {
   text-decoration: none;
 }
 a {
@@ -33,11 +31,18 @@ h3 {
   font-size: 21;
 }
 
-.btn {
+.label {
   margin-bottom: 25px;
+  margin-right: 10px;
 }
 #map { 
   height: 220px; 
   width: 200px;
   margin: 5px 0px 5px 0px;
+}
+.ellipsis {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
 }
