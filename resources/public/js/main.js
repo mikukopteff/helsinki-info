@@ -1,9 +1,13 @@
 require.config({
+    baseUrl: "/js/vendor/",
     paths: {
+        "utils": "../utils",
         "moment": "moment.min",
+        "bootstrap": "bootstrap.min"
     }
 });
-require(['moment', 'utils', 'jquery', 'transparency', 'bootstrap.min'], function(moment, Utils, $, Transparency) {
+
+require(['jquery', 'moment', 'utils', 'transparency', 'bootstrap'], function($, moment, Utils, Transparency, bootstrap) {
   jQuery.fn.render = Transparency.jQueryPlugin;
   
   directives = {
