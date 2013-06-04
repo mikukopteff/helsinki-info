@@ -3,11 +3,15 @@ require.config({
     paths: {
         "utils": "../utils",
         "moment": "moment.min",
-        "underscore": "underscore-min"
+        "underscore": "underscore-min",
+        "bootstrap": "bootstrap.min"
+    },
+    shim: {
+        "bootstrap": { deps: ["jquery"]}
     }
 });
 
-require(['jquery', 'utils', 'transparency', 'moment', 'underscore'], function($, Utils, Transparency, moment, underscore) {
+require(['jquery', 'utils', 'transparency', 'moment', 'underscore', 'bootstrap'], function($, Utils, Transparency, moment, underscore, bootstrap) {
 
   relatedDirectives = {
     relatedLink: {
