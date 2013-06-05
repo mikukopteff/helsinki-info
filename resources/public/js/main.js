@@ -4,6 +4,9 @@ require.config({
         "utils": "../utils",
         "moment": "moment.min",
         "bootstrap": "bootstrap.min"
+    },
+    shim: {
+        "bootstrap": { deps: ["jquery"]}
     }
 });
 
