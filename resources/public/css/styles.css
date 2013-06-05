@@ -19,6 +19,7 @@ h2 {
   line-height: 30px;
   font-size: 22px;
   font-weight: normal;
+  clear: left;
 }
 h3 {
   line-height: 30px;
