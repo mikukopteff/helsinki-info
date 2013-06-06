@@ -39,29 +39,46 @@ require(['jquery', 'moment', 'utils', 'transparency', 'bootstrap'], function($, 
     }
   };
 
-  $('#search').click(onSearch);
-  $('.row.listing').hide();
+  function selectDataToShow(){
+    var searchString = window.location.hash.replace('#q=', '');
+    if (searchString === '') {
+      $('.row.listing').hide();
+      fetchNewItems();
+    } else {
+      $('#search-input').val(searchString);
+      search(searchString);
+    }
+  }
+
+  selectDataToShow()
+  $('#search').click(onSearchClicked);
   Utils.ajaxLoader('#loading');
 
-  $.ajax('/item/newest').done(
-    function(json){
-      $('#new-first-row').render(json.splice(0, 2), directives);
-      $('#new-second-row').render(json.splice(0, 2), directives);
-  });
+  function fetchNewItems() {
+    $.ajax('/item/newest').done(
+      function(json){
+        $('#new-first-row').render(json.splice(0, 2), directives);
+        $('#new-second-row').render(json.splice(0, 2), directives);
+    });
+  }
 
   function showSearchListing(json) {
     $('.row.listing').fadeIn(500).render(json, directives);
     $('#listing-header').fadeIn(500).text('Haulla \'' + $('#search-input').val() + '\' löytyi ' + json.length + ' tulosta:')
-
   }
 
-  function onSearch(event){
-    event.preventDefault();
-    var input = $('#search-input').val();
+  function search(input) {
+    console.log('input stuff' + input);  
     if (input != 'undefined' && input != ''){
       $('#listing-loading').show();
       $('#listing').fadeOut(800);
-      $.ajax('/search/' + encodeURI($('#search-input').val())).done(showSearchListing);
+      $.ajax('/search/' + encodeURI(input)).done(showSearchListing);
     }
+  }
+
+  function onSearchClicked(event) {
+    event.preventDefault();
+    var input = $('#search-input').val();
+    search(input);
   }
 });
