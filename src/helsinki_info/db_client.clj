@@ -5,6 +5,7 @@
             [monger.core :as mongo]
             [monger.collection :as mongo-collection]
             [helsinki-info.utils :as utils]
+            [helsinki-info.search-utils :as search-utils]
             [clj-time.core :as time]
             [monger.query :as query]
             [monger.search :as search])
@@ -80,6 +81,6 @@
 
 (defn search [string]
   (in-connection
-    #(map (fn [result] (get result :obj))(search/results-from (search/search "cases" string)))))
+    #(map (fn [result] (get result :obj))(search/results-from (search/search "cases" (search-utils/escapeSearchString string))))))
 
 
