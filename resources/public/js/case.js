@@ -131,8 +131,14 @@ require(['jquery', 'utils', 'transparency', 'moment', 'underscore', 'bootstrap']
     setCurrentData(acase, currentItem);
   }
 
+  function onSearchClicked(event) {
+    event.preventDefault();
+    window.location.href = "index.html#q=" + $('#search-input').val();
+  }
+
   jQuery.fn.render = Transparency.jQueryPlugin;
   var slug = Utils.getParameterByName('id');
   $.ajax('/case/' + slug).done(onCaseFetch);
+  $('#search').click(onSearchClicked);
 
 });
