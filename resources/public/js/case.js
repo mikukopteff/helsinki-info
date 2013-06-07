@@ -69,6 +69,7 @@ require(['jquery', 'utils', 'transparency', 'moment', 'underscore', 'bootstrap']
 
   function renderMap(data) {
     if (data.geometries.length > 0) {
+      L.Icon.Default.imagePath = "/img"
       var map = L.map('map').setView([60.170833, 24.9375], 13);
       L.tileLayer('http://{s}.tile.cloudmade.com/{key}/{style}/256/{z}/{x}/{y}.png', {
        attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
