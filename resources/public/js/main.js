@@ -50,10 +50,6 @@ require(['jquery', 'moment', 'utils', 'transparency', 'bootstrap'], function($, 
     }
   }
 
-  selectDataToShow()
-  $('#search').click(onSearchClicked);
-  Utils.ajaxLoader('#loading');
-
   function fetchNewItems() {
     $.ajax('/item/newest').done(
       function(json){
@@ -68,7 +64,6 @@ require(['jquery', 'moment', 'utils', 'transparency', 'bootstrap'], function($, 
   }
 
   function search(input) {
-    console.log('input stuff' + input);  
     if (input != 'undefined' && input != ''){
       $('#listing-loading').show();
       $('#listing').fadeOut(800);
@@ -81,4 +76,9 @@ require(['jquery', 'moment', 'utils', 'transparency', 'bootstrap'], function($, 
     var input = $('#search-input').val();
     search(input);
   }
+
+  selectDataToShow()
+  $('#search').click(onSearchClicked);
+  Utils.ajaxLoader('#loading');
+
 });
