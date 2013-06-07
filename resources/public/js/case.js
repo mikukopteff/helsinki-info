@@ -73,7 +73,7 @@ require(['jquery', 'utils', 'transparency', 'moment', 'underscore', 'bootstrap']
       L.tileLayer('http://{s}.tile.cloudmade.com/{key}/{style}/256/{z}/{x}/{y}.png', {
        attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
        maxZoom: 18,
-       key: 'BC9A493B41014CAABB98F0471D759707',
+       key: '7fdd47da79c64333ba016d82f4c00467',
        style: 998
        }).addTo(map);
 
