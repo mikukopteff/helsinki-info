@@ -5,7 +5,7 @@
 (deftest escapingSearchTerms
 
   (testing "hyphenated terms are escaped"
-    (is (= "\"foo-bar\" baz" (escapeSearchString "foo-bar baz"))))
+    (is (= "\"foo-bar\" baz" (escape-search-string "foo-bar baz"))))
 
   (testing "leading hyphen is removed"
-    (is (= "test" (escapeSearchString "-test")))))
+    (is (= "test" (escape-search-string "-test")))))

@@ -7,10 +7,12 @@
             [helsinki-info.utils :as utils]
             [helsinki-info.search-utils :as search-utils]
             [clj-time.core :as time]
+            [clj-time.format :as time-format]
             [monger.query :as query]
             [monger.search :as search])
   (:use [clojure.tools.logging]
-        [monger.operators])
+        [monger.operators]
+        [clj-time.format])
   (:import [com.mongodb DB WriteConcern]
            [org.bson.types ObjectId]))
 
@@ -29,6 +31,8 @@
   (let [result (fun)]
     (disconnect)
     result))
+
+(def search-result-fields [:slug :summary :heading :items :meeting :subject])
 
 (defn- convert-id [event]
   (if (contains? event :_id)
@@ -75,12 +79,27 @@
   (in-connection
     #(doall (query/with-collection "cases"
       (query/find {})
-      (query/fields [:slug :summary :heading :items :meeting :subject])
+      (query/fields search-result-fields)
       (query/sort (sorted-map "items.meeting.date" -1))
       (query/limit amount)))))
 
+(defn- search-cases [search-query page per-page]
+  (in-connection
+    #(doall (query/with-collection "cases"
+              (query/find search-query)
+              (query/fields search-result-fields)
+              (query/paginate :page page :per-page per-page)))))
+
+(defn search-by-committee [committee_name page per-page]
+  (search-cases {:items.meeting.committee_name committee_name} page per-page))
+
+(defn search-by-date [date-str page per-page]
+  (def date-formatter (time-format/formatter "yyyy-MM-dd"))
+  (let [search-date (time-format/parse date-formatter date-str)]
+    (search-cases {:items.meeting.date search-date} page per-page)))
+
 (defn search [string]
   (in-connection
-    #(map (fn [result] (get result :obj))(search/results-from (search/search "cases" (search-utils/escapeSearchString string))))))
+    #(map (fn [result] (get result :obj))(search/results-from (search/search "cases" (search-utils/escape-search-string string))))))
 
 

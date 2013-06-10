@@ -6,6 +6,10 @@ a {
   color: black;
 }
 
+a span.label {
+    cursor: pointer;
+}
+
 .hero-unit {
   padding: 60px;
   margin-bottom: 30px;
