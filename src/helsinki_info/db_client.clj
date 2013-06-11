@@ -69,13 +69,13 @@
   (in-connection
     #(mongo-collection/aggregate "cases" [{$unwind "$items"}, {$group {:_id "$slug" :sum_items {$sum 1}}}, {$match {:sum_items {$gte 3}}}])))
 
-(defn find-newest-headings [amount]
+(defn find-newest-headings [page, per-page]
   (in-connection
     #(doall (query/with-collection "cases"
       (query/find {})
       (query/fields [:slug :summary :heading :items :meeting :subject])
       (query/sort (sorted-map "items.meeting.date" -1))
-      (query/limit amount)))))
+      (query/paginate :page page :per-page per-page)))))
 
 (defn search [string]
   (in-connection
