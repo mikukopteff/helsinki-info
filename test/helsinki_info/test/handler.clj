@@ -39,7 +39,7 @@
       (is (= (:status response) 404))))
   
   (testing "finding cases with new items"
-    (let [response (app (request :get "/item/newest"))]
+    (let [response (app (request :get "/item/newest/1/4"))]
       (is (= (:status response) 200))
       (let [cases (parse-json response)]
         (is (= (get (first cases) "slug") "hel-2012-013814")))))

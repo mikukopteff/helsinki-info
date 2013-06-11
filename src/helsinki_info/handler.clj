@@ -36,6 +36,8 @@
                (read-string (codec/url-decode per-page)))))
   (GET "/item/newest" []
     (success (db/find-newest-headings 4)))
+  (GET "/item/newest/:page/:per-page" [page per-page]
+    (success (db/find-newest-headings (read-string page) (read-string per-page))))
   (GET "/cases" []
     (success (db/find-collections "cases")))
   (GET "/case/:slug" [slug]

@@ -16,5 +16,6 @@
   :ring {:handler helsinki-info.handler/app,
         :init helsinki-info.tasks/startup }
   :cloudbees-app-id "miku/helsinki-info"
+  :jvm-opts ["-Dmongo.uri=mongodb://127.0.0.1/open-helsinki"]
   :profiles
   {:dev {:dependencies [[ring-mock "0.1.3"]]}})

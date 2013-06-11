@@ -70,18 +70,16 @@
       #(mongo-collection/insert collection (merge element {:_id (ObjectId.)}))))
 
 (defn find-popular-new []
-  "db.cases.aggregate([{$unwind: '$items'}, {$group: {_id: '$slug', sum_items: {$sum: 1}}}, {$match: {sum_items: {$gte: 3}}}]);"
-  ;{$match: {'orders.date': {$gte: new Date('01-02-2013'), $lt: new Date('01-03-2013') }}},
   (in-connection
     #(mongo-collection/aggregate "cases" [{$unwind "$items"}, {$group {:_id "$slug" :sum_items {$sum 1}}}, {$match {:sum_items {$gte 3}}}])))
 
-(defn find-newest-headings [amount]
+(defn find-newest-headings [page, per-page]
   (in-connection
     #(doall (query/with-collection "cases"
       (query/find {})
       (query/fields search-result-fields)
       (query/sort (sorted-map "items.meeting.date" -1))
-      (query/limit amount)))))
+      (query/paginate :page page :per-page per-page)))))
 
 (defn- search-cases [search-query page per-page]
   (in-connection

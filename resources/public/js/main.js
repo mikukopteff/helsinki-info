@@ -67,7 +67,7 @@ require(['jquery', 'moment', 'utils', 'transparency', 'bootstrap'], function($, 
   }
 
   function fetchNewItems() {
-    $.ajax('/item/newest').done(
+    $.ajax('/item/newest/1/10').done(
       function(json) {
         $('#listing .row').render(json.splice(0, 2), directives);
         while (json.length > 0) {

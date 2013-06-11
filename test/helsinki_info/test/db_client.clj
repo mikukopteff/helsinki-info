@@ -17,6 +17,6 @@
 
 (deftest queries
   (testing "query with newest updates"
-    (is (= "hel-2012-013814" (get (first (find-newest-headings 1)) :slug))))
+    (is (= "hel-2012-013814" (get (first (find-newest-headings 1 1)) :slug))))
   (testing "query with popular register numbers"
     (is (= "hel-2012-013814" (get (first (find-popular-new)) :_id)))))
