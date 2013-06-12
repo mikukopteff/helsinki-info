@@ -3,14 +3,15 @@ require.config({
     paths: {
         "utils": "../utils",
         "moment": "moment.min",
-        "bootstrap": "bootstrap.min"
+        "bootstrap": "bootstrap.min",
+        "underscore": "underscore-min"
     },
     shim: {
         "bootstrap": { deps: ["jquery"]}
     }
 });
 
-require(['jquery', 'moment', 'utils', 'transparency', 'bootstrap'], function($, moment, Utils, Transparency, bootstrap) {
+require(['jquery', 'moment', 'utils', 'transparency', 'bootstrap', 'underscore'], function($, moment, Utils, Transparency, bootstrap) {
   jQuery.fn.render = Transparency.jQueryPlugin;
   
   directives = {
@@ -27,28 +28,11 @@ require(['jquery', 'moment', 'utils', 'transparency', 'bootstrap'], function($, 
         return this.items[this.items.length - 1].meeting.committee_name;
       }
     },
-    /*
-    'committee-link': {
-         href: function(params) {
-            //fixme: limit and skip
-            return "/search/committee/" + this.items[this.items.length - 1].meeting.committee_name + "/limit/100/skip/0";
-         }
-    },
-    */
     date: {
       text: function(params) {
         return moment(this.items[this.items.length - 1].meeting.date).format("DD.MM.YYYY");
       }
     },
-    /*
-    'date-link': {
-        href: function(params) {
-            var date = this.items[this.items.length - 1].meeting.date;
-            var urlDate = moment(date).format('YYYY-MM-DD');
-            return "/cases/date/" + urlDate + "/limit/100/skip/0"; //fixme: limit and skip
-        }
-    },
-    */
     summary: {
       text: function(params) {
         return  jQuery.trim(this.summary).substring(0, 200).split(" ").slice(0, -1).join(" ") + "...";
@@ -59,22 +43,58 @@ require(['jquery', 'moment', 'utils', 'transparency', 'bootstrap'], function($, 
   function selectDataToShow(){
     var searchString = window.location.hash.replace('#q=', '');
     if (searchString === '') {
-      fetchNewItems();
+      loadNewItems();
     } else {
       $('#search-input').val(searchString);
       search(searchString);
     }
   }
 
-  function fetchNewItems() {
-    $.ajax('/item/newest/1/10').done(
+  function numberOfPages(amount) {
+    var fullPages = Math.floor(amount / getItemsPerPage());
+    console.log("pages: " + fullPages);
+    var itemsPerPage = getItemsPerPage();
+    return fullPages % itemsPerPage === 0 ? fullPages : fullPages+1;
+  }
+
+  function updatePagination(countProvider) {
+      countProvider(function(amount) {
+          var pages = $("#pages");
+          pages.empty();
+          pages.append('<li class="disabled"><a href="#">&laquo;</a></li>');
+          _(numberOfPages(amount)).times(function(i) {
+             var link = $('<a href="#"></a>').attr('class', 'page-link').text(i+1);
+             pages.append($('<li></li>').append(link));
+          });
+          pages.append('<li class="disabled"><a href="#">&raquo;</a></li>');
+      });
+  }
+
+  function fetchNewItems(done) {
+    $.ajax('/item/newest/' + getPage() + '/' + getItemsPerPage()).done(
       function(json) {
         $('#listing .row').render(json.splice(0, 2), directives);
         while (json.length > 0) {
           elementRow.clone().appendTo('#listing').render(json.splice(0, 2), directives);
         }
-
+        if(done) done();
     });
+  }
+
+  function loadNewItems() {
+    fetchNewItems(function() {
+        updatePagination(function(done) {
+            $.ajax('/item/count').done(function(json) {
+                done(json.count);
+            });
+        });
+    });
+  }
+
+  //fixme: generalize page switch data fetching
+  function switchPage(page) {
+      window.currentPage = page;
+      fetchNewItems();
   }
 
   function showSearchListing(json) {
@@ -103,11 +123,12 @@ require(['jquery', 'moment', 'utils', 'transparency', 'bootstrap'], function($, 
   }
 
   function getPage() {
-      return 1;
+      if(!window.currentPage) window.currentPage = 1;
+      return window.currentPage;
   }
 
-  function getPerPage() {
-      return 100;
+  function getItemsPerPage() {
+      return 2;
   }
 
   Utils.ajaxLoader('#loading');
@@ -117,12 +138,16 @@ require(['jquery', 'moment', 'utils', 'transparency', 'bootstrap'], function($, 
   $("#listing").on('click', '.committee-link', function(event) {
       var committeeName = $(event.target).text();
       window.searchTerm = committeeName;
-      doSearchRequest('/cases/committee/' + encodeURIComponent(committeeName) + '/' + getPage() + '/' + getPerPage());
+      doSearchRequest('/cases/committee/' + encodeURIComponent(committeeName) + '/' + getPage() + '/' + getItemsPerPage());
   });
   $("#listing").on('click', '.date-link', function(event) {
       var dateStr = $(event.target).text();
       window.searchTerm = dateStr;
       var uriDateStr = encodeURIComponent(moment(dateStr, "DD.MM.YYYY").format("YYYY-MM-DD"));
-      doSearchRequest('/cases/date/' + uriDateStr + '/' + getPage() + '/' + getPerPage());
+      doSearchRequest('/cases/date/' + uriDateStr + '/' + getPage() + '/' + getItemsPerPage());
+  });
+
+  $("#pages").on('click', '.page-link', function(event) {
+     switchPage($(event.target).text());
   });
 });
