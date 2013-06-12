@@ -81,20 +81,26 @@
       (query/sort (sorted-map "items.meeting.date" -1))
       (query/paginate :page page :per-page per-page)))))
 
-(defn- search-cases [search-query page per-page]
+(defn- search-cases [search-query projection page per-page]
   (in-connection
     #(doall (query/with-collection "cases"
               (query/find search-query)
-              (query/fields search-result-fields)
+              (query/fields projection)
               (query/paginate :page page :per-page per-page)))))
 
 (defn search-by-committee [committee_name page per-page]
-  (search-cases {:items.meeting.committee_name committee_name} page per-page))
+  (search-cases
+    {:items.meeting.committee_name committee_name}
+    search-result-fields
+    page
+    per-page))
 
 (defn search-by-date [date-str page per-page]
   (def date-formatter (time-format/formatter "yyyy-MM-dd"))
   (let [search-date (time-format/parse date-formatter date-str)]
-    (search-cases {:items.meeting.date search-date} page per-page)))
+    (def query {:items.meeting.date search-date})
+    (def projection { :slug 1 :summary 1 :heading 1 :meeting 1 :subject 1 :items { $elemMatch { :meeting.date search-date } } } )
+    (search-cases query projection page per-page)))
 
 (defn search [string]
   (in-connection
