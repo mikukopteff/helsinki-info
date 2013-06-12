@@ -14,8 +14,8 @@
   :plugins [[lein-ring "0.8.2"]
             [lein-cloudbees "1.0.3"]]
   :ring {:handler helsinki-info.handler/app,
-        :init helsinki-info.tasks/startup }
+        :init helsinki-info.tasks/startup,
+        :port 3000 }
   :cloudbees-app-id "miku/helsinki-info"
-  :jvm-opts ["-Dmongo.uri=mongodb://127.0.0.1/open-helsinki"]
   :profiles
   {:dev {:dependencies [[ring-mock "0.1.3"]]}})
