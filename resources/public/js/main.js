@@ -2,6 +2,7 @@ require.config({
     baseUrl: "/js/vendor/",
     paths: {
         "utils": "../utils",
+        "paginator": "../paginator",
         "moment": "moment.min",
         "bootstrap": "bootstrap.min",
         "underscore": "underscore-min"
@@ -11,9 +12,8 @@ require.config({
     }
 });
 
-require(['jquery', 'moment', 'utils', 'transparency', 'bootstrap', 'underscore', '../paginator'], function($, moment, Utils, Transparency, bootstrap) {
+require(['jquery', 'moment', 'utils', 'transparency', 'bootstrap', 'underscore', 'paginator'], function($, moment, Utils, Transparency, bootstrap, _, Paginator) {
   jQuery.fn.render = Transparency.jQueryPlugin;
-
 
   directives = {
     oid: {
@@ -41,7 +41,7 @@ require(['jquery', 'moment', 'utils', 'transparency', 'bootstrap', 'underscore',
     }
   };
 
-  var paginator = new Paginator("#pages");
+  var paginator = new Paginator("#pages").setItemFetcher(fetchNewPageOfItems);
 
   function selectDataToShow(){
     var searchString = window.location.hash.replace('#q=', '');
@@ -53,7 +53,7 @@ require(['jquery', 'moment', 'utils', 'transparency', 'bootstrap', 'underscore',
     }
   }
 
-  function fetchNewItems(done) {
+  function fetchNewPageOfItems(done) {
     $.ajax('/item/newest/' + paginator.getPage() + '/' + paginator.getItemsPerPage()).done(
       function(json) {
         $('#listing .row').render(json.splice(0, 2), directives);
@@ -65,19 +65,13 @@ require(['jquery', 'moment', 'utils', 'transparency', 'bootstrap', 'underscore',
   }
 
   function loadNewItems() {
-    fetchNewItems(function() {
+    fetchNewPageOfItems(function() {
         paginator.updatePagination(function(done) {
             $.ajax('/item/count').done(function(json) {
                 done(json.count);
             });
         });
     });
-  }
-
-  //fixme: generalize page switch data fetching
-  function switchPage(page) {
-      window.currentPage = page;
-      fetchNewItems();
   }
 
   function showSearchListing(json) {
@@ -121,7 +115,4 @@ require(['jquery', 'moment', 'utils', 'transparency', 'bootstrap', 'underscore',
       doSearchRequest('/cases/date/' + uriDateStr + '/' + getPage() + '/' + getItemsPerPage());
   });
 
-  $("#pages").on('click', '.page-link', function(event) {
-     switchPage($(event.target).text());
-  });
 });
