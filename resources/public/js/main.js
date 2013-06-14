@@ -11,9 +11,10 @@ require.config({
     }
 });
 
-require(['jquery', 'moment', 'utils', 'transparency', 'bootstrap', 'underscore'], function($, moment, Utils, Transparency, bootstrap) {
+require(['jquery', 'moment', 'utils', 'transparency', 'bootstrap', 'underscore', '../paginator'], function($, moment, Utils, Transparency, bootstrap) {
   jQuery.fn.render = Transparency.jQueryPlugin;
-  
+
+
   directives = {
     oid: {
       oid: function(params) {
@@ -40,6 +41,8 @@ require(['jquery', 'moment', 'utils', 'transparency', 'bootstrap', 'underscore']
     }
   };
 
+  var paginator = new Paginator("#pages");
+
   function selectDataToShow(){
     var searchString = window.location.hash.replace('#q=', '');
     if (searchString === '') {
@@ -50,28 +53,8 @@ require(['jquery', 'moment', 'utils', 'transparency', 'bootstrap', 'underscore']
     }
   }
 
-  function numberOfPages(amount) {
-    var fullPages = Math.floor(amount / getItemsPerPage());
-    console.log("pages: " + fullPages);
-    var itemsPerPage = getItemsPerPage();
-    return fullPages % itemsPerPage === 0 ? fullPages : fullPages+1;
-  }
-
-  function updatePagination(countProvider) {
-      countProvider(function(amount) {
-          var pages = $("#pages");
-          pages.empty();
-          pages.append('<li class="disabled"><a href="#">&laquo;</a></li>');
-          _(numberOfPages(amount)).times(function(i) {
-             var link = $('<a href="#"></a>').attr('class', 'page-link').text(i+1);
-             pages.append($('<li></li>').append(link));
-          });
-          pages.append('<li class="disabled"><a href="#">&raquo;</a></li>');
-      });
-  }
-
   function fetchNewItems(done) {
-    $.ajax('/item/newest/' + getPage() + '/' + getItemsPerPage()).done(
+    $.ajax('/item/newest/' + paginator.getPage() + '/' + paginator.getItemsPerPage()).done(
       function(json) {
         $('#listing .row').render(json.splice(0, 2), directives);
         while (json.length > 0) {
@@ -83,7 +66,7 @@ require(['jquery', 'moment', 'utils', 'transparency', 'bootstrap', 'underscore']
 
   function loadNewItems() {
     fetchNewItems(function() {
-        updatePagination(function(done) {
+        paginator.updatePagination(function(done) {
             $.ajax('/item/count').done(function(json) {
                 done(json.count);
             });
@@ -122,15 +105,6 @@ require(['jquery', 'moment', 'utils', 'transparency', 'bootstrap', 'underscore']
     search(input);
   }
 
-  function getPage() {
-      if(!window.currentPage) window.currentPage = 1;
-      return window.currentPage;
-  }
-
-  function getItemsPerPage() {
-      return 2;
-  }
-
   Utils.ajaxLoader('#loading');
   var elementRow = $('#listing .row').clone();
   selectDataToShow();
@@ -138,7 +112,7 @@ require(['jquery', 'moment', 'utils', 'transparency', 'bootstrap', 'underscore']
   $("#listing").on('click', '.committee-link', function(event) {
       var committeeName = $(event.target).text();
       window.searchTerm = committeeName;
-      doSearchRequest('/cases/committee/' + encodeURIComponent(committeeName) + '/' + getPage() + '/' + getItemsPerPage());
+      doSearchRequest('/cases/committee/' + encodeURIComponent(committeeName) + '/' + paginator.getPage() + '/' + paginator.getItemsPerPage());
   });
   $("#listing").on('click', '.date-link', function(event) {
       var dateStr = $(event.target).text();
