@@ -20,7 +20,7 @@
       :body msg })
 
 (defroutes app-routes
-  (GET "/" [] (resp/file-response "index.html" {:root "resources/public"}))
+  (GET "/" [] (clojure.java.io/resource "public/index.html"))
   (GET "/ping" [] "pong")
   (GET "/search/:query" [query] 
     (success (db/search (codec/url-decode query))))
