@@ -1,13 +1,24 @@
 define(['jquery', 'underscore'], function() {
     return function(pageSwitchElement) {
         var that = this;
-        var itemFetcher;
+        var itemFetcher = undefined;
         var currentPage = 1;
+        var pageCount = undefined;
 
         $(pageSwitchElement).on('click', '.page-link', function(event) {
             event.preventDefault();
             that.switchPage($(event.target).text());
         });
+
+        $(pageSwitchElement).on('click', '#first-page-link', function(event) {
+            event.preventDefault();
+            that.switchPage(1);
+        })
+
+        $(pageSwitchElement).on('click', '#last-page-link', function(event) {
+            event.preventDefault();
+            that.switchPage(pageCount);
+        })
 
         function numberOfPages(amountOfItems) {
             var itemsPerPage = that.getItemsPerPage();
@@ -18,9 +29,12 @@ define(['jquery', 'underscore'], function() {
         this.updatePagination = function(countProvider) {
             countProvider(function(amount) {
                 var pages = $(pageSwitchElement);
+                pageCount = numberOfPages(amount);
                 pages.empty();
-                pages.append('<li class="disabled"><a href="#">&laquo;</a></li>');
-                _(numberOfPages(amount)).times(function(i) {
+                pages.append($('<li></li>').attr('id', 'first-page-link').attr('class', 'disabled').
+                    append($('<a></a>').attr('href', '#').html('&laquo;')));
+
+                _(pageCount).times(function(i) {
                     var link = $('<a href="#"></a>').attr('class', 'page-link').text(i+1);
                     var li = $('<li></li>');
                     if(i == 0) {
@@ -29,7 +43,8 @@ define(['jquery', 'underscore'], function() {
                     li.append(link);
                     pages.append(li);
                 });
-                pages.append('<li class="disabled"><a href="#">&raquo;</a></li>');
+
+                pages.append($('<li></li>').append($('<a></a>').attr('href', '#').html('&raquo;')).attr('id', 'last-page-link'));
             });
         }
 
@@ -44,9 +59,16 @@ define(['jquery', 'underscore'], function() {
         this.switchPage = function(page) {
             currentPage = page;
             $(pageSwitchElement).find(".disabled").attr('class', '');
-            var elementNum = parseInt(page) + 1;
+            var pageNum = parseInt(page);
+
+            if(pageNum === 1) {
+                $('#first-page-link').attr('class', 'disabled');
+            } else if(pageNum === pageCount) {
+                $('#last-page-link').attr('class', 'disabled');
+            }
+
+            var elementNum = pageNum + 1;
             var li = $(pageSwitchElement).find("li:nth-child(" + elementNum + ")");
-            console.log(li);
             $(li).attr('class', 'disabled');
             itemFetcher();
         }
