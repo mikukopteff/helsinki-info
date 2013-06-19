@@ -4,3 +4,5 @@ db.cases.ensureIndex( { "$**": "text" },{ name: "textIndex", weights: { register
  db.cases.getIndexes()
 
  db.cases.runCommand( "text", { search: "kauko" } )
+
+ db.cases.ensureIndex( { "items.meeting.date": -1 } );
