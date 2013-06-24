@@ -56,7 +56,7 @@ require(['jquery', 'moment', 'utils', 'transparency', 'bootstrap', 'underscore',
   function fetchNewPageOfItems(done) {
     $.ajax('/item/newest/' + paginator.getPage() + '/' + paginator.getItemsPerPage()).done(
       function(json) {
-        $('#listing .row').render(json.splice(0, 2), directives);
+        $("#listing .row").remove();
         while (json.length > 0) {
           elementRow.clone().appendTo('#listing').render(json.splice(0, 2), directives);
         }

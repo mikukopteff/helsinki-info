@@ -23,7 +23,7 @@ define(['jquery', 'underscore'], function() {
         function numberOfPages(amountOfItems) {
             var itemsPerPage = that.getItemsPerPage();
             var fullPages = Math.floor(amountOfItems / that.getItemsPerPage());
-            return fullPages % itemsPerPage === 0 ? fullPages : fullPages+1;
+            return amountOfItems % itemsPerPage === 0 ? fullPages : fullPages+1;
         }
 
         this.updatePagination = function(countProvider) {
@@ -53,7 +53,7 @@ define(['jquery', 'underscore'], function() {
         }
 
         this.getItemsPerPage = function() {
-            return 2;
+            return 4;
         }
 
         this.switchPage = function(page) {
