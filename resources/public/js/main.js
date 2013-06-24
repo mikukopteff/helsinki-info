@@ -2,17 +2,19 @@ require.config({
     baseUrl: "/js/vendor/",
     paths: {
         "utils": "../utils",
+        "paginator": "../paginator",
         "moment": "moment.min",
-        "bootstrap": "bootstrap.min"
+        "bootstrap": "bootstrap.min",
+        "underscore": "underscore-min"
     },
     shim: {
         "bootstrap": { deps: ["jquery"]}
     }
 });
 
-require(['jquery', 'moment', 'utils', 'transparency', 'bootstrap'], function($, moment, Utils, Transparency, bootstrap) {
+require(['jquery', 'moment', 'utils', 'transparency', 'bootstrap', 'underscore', 'paginator'], function($, moment, Utils, Transparency, bootstrap, _, Paginator) {
   jQuery.fn.render = Transparency.jQueryPlugin;
-  
+
   directives = {
     oid: {
       oid: function(params) {
@@ -27,28 +29,11 @@ require(['jquery', 'moment', 'utils', 'transparency', 'bootstrap'], function($, 
         return this.items[this.items.length - 1].meeting.committee_name;
       }
     },
-    /*
-    'committee-link': {
-         href: function(params) {
-            //fixme: limit and skip
-            return "/search/committee/" + this.items[this.items.length - 1].meeting.committee_name + "/limit/100/skip/0";
-         }
-    },
-    */
     date: {
       text: function(params) {
         return moment(this.items[this.items.length - 1].meeting.date).format("DD.MM.YYYY");
       }
     },
-    /*
-    'date-link': {
-        href: function(params) {
-            var date = this.items[this.items.length - 1].meeting.date;
-            var urlDate = moment(date).format('YYYY-MM-DD');
-            return "/cases/date/" + urlDate + "/limit/100/skip/0"; //fixme: limit and skip
-        }
-    },
-    */
     summary: {
       text: function(params) {
         return  jQuery.trim(this.summary).substring(0, 200).split(" ").slice(0, -1).join(" ") + "...";
@@ -56,24 +41,36 @@ require(['jquery', 'moment', 'utils', 'transparency', 'bootstrap'], function($, 
     }
   };
 
+  var paginator = new Paginator("#pages").setItemFetcher(fetchNewPageOfItems);
+
   function selectDataToShow(){
     var searchString = window.location.hash.replace('#q=', '');
     if (searchString === '') {
-      fetchNewItems();
+      loadNewItems();
     } else {
       $('#search-input').val(searchString);
       search(searchString);
     }
   }
 
-  function fetchNewItems() {
-    $.ajax('/item/newest/1/10').done(
+  function fetchNewPageOfItems(done) {
+    $.ajax('/item/newest/' + paginator.getPage() + '/' + paginator.getItemsPerPage()).done(
       function(json) {
         $('#listing .row').render(json.splice(0, 2), directives);
         while (json.length > 0) {
           elementRow.clone().appendTo('#listing').render(json.splice(0, 2), directives);
         }
+        if(done) done();
+    });
+  }
 
+  function loadNewItems() {
+    fetchNewPageOfItems(function() {
+        paginator.updatePagination(function(done) {
+            $.ajax('/item/count').done(function(json) {
+                done(json.count);
+            });
+        });
     });
   }
 
@@ -102,14 +99,6 @@ require(['jquery', 'moment', 'utils', 'transparency', 'bootstrap'], function($, 
     search(input);
   }
 
-  function getPage() {
-      return 1;
-  }
-
-  function getPerPage() {
-      return 100;
-  }
-
   Utils.ajaxLoader('#loading');
   var elementRow = $('#listing .row').clone();
   selectDataToShow();
@@ -117,12 +106,13 @@ require(['jquery', 'moment', 'utils', 'transparency', 'bootstrap'], function($, 
   $("#listing").on('click', '.committee-link', function(event) {
       var committeeName = $(event.target).text();
       window.searchTerm = committeeName;
-      doSearchRequest('/cases/committee/' + encodeURIComponent(committeeName) + '/' + getPage() + '/' + getPerPage());
+      doSearchRequest('/cases/committee/' + encodeURIComponent(committeeName) + '/' + paginator.getPage() + '/' + paginator.getItemsPerPage());
   });
   $("#listing").on('click', '.date-link', function(event) {
       var dateStr = $(event.target).text();
       window.searchTerm = dateStr;
       var uriDateStr = encodeURIComponent(moment(dateStr, "DD.MM.YYYY").format("YYYY-MM-DD"));
-      doSearchRequest('/cases/date/' + uriDateStr + '/' + getPage() + '/' + getPerPage());
+      doSearchRequest('/cases/date/' + uriDateStr + '/' + getPage() + '/' + getItemsPerPage());
   });
+
 });

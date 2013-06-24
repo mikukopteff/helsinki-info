@@ -38,6 +38,8 @@
     (success (db/find-newest-headings 4)))
   (GET "/item/newest/:page/:per-page" [page per-page]
     (success (db/find-newest-headings (read-string page) (read-string per-page))))
+  (GET "/item/count" []
+    (success {:count (get (first (db/count-items)) :total)}))
   (GET "/cases" []
     (success (db/find-collections "cases")))
   (GET "/case/:slug" [slug]
