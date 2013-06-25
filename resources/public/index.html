@@ -39,8 +39,8 @@
             <div class="nav-collapse collapse">
                 <ul class="nav">
                     <li><a href="../index.html">Uusimmat</a></li>
-                    <li><a href="#about">Tietoa Open Helsingistä</a></li>
-                    <li><a href="#contact">Yhteystiedot</a></li>
+                    <li><a href="#aboutDialog" role="button" data-toggle="modal">Tietoa Open Helsingistä</a></li>
+                    <li><a href="#contactDialog" role="button" data-toggle="modal">Yhteystiedot</a></li>
                 </ul>
                 <form class="navbar-form pull-right">
                     <input id="search-input" type="text" class="span2">
@@ -49,6 +49,34 @@
             </div>
         </div>
     </div>
+</div>
+
+<div id="aboutDialog" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">Tietoa Open Helsingistä</h3>
+  </div>
+  <div class="modal-body">
+    <p>Open Helsinki on avoimen lähdenkoodin projekti, jota ylläpitävät yksityishenkilöt.</p>
+     Lisätietoja <a href="https://www.facebook.com/groups/openhelsinki/?fref=ts">Open Helsinki Facebook -ryhmässä</a>
+     tai  <a href="https://github.com/mikukopteff/helsinki-info">Github -tilillä.</a>
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+  </div>
+</div>
+
+<div id="contactDialog" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">Yhteystiedot</h3>
+  </div>
+  <div class="modal-body">
+    <a href="https://www.facebook.com/groups/openhelsinki/?fref=ts"><p>Yhteydenotot Facebook -ryhmän kautta</p></a>
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+  </div>
 </div>
 
 <div class="container">
