@@ -41,7 +41,8 @@ require(['jquery', 'moment', 'utils', 'transparency', 'bootstrap', 'underscore',
     }
   };
 
-  var paginator = new Paginator("#pages").setItemFetcher(fetchNewPageOfItems);
+  var MAX_PAGES_LIMIT = 20;
+  var paginator = new Paginator("#pages", MAX_PAGES_LIMIT).setItemFetcher(fetchNewPageOfItems);
 
   function selectDataToShow(){
     var searchString = window.location.hash.replace('#q=', '');

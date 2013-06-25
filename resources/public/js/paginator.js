@@ -1,9 +1,10 @@
 define(['jquery', 'underscore'], function() {
-    return function(pageSwitchElement) {
+    return function(pageSwitchElement, limit) {
         var that = this;
         var itemFetcher = undefined;
         var currentPage = 1;
         var pageCount = undefined;
+        var pageLimit = limit;
 
         $(pageSwitchElement).on('click', '.page-link', function(event) {
             event.preventDefault();
@@ -23,7 +24,11 @@ define(['jquery', 'underscore'], function() {
         function numberOfPages(amountOfItems) {
             var itemsPerPage = that.getItemsPerPage();
             var fullPages = Math.floor(amountOfItems / that.getItemsPerPage());
-            return amountOfItems % itemsPerPage === 0 ? fullPages : fullPages+1;
+            var pages = amountOfItems % itemsPerPage === 0 ? fullPages : fullPages+1;
+            if(pages > pageLimit) {
+                return pageLimit;
+            }
+            return pages;
         }
 
         this.updatePagination = function(countProvider) {
