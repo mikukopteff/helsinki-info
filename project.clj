@@ -1,6 +1,6 @@
 (defproject helsinki-info "0.1.0-SNAPSHOT"
-  :description "FIXME: write description"
-  :url "http://example.com/FIXME"
+  :description "Code for the website openhelsinki.net, which contains decisions from different committees in Helsinki."
+  :url "https://github.com/mikukopteff/helsinki-info"
   :dependencies [[org.clojure/clojure "1.5.0"]
                  [compojure "1.1.5"]
                  [overtone/at-at "1.1.1"]
