@@ -109,10 +109,11 @@ require(['jquery', 'moment', 'utils', 'transparency', 'bootstrap', 'underscore',
       doSearchRequest('/cases/committee/' + encodeURIComponent(committeeName) + '/' + paginator.getPage() + '/' + paginator.getItemsPerPage());
   });
   $("#listing").on('click', '.date-link', function(event) {
+      console.log("foooo" + event);
       var dateStr = $(event.target).text();
       window.searchTerm = dateStr;
       var uriDateStr = encodeURIComponent(moment(dateStr, "DD.MM.YYYY").format("YYYY-MM-DD"));
-      doSearchRequest('/cases/date/' + uriDateStr + '/' + getPage() + '/' + getItemsPerPage());
+      doSearchRequest('/cases/date/' + uriDateStr + '/' + paginator.getPage() + '/' + paginator.getItemsPerPage());
   });
 
 });
