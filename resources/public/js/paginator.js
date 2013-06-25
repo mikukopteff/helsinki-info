@@ -58,7 +58,7 @@ define(['jquery', 'underscore'], function() {
         }
 
         this.getItemsPerPage = function() {
-            return 4;
+            return 8;
         }
 
         this.switchPage = function(page) {
