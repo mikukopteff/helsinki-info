@@ -16,7 +16,6 @@
   (:import [com.mongodb DB WriteConcern]
            [org.bson.types ObjectId]))
 
-
 (defn- connect []
   (debug "connecting to mongo")
   (mongo/connect-via-uri! ((utils/props):mongo.uri)))
@@ -32,7 +31,6 @@
     (catch Exception e
       (debug (str "Catch exception in in-connection: " e)))
     (finally (disconnect))))
-
 
 (def search-result-fields [:slug :summary :heading :items :meeting :subject])
 
