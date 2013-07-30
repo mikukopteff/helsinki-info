@@ -37,7 +37,7 @@
 (def search-result-fields [:slug :summary :heading :items :meeting :subject])
 
 (defn- convert-id [event]
-  (if (contains? event :_id)
+  (when (contains? event :_id)
     (assoc event :_id (.toString (get event :_id)))))
 
 (defn- add-id [coll]
