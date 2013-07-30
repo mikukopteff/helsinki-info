@@ -40,10 +40,13 @@
   (when (contains? event :_id)
     (assoc event :_id (.toString (get event :_id)))))
 
-(defn- add-id [coll]
-    (map 
-      #(if-not (contains? % :_id) 
-        (conj % {:_id (ObjectId.)}) %) coll))
+(defn- add-id [entity]
+  (if (contains? entity :_id)
+    entity
+    (conj entity {:_id (ObjectId.)})))
+
+(defn- add-ids [coll]
+  (map add-id coll))
 
 (defn find-collections [collection]
   (in-connection
@@ -58,8 +61,8 @@
     #(mongo-collection/remove collection)))
 
 (defn insert [data, collection]
-  (in-connection 
-    #(mongo-collection/insert-batch collection (add-id data))))
+  (in-connection
+    #(mongo-collection/insert-batch collection (add-ids data))))
 
 (defn update [data, collection]
   (in-connection
