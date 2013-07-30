@@ -52,11 +52,9 @@
 (defn- sort-items-and-store [item]
   (let [new-item (convert-date item)]
     (let [case (select-case item)]
-      (let [items (get case :items)]
-        (if (nil? items)
-          (insert-new (conj case {:items [(dissoc new-item :issue)]}))
-          (update case new-item items))))))
-  
+      (if-let [items (get case :items)]
+        (update case new-item items)
+        (insert-new (conj case {:items [(dissoc new-item :issue)]}))))))
 
 (defn fetch-items 
   ([] (fetch-items (call-openahjo new-items-url)))
