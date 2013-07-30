@@ -47,9 +47,7 @@
 
 (defn find-collections [collection]
   (in-connection
-    (fn [](map #(convert-id %) 
-      (doall (mongo-collection/find-maps collection))))))
-
+    #(map convert-id (doall (mongo-collection/find-maps collection)))))
 
 (defn find-by-case [id]
   (in-connection
