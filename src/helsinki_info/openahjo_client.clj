@@ -34,9 +34,9 @@
 
 (defn- update [old-case, new-item, old-items] 
   (if-not (some #(=  (get % :id) (get new-item :id) ) old-items)
-    (do (let [all-items (conj old-items (dissoc new-item :issue))]
-      (update-existing (assoc old-case :items (sort-by (comp :date :meeting) all-items)))))
-  false))
+    (let [all-items (conj old-items (dissoc new-item :issue))]
+      (update-existing (assoc old-case :items (sort-by (comp :date :meeting) all-items))))
+    false))
 
 (defn- insert-new [case]
   (info "inserting new case")
