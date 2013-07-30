@@ -65,10 +65,10 @@
     (info (str "Items updated:" (count added-to-db)))
     (if (= (count added-to-db) (count (get data "objects")))
       (do (info "Only new items found. All updated.")
-      (let [next-url (get (get data "meta") "next")]
-        (if-not (nil? next-url)
-          (fetch-items (call-openahjo next-url))
-          (info "Last item hit. Stopping items fetching"))))
+        (let [next-url (get (get data "meta") "next")]
+          (if-not (nil? next-url)
+            (fetch-items (call-openahjo next-url))
+            (info "Last item hit. Stopping items fetching"))))
       (info "Found items that were in the db. Not looking for more.")))))
 
 (defn fetch-new-items []
