@@ -26,11 +26,13 @@
   (mongo/disconnect!))
 
 (defn- in-connection [fun]
-  "This should probably have a try/finally clause"
-  (connect)
-  (let [result (fun)]
-    (disconnect)
-    result))
+  (try
+    (connect)
+    (fun)
+    (catch Exception e
+      (debug (str "Catch exception in in-connection: " e)))
+    (finally (disconnect))))
+
 
 (def search-result-fields [:slug :summary :heading :items :meeting :subject])
 
