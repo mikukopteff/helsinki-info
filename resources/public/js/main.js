@@ -61,16 +61,7 @@ require(['jquery', 'moment', 'utils', 'transparency', 'bootstrap', 'underscore',
   function fetchNewPageOfItems(done) {
     $.ajax(searchUriBase + paginator.getPage() + '/' + paginator.getItemsPerPage()).done(
       function(json) {
-        $("#listing .row").remove();
-        if (colCount == 1) {
-          elementRow.children().first().removeClass('span6').addClass('span12');
-        }
-        else {
-          elementRow.children().first().removeClass('span12').addClass('span6');
-        }        
-        while (json.length > 0) {
-          elementRow.clone().appendTo('#listing').render(json.splice(0, colCount), directives);
-        }
+        readItems(json);
         if(done) done();
     });
   }
@@ -96,7 +87,16 @@ require(['jquery', 'moment', 'utils', 'transparency', 'bootstrap', 'underscore',
   }
   
   function readItems(json) {
-  //  paginator.updatePagination(function(done))
+    $("#listing .row").remove();
+    if (colCount == 1) {
+      elementRow.children().first().removeClass('span6').addClass('span12');
+    }
+    else {
+      elementRow.children().first().removeClass('span12').addClass('span6');
+    }        
+    while (json.length > 0) {
+      elementRow.clone().appendTo('#listing').render(json.splice(0, colCount), directives);
+    }
   }
 
   function updatePaginatorVisibility(count) {
@@ -131,6 +131,12 @@ require(['jquery', 'moment', 'utils', 'transparency', 'bootstrap', 'underscore',
   function searchWithoutCountingFirst(json) {
     count = json.length
     $('#listing-header').fadeIn(500).text(generateSearchResultHeader(count))
+    paginator.updatePagination(function(done) {
+      done(count);
+    });
+    //updatePaginatorVisibility(count);
+    $('.pagination').hide(); // no paginator is needed
+    readItems(json);
   }    
 
   function doSearchRequest() {
