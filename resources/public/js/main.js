@@ -43,6 +43,7 @@ require(['jquery', 'moment', 'utils', 'transparency', 'bootstrap', 'underscore',
 
   var searchUriBase = '/item/newest/';
   var countUri = '/item/count';
+  var searchUri = null
   var colCount = 2;
 
   var MAX_PAGES_LIMIT = 20;
@@ -59,7 +60,12 @@ require(['jquery', 'moment', 'utils', 'transparency', 'bootstrap', 'underscore',
   }
 
   function fetchNewPageOfItems(done) {
-    $.ajax(searchUriBase + paginator.getPage() + '/' + paginator.getItemsPerPage()).done(
+    var uri = null;
+    if (searchUri != null)
+      uri = searchUri;
+    else
+      uri = searchUriBase + paginator.getPage() + '/' + paginator.getItemsPerPage();
+    $.ajax(uri).done(
       function(json) {
         readItems(json);
         if(done) done();
@@ -93,8 +99,16 @@ require(['jquery', 'moment', 'utils', 'transparency', 'bootstrap', 'underscore',
     }
     else {
       elementRow.children().first().removeClass('span12').addClass('span6');
-    }        
-    while (json.length > 0) {
+    }      
+    if (countUri == null) {
+      // skip the items that belong to the earlier pages
+      var counter = 0;
+      while (counter < (paginator.getPage() - 1) * paginator.getItemsPerPage()) {
+        json.splice(0, colCount);
+        counter = counter + 1;
+      }
+    }
+    while (json.length > 0 && $("#listing .row").length < paginator.getItemsPerPage()) {
       elementRow.clone().appendTo('#listing').render(json.splice(0, colCount), directives);
     }
   }
@@ -134,8 +148,8 @@ require(['jquery', 'moment', 'utils', 'transparency', 'bootstrap', 'underscore',
     paginator.updatePagination(function(done) {
       done(count);
     });
-    //updatePaginatorVisibility(count);
-    $('.pagination').hide(); // no paginator is needed
+    updatePaginatorVisibility(count);
+    //$('.pagination').hide(); // no paginator is needed
     readItems(json);
   }    
 
@@ -177,6 +191,7 @@ require(['jquery', 'moment', 'utils', 'transparency', 'bootstrap', 'underscore',
       window.searchTerm = committeeName;
       searchUriBase = '/cases/committee/' + encodeURIComponent(committeeName) + '/';
       countUri = '/item/count/committee/' + encodeURIComponent(committeeName);
+      searchUri = null;
       colCount = 1;
       doSearchRequest();
       //$('.pagination').hide();
@@ -187,6 +202,7 @@ require(['jquery', 'moment', 'utils', 'transparency', 'bootstrap', 'underscore',
       var uriDateStr = encodeURIComponent(moment(dateStr, "DD.MM.YYYY").format("YYYY-MM-DD"));
       searchUriBase = '/cases/date/' + uriDateStr + '/';
       countUri = '/item/count/date/' + uriDateStr;
+      searchUri = null;
       colCount = 1;
       doSearchRequest();
       //$('.pagination').hide();
