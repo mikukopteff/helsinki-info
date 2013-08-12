@@ -43,7 +43,8 @@ require(['jquery', 'moment', 'utils', 'transparency', 'bootstrap', 'underscore',
 
   var searchUriBase = '/item/newest/';
   var countUri = '/item/count';
-  var searchUri = null
+  var fullTextSearchUri = null;
+  var fullTextSearchResultJson = null;
   var colCount = 2;
 
   var MAX_PAGES_LIMIT = 20;
@@ -60,16 +61,18 @@ require(['jquery', 'moment', 'utils', 'transparency', 'bootstrap', 'underscore',
   }
 
   function fetchNewPageOfItems(done) {
-    var uri = null;
-    if (searchUri != null)
-      uri = searchUri;
-    else
-      uri = searchUriBase + paginator.getPage() + '/' + paginator.getItemsPerPage();
-    $.ajax(uri).done(
-      function(json) {
-        readItems(json);
-        if(done) done();
-    });
+    if (fullTextSearchResultJson != null) {
+      var temp = $.extend(true, [], fullTextSearchResultJson); // deep copy
+      readItems(temp)
+    }
+    else {
+      var searchUri = searchUriBase + paginator.getPage() + '/' + paginator.getItemsPerPage();
+      $.ajax(searchUri).done(
+        function(json) {
+          readItems(json);
+          if(done) done();
+      });
+    }
   }
 
   function loadNewItems() {
@@ -143,7 +146,8 @@ require(['jquery', 'moment', 'utils', 'transparency', 'bootstrap', 'underscore',
   }
 
   function searchWithoutCountingFirst(json) {
-    count = json.length
+    fullTextSearchResultJson = $.extend(true, [], json); // deep copy;
+    count = json.length;
     $('#listing-header').fadeIn(500).text(generateSearchResultHeader(count))
     paginator.updatePagination(function(done) {
       done(count);
@@ -161,17 +165,18 @@ require(['jquery', 'moment', 'utils', 'transparency', 'bootstrap', 'underscore',
       $.ajax(countUri).done(searchCountFirst);
     }
     else {
-      $.ajax(searchUri).done(searchWithoutCountingFirst);
+      $.ajax(fullTextSearchUri).done(searchWithoutCountingFirst);
     }
   }
 
   function search(input) {
     if (input != 'undefined' && input != ''){
       window.searchTerm = $('#search-input').val();
-      searchUri = '/search/' + encodeURI(input);
+      fullTextSearchUri = '/search/' + encodeURI(input);
       searchUriBase = null
       countUri = null
       colCount = 1;
+      fullTextSearchResultJson = null;
       doSearchRequest();
     }
   }
@@ -191,10 +196,10 @@ require(['jquery', 'moment', 'utils', 'transparency', 'bootstrap', 'underscore',
       window.searchTerm = committeeName;
       searchUriBase = '/cases/committee/' + encodeURIComponent(committeeName) + '/';
       countUri = '/item/count/committee/' + encodeURIComponent(committeeName);
-      searchUri = null;
+      fullTextSearchUri = null;
+      fullTextSearchResultJson = null;
       colCount = 1;
       doSearchRequest();
-      //$('.pagination').hide();
   });
   $("#listing").on('click', '.date-link', function(event) {
       var dateStr = $(event.target).text();
@@ -202,10 +207,10 @@ require(['jquery', 'moment', 'utils', 'transparency', 'bootstrap', 'underscore',
       var uriDateStr = encodeURIComponent(moment(dateStr, "DD.MM.YYYY").format("YYYY-MM-DD"));
       searchUriBase = '/cases/date/' + uriDateStr + '/';
       countUri = '/item/count/date/' + uriDateStr;
-      searchUri = null;
+      fullTextSearchUri = null;
+      fullTextSearchResultJson = null;
       colCount = 1;
       doSearchRequest();
-      //$('.pagination').hide();
   });
 
 });
