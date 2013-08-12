@@ -9,16 +9,19 @@ define(['jquery', 'underscore'], function() {
         $(pageSwitchElement).on('click', '.page-link', function(event) {
             event.preventDefault();
             that.switchPage($(event.target).text());
+            itemFetcher();
         });
 
         $(pageSwitchElement).on('click', '#first-page-link', function(event) {
             event.preventDefault();
             that.switchPage(1);
+            itemFetcher();
         })
 
         $(pageSwitchElement).on('click', '#last-page-link', function(event) {
             event.preventDefault();
             that.switchPage(pageCount);
+            itemFetcher();
         })
 
         function numberOfPages(amountOfItems) {
@@ -58,7 +61,7 @@ define(['jquery', 'underscore'], function() {
         }
 
         this.getItemsPerPage = function() {
-            return 8;
+            return 4;
         }
 
         this.switchPage = function(page) {
@@ -75,7 +78,6 @@ define(['jquery', 'underscore'], function() {
             var elementNum = pageNum + 1;
             var li = $(pageSwitchElement).find("li:nth-child(" + elementNum + ")");
             $(li).attr('class', 'disabled');
-            itemFetcher();
         }
 
         this.setItemFetcher = function(iFetcher) {

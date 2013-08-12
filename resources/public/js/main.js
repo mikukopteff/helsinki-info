@@ -41,6 +41,10 @@ require(['jquery', 'moment', 'utils', 'transparency', 'bootstrap', 'underscore',
     }
   };
 
+  var searchUriBase = '/item/newest/';
+  var countUri = '/item/count';
+  var colCount = 2;
+
   var MAX_PAGES_LIMIT = 20;
   var paginator = new Paginator("#pages", MAX_PAGES_LIMIT).setItemFetcher(fetchNewPageOfItems);
 
@@ -55,11 +59,17 @@ require(['jquery', 'moment', 'utils', 'transparency', 'bootstrap', 'underscore',
   }
 
   function fetchNewPageOfItems(done) {
-    $.ajax('/item/newest/' + paginator.getPage() + '/' + paginator.getItemsPerPage()).done(
+    $.ajax(searchUriBase + paginator.getPage() + '/' + paginator.getItemsPerPage()).done(
       function(json) {
         $("#listing .row").remove();
+        if (colCount == 1) {
+          elementRow.children().first().removeClass('span6').addClass('span12');
+        }
+        else {
+          elementRow.children().first().removeClass('span12').addClass('span6');
+        }        
         while (json.length > 0) {
-          elementRow.clone().appendTo('#listing').render(json.splice(0, 2), directives);
+          elementRow.clone().appendTo('#listing').render(json.splice(0, colCount), directives);
         }
         if(done) done();
     });
@@ -68,29 +78,81 @@ require(['jquery', 'moment', 'utils', 'transparency', 'bootstrap', 'underscore',
   function loadNewItems() {
     fetchNewPageOfItems(function() {
         paginator.updatePagination(function(done) {
-            $.ajax('/item/count').done(function(json) {
+            $.ajax(countUri).done(function(json) {
                 done(json.count);
+                updatePaginatorVisibility(json.count);
             });
         });
     });
   }
 
-  function showSearchListing(json) {
-    var searchResults = elementRow.clone();
-    searchResults.children().first().removeClass('span6').addClass('span12');
-    searchResults.appendTo('#listing').fadeIn(500).render(json, directives);
-    $('#listing-header').fadeIn(500).text('Haulla \'' + window.searchTerm + '\' löytyi ' + json.length + ' tulosta:')
+  function loadNewItemsWithKnownCount(count) {
+    fetchNewPageOfItems(function() {
+        paginator.updatePagination(function(done) {
+            done(count);
+        });
+    });
+    updatePaginatorVisibility(count);
+  }
+  
+  function readItems(json) {
+  //  paginator.updatePagination(function(done))
   }
 
-  function doSearchRequest(uri) {
-      $('#listing').children().fadeOut(800, function(){ this.remove() });
-      $.ajax(uri).done(showSearchListing);
+  function updatePaginatorVisibility(count) {
+    if (count <= paginator.getItemsPerPage()) {
+      $('.pagination').hide();
+    }
+    else {
+      $('.pagination').show();
+    }
+  }
+
+  function generateSearchResultHeader(count) {
+    var resultString = 'Haulla \'' + window.searchTerm + '\' ';
+    if (count == 0) {
+      resultString = resultString + 'ei löytynyt tuloksia.';
+    }
+    else {
+	  resultString = resultString + 'löytyi ' + count + ' tulos';
+      if (count == 1)
+        resultString = resultString + ':'; // "1 tulos:"
+      else
+        resultString = resultString + 'ta:'; // e.g. "2 tulosta:"
+    }
+    return resultString;  
+  }
+
+  function searchCountFirst(json) {
+    $('#listing-header').fadeIn(500).text(generateSearchResultHeader(json.count))
+    loadNewItemsWithKnownCount(json.count)
+  }
+
+  function searchWithoutCountingFirst(json) {
+    count = json.length
+    $('#listing-header').fadeIn(500).text(generateSearchResultHeader(count))
+  }    
+
+  function doSearchRequest() {
+    $('#listing').children().fadeOut(800, function(){ this.remove() });
+    paginator.switchPage(1);
+    if (countUri != null) {
+      console.assert(searchUriBase != null, 'searchUriBase == null when countUri != null')
+      $.ajax(countUri).done(searchCountFirst);
+    }
+    else {
+      $.ajax(searchUri).done(searchWithoutCountingFirst);
+    }
   }
 
   function search(input) {
     if (input != 'undefined' && input != ''){
       window.searchTerm = $('#search-input').val();
-      doSearchRequest('/search/' + encodeURI(input));
+      searchUri = '/search/' + encodeURI(input);
+      searchUriBase = null
+      countUri = null
+      colCount = 1;
+      doSearchRequest();
     }
   }
 
@@ -107,15 +169,21 @@ require(['jquery', 'moment', 'utils', 'transparency', 'bootstrap', 'underscore',
   $("#listing").on('click', '.committee-link', function(event) {
       var committeeName = $(event.target).text();
       window.searchTerm = committeeName;
-      doSearchRequest('/cases/committee/' + encodeURIComponent(committeeName) + '/' + paginator.getPage() + '/' + paginator.getItemsPerPage());
-      $('.pagination').hide();
+      searchUriBase = '/cases/committee/' + encodeURIComponent(committeeName) + '/';
+      countUri = '/item/count/committee/' + encodeURIComponent(committeeName);
+      colCount = 1;
+      doSearchRequest();
+      //$('.pagination').hide();
   });
   $("#listing").on('click', '.date-link', function(event) {
       var dateStr = $(event.target).text();
       window.searchTerm = dateStr;
       var uriDateStr = encodeURIComponent(moment(dateStr, "DD.MM.YYYY").format("YYYY-MM-DD"));
-      doSearchRequest('/cases/date/' + uriDateStr + '/' + paginator.getPage() + '/' + paginator.getItemsPerPage());
-      $('.pagination').hide();
+      searchUriBase = '/cases/date/' + uriDateStr + '/';
+      countUri = '/item/count/date/' + uriDateStr;
+      colCount = 1;
+      doSearchRequest();
+      //$('.pagination').hide();
   });
 
 });
