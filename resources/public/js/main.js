@@ -63,7 +63,7 @@ require(['jquery', 'moment', 'utils', 'transparency', 'bootstrap', 'underscore',
   function fetchNewPageOfItems(done) {
     if (fullTextSearchResultJson != null) {
       var temp = $.extend(true, [], fullTextSearchResultJson); // deep copy
-      readItems(temp)
+      readItems(temp);
     }
     else {
       var searchUri = searchUriBase + paginator.getPage() + '/' + paginator.getItemsPerPage();
@@ -132,28 +132,29 @@ require(['jquery', 'moment', 'utils', 'transparency', 'bootstrap', 'underscore',
     }
     else {
 	  resultString = resultString + 'löytyi ' + count + ' tulos';
-      if (count == 1)
+      if (count == 1) {
         resultString = resultString + ':'; // "1 tulos:"
-      else
+      }
+      else {
         resultString = resultString + 'ta:'; // e.g. "2 tulosta:"
+      }
     }
     return resultString;  
   }
 
   function searchCountFirst(json) {
-    $('#listing-header').fadeIn(500).text(generateSearchResultHeader(json.count))
-    loadNewItemsWithKnownCount(json.count)
+    $('#listing-header').fadeIn(500).text(generateSearchResultHeader(json.count));
+    loadNewItemsWithKnownCount(json.count);
   }
 
   function searchWithoutCountingFirst(json) {
-    fullTextSearchResultJson = $.extend(true, [], json); // deep copy;
+    fullTextSearchResultJson = $.extend(true, [], json); // deep copy
     count = json.length;
-    $('#listing-header').fadeIn(500).text(generateSearchResultHeader(count))
+    $('#listing-header').fadeIn(500).text(generateSearchResultHeader(count));
     paginator.updatePagination(function(done) {
       done(count);
     });
     updatePaginatorVisibility(count);
-    //$('.pagination').hide(); // no paginator is needed
     readItems(json);
   }    
 
@@ -161,7 +162,7 @@ require(['jquery', 'moment', 'utils', 'transparency', 'bootstrap', 'underscore',
     $('#listing').children().fadeOut(800, function(){ this.remove() });
     paginator.switchPage(1);
     if (countUri != null) {
-      console.assert(searchUriBase != null, 'searchUriBase == null when countUri != null')
+      console.assert(searchUriBase != null, 'searchUriBase is null when countUri != null')
       $.ajax(countUri).done(searchCountFirst);
     }
     else {
@@ -173,8 +174,8 @@ require(['jquery', 'moment', 'utils', 'transparency', 'bootstrap', 'underscore',
     if (input != 'undefined' && input != ''){
       window.searchTerm = $('#search-input').val();
       fullTextSearchUri = '/search/' + encodeURI(input);
-      searchUriBase = null
-      countUri = null
+      searchUriBase = null;
+      countUri = null;
       colCount = 1;
       fullTextSearchResultJson = null;
       doSearchRequest();
