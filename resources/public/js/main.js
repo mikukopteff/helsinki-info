@@ -197,7 +197,6 @@ require(['jquery', 'moment', 'utils', 'transparency', 'bootstrap', 'underscore',
       done(count);
     });
     updatePaginatorVisibility(count);
-    paginator.switchPage(1);
   }    
 
   function removeRows() {
@@ -211,6 +210,7 @@ require(['jquery', 'moment', 'utils', 'transparency', 'bootstrap', 'underscore',
   function clearPreviousResults() {
     removeHeader();
     removeRows();
+    paginator.switchPage(1);
   }
 
   function doSearchRequestNewest() {
