@@ -105,10 +105,6 @@
   (in-connection
     #(map (fn [result] (get result :obj))(search/results-from (search/search "cases" (search-utils/escape-search-string string))))))
 
-(defn count-items []
-  (in-connection
-    #(mongo-collection/aggregate "cases" [{$unwind "$items"}, {$group {:_id "null", :total {$sum 1}} }])))
-
 (defn count-cases [search-query]
   (in-connection
     #(mongo-collection/count "cases" search-query)))

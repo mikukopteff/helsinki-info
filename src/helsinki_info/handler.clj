@@ -37,7 +37,7 @@
   (GET "/item/newest/:page/:per-page" [page per-page]
     (success (db/find-newest-headings (read-string page) (read-string per-page))))
   (GET "/item/count" []
-    (success {:count (get (first (db/count-items)) :total)}))
+    (success {:count (db/count-cases {})}))
   (GET "/item/count/committee/:committee-name" [committee-name]
     (success {:count (db/count-cases-by-committee (codec/url-decode committee-name))}))
   (GET "/item/count/date/:date" [date]
