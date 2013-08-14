@@ -19,6 +19,8 @@
       :headers {"Content-Type" "application/json"}
       :body msg })
 
+(db/connect)
+
 (defroutes app-routes
   (GET "/" [] (clojure.java.io/resource "public/index.html"))
   (GET "/ping" [] "pong")
@@ -34,12 +36,14 @@
                (codec/url-decode date)
                (read-string (codec/url-decode page))
                (read-string (codec/url-decode per-page)))))
-  (GET "/item/newest" []
-    (success (db/find-newest-headings 4)))
   (GET "/item/newest/:page/:per-page" [page per-page]
     (success (db/find-newest-headings (read-string page) (read-string per-page))))
   (GET "/item/count" []
-    (success {:count (get (first (db/count-items)) :total)}))
+    (success {:count (db/count-cases {})}))
+  (GET "/item/count/committee/:committee-name" [committee-name]
+    (success {:count (db/count-cases-by-committee (codec/url-decode committee-name))}))
+  (GET "/item/count/date/:date" [date]
+    (success {:count (db/count-cases-by-date (codec/url-decode date))}))
   (GET "/cases" []
     (success (db/find-collections "cases")))
   (GET "/case/:slug" [slug]
