@@ -21,14 +21,14 @@
 
 (defn- select-case [item]
   "Fetches the db case if it is already stored. Case equals issue in the openahjo api"
-  (let [case (get item :issue)
-        existing-case (db/find-by-case (get case :slug))]
+  (let [new-case (get item :issue)
+        existing-case (db/find-by-case (get new-case :slug))]
     (if (empty? existing-case)
-      case
+      new-case
       existing-case)))
 
 (defn- update-existing [case]
-  (info "updating an existing case")
+  (info (str "Updating an existing case:" (get case :slug)))
   (db/update case "cases") 
   true)
 
@@ -39,7 +39,7 @@
     false))
 
 (defn- insert-new [case]
-  (info "inserting new case")
+  (info (str "Inserting a new case:" (get case :slug)))
   (db/insert-single case "cases") 
   true)
 
@@ -50,6 +50,7 @@
     (assoc item :meeting (assoc meeting :date (parse custom-formatter (get meeting :date))))))
 
 (defn- sort-items-and-store [item]
+  (info (str "Processing new item with id:" (get item :id)))
   (let [new-item (convert-date item)
         case (select-case item)]
     (if-let [items (get case :items)]
