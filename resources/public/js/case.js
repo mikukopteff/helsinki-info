@@ -46,6 +46,7 @@ require(['jquery', 'utils', 'transparency', 'moment', 'underscore', 'bootstrap']
     }
   }
 
+
   detailDirectives = {
     geo: {
       text: function(params) {
@@ -90,6 +91,8 @@ require(['jquery', 'utils', 'transparency', 'moment', 'underscore', 'bootstrap']
     $('#event-main').render(merged, itemDirectives);
     $('#event-detail').render(merged, detailDirectives);
     renderMap(merged);
+    var summary = $('#event-main .well').first();
+    summary.text() == "" ? $('#event-main .well').first().hide() : null;
   }
 
   function highlightCurrentEvent(hashId) {
