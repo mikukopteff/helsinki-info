@@ -197,7 +197,6 @@ require(['jquery', 'moment', 'utils', 'transparency', 'bootstrap', 'underscore',
       done(count);
     });
     updatePaginatorVisibility(count);
-    fetchNewPageOfItems();
   }    
 
   function removeRows() {

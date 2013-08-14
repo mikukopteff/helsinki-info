@@ -19,8 +19,6 @@
       :headers {"Content-Type" "application/json"}
       :body msg })
 
-(db/connect)
-
 (defroutes app-routes
   (GET "/" [] (clojure.java.io/resource "public/index.html"))
   (GET "/ping" [] "pong")
