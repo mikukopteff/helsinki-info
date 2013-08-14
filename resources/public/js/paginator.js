@@ -78,6 +78,7 @@ define(['jquery', 'underscore'], function() {
             var elementNum = pageNum + 1;
             var li = $(pageSwitchElement).find("li:nth-child(" + elementNum + ")");
             $(li).attr('class', 'disabled');
+            $("html, body").animate({ scrollTop: 0 }, "slow");
         }
 
         this.setItemFetcher = function(iFetcher) {
