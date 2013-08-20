@@ -5,15 +5,22 @@ require.config({
         "paginator": "../paginator",
         "moment": "moment.min",
         "bootstrap": "bootstrap.min",
-        "underscore": "underscore-min"
+        "underscore": "underscore-min",
+        "history": "jquery.history"
     },
     shim: {
-        "bootstrap": { deps: ["jquery"]}
+        "bootstrap": { deps: ["jquery"]},
+        "history": { deps: ["jquery"]}
     }
 });
 
-require(['jquery', 'moment', 'utils', 'transparency', 'bootstrap', 'underscore', 'paginator'], function($, moment, Utils, Transparency, bootstrap, _, Paginator) {
+require(['jquery', 'moment', 'utils', 'transparency', 'bootstrap', 'underscore', 'paginator', 'history'], function($, moment, Utils, Transparency, bootstrap, _, Paginator) {
   jQuery.fn.render = Transparency.jQueryPlugin;
+
+  History.Adapter.bind(window, 'statechange', function(){ 
+    var state = History.getState();
+    if ()
+  });
 
   directives = {
     oid: {
@@ -237,6 +244,7 @@ require(['jquery', 'moment', 'utils', 'transparency', 'bootstrap', 'underscore',
       window.searchTerm = $('#search-input').val();
       var fullTextSearchUri = '/search/' + encodeURI(input);
       doSearchRequestByKeyword(fullTextSearchUri);
+      History.pushState({search: window.searchTerm }, window.searchTerm, "?q=" + window.searchTerm);
     }
   }
 
