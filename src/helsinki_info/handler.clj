@@ -1,5 +1,6 @@
 (ns helsinki-info.handler
-  (:use compojure.core)
+  (:use     [compojure.core]
+            [clojure.tools.logging :only (info)])
   (:require [compojure.handler :as handler]
             [compojure.route :as route]
             [ring.util.codec :as codec]
@@ -20,7 +21,10 @@
       :body msg })
 
 (defroutes app-routes
-  (GET "/" [] (clojure.java.io/resource "public/index.html"))
+  (GET "/" {headers :headers} 
+    (if (= (get headers "host") "helsinki-info.miku.cloudbees.net")
+      (resp/redirect "http://www.openhelsinki.net")
+      (clojure.java.io/resource "public/index.html")))
   (GET "/ping" [] "pong")
   (GET "/search/:query" [query] 
     (success (db/search (codec/url-decode query))))
