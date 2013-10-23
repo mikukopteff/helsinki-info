@@ -19,7 +19,6 @@ require(['jquery', 'moment', 'utils', 'transparency', 'bootstrap', 'underscore',
 
   History.Adapter.bind(window, 'statechange', function(){ 
     var state = History.getState();
-    if ()
   });
 
   directives = {

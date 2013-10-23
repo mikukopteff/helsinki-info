@@ -33,10 +33,10 @@
   var js, fjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) return;
   js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+  js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1&appId=542660692485029";
   fjs.parentNode.insertBefore(js, fjs);
-  }(document, 'script', 'facebook-jssdk'));
-</script>
+}(document, 'script', 'facebook-jssdk'));</script>
+
 
   <div class="navbar navbar-fixed-top">
     <div class="navbar-inner">
@@ -127,6 +127,11 @@
             <dd><a data-bind="name" target="_blank"></a></dd>
           </div>
         </dl>
+      </div>
+    </div>
+    <div class="row-fluid">
+      <div class="span6 offset3">
+        <div class="fb-comments" data-colorscheme="light" data-numposts="10" data-width="650"></div>
       </div>
     </div>
   <hr>
