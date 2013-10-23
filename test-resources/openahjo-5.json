@@ -49,7 +49,7 @@
       "last_modified_time": "2013-03-29T11:02:00",
       "meeting": {
         "committee": "/openahjo/v1/committee/28/",
-        "committee_name": "Kiinteistölautakunta",
+        "policymaker_name": "Kiinteistölautakunta",
         "date": "2013-03-21",
         "id": 28,
         "minutes": true,
@@ -112,7 +112,7 @@
       "last_modified_time": "2013-04-30T11:02:00",
       "meeting": {
         "committee": "/openahjo/v1/committee/2/",
-        "committee_name": "Kaupunginhallitus",
+        "policymaker_name": "Kaupunginhallitus",
         "date": "2013-04-29",
         "id": 15,
         "minutes": false,
@@ -164,7 +164,7 @@
       "last_modified_time": "2013-04-11T11:01:00",
       "meeting": {
         "committee": "/openahjo/v1/committee/26/",
-        "committee_name": "Asuntotuotantotoimikunta",
+        "policymaker_name": "Asuntotuotantotoimikunta",
         "date": "2013-04-03",
         "id": 3,
         "minutes": true,
@@ -216,7 +216,7 @@
       "last_modified_time": "2013-04-11T11:01:00",
       "meeting": {
         "committee": "/openahjo/v1/committee/26/",
-        "committee_name": "Asuntotuotantotoimikunta",
+        "policymaker_name": "Asuntotuotantotoimikunta",
         "date": "2013-04-03",
         "id": 3,
         "minutes": true,
@@ -256,7 +256,7 @@
       "last_modified_time": "2013-04-11T11:01:00",
       "meeting": {
         "committee": "/openahjo/v1/committee/26/",
-        "committee_name": "Asuntotuotantotoimikunta",
+        "policymaker_name": "Asuntotuotantotoimikunta",
         "date": "2013-04-03",
         "id": 3,
         "minutes": true,
