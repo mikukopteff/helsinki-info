@@ -32,7 +32,8 @@ require(['jquery', 'moment', 'utils', 'transparency', 'bootstrap', 'underscore',
     },
     committee: {
       text: function(params) {
-        return this.items[this.items.length - 1].meeting.committee_name;
+        console.log(this.items);
+        return this.items[this.items.length - 1].meeting.policymaker_name;
       }
     },
     date: {

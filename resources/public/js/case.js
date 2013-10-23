@@ -16,7 +16,7 @@ require(['jquery', 'utils', 'transparency', 'moment', 'underscore', 'bootstrap']
   relatedDirectives = {
     relatedLink: {
       text: function(params) {
-        return this.meeting.committee_name + ' ' + this.meeting.displayDate;
+        return this.meeting.policymaker_name + ' ' + this.meeting.displayDate;
       },
       href: function(params) {
         return '#' + this.id;
