@@ -90,8 +90,8 @@
               (query/paginate :page page :per-page per-page)))))
 
 (defn search-by-committee [committee_name page per-page]
-  (def query {:items.meeting.committee_name committee_name})
-  (def projection { :slug 1 :summary 1 :heading 1 :meeting 1 :subject 1 :items { $elemMatch { :meeting.committee_name committee_name } } } )
+  (def query {:items.meeting.policymaker_name committee_name})
+  (def projection { :slug 1 :summary 1 :heading 1 :meeting 1 :subject 1 :items { $elemMatch { :meeting.policymaker_name committee_name } } } )
   (search-cases query projection page per-page))
 
 (defn search-by-date [date-str page per-page]
@@ -110,7 +110,7 @@
     #(mongo-collection/count "cases" search-query)))
   
 (defn count-cases-by-committee [committee_name]
-  (count-cases {:items.meeting.committee_name committee_name}))
+  (count-cases {:items.meeting.policymaker_name committee_name}))
 
 (defn count-cases-by-date [date-str]
   (def date-formatter (time-format/formatter "yyyy-MM-dd"))

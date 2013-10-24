@@ -35,4 +35,4 @@
       (is (= 11 (get (second (get case :items)) :id)))
       (is (= "2013-04-03" (unparse time-formatter (get (get (second (get case :items)) :meeting) :date))))
       (is (= "2013-04-29" (unparse time-formatter (get (get (nth (get case :items) 2) :meeting) :date))))
-      (is (= "Kiinteistölautakunta" (get (get (first (get case :items)) :meeting) :committee_name))))))
+      (is (= "Kiinteistölautakunta" (get (get (first (get case :items)) :meeting) :policymaker_name))))))
